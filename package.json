@@ -1,0 +1,48 @@
+{
+  "name": "iwc-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run lint",
+    "test:e2e": "playwright test",
+    "seed": "node --env-file=.env.local scripts/seed/index.mjs",
+    "screenshots": "node scripts/screenshots.mjs"
+  },
+  "dependencies": {
+    "@next/third-parties": "^16.3.8",
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^6.17.0",
+    "@upstash/ratelimit": "^2.2.0",
+    "@upstash/redis": "^1.39.0",
+    "next": "16.3.8",
+    "next-sanity": "^13.3.4",
+    "openai": "^7.26.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "sanity": "^6.17.0",
+    "server-only": "^0.0.1",
+    "styled-components": "^6.5.3",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "@sanity/client": "^8.9.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}
