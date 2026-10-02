@@ -101,7 +101,7 @@ Contact (`/book#contact`), provider referral (`/for-providers#refer`) and newsle
 
 ## SEO and analytics
 
-Per-page titles, descriptions, canonicals and Open Graph come from CMS fields. There's an XML sitemap (published pages only) and robots rules (non-production deployments are fully disallowed, and `/studio` and `/api` are never indexed). JSON-LD covers Chiropractor (behind a CMS switch), BreadcrumbList, Article and Person. There's a full **301 redirect map** from every URL in the current Wix sitemap (`next.config.ts`).
+Per-page titles, descriptions, canonicals and Open Graph come from CMS fields. There's an XML sitemap (published pages only) and robots rules (indexing is blocked everywhere — robots.txt plus an `X-Robots-Tag: noindex` header — until `SITE_INDEXABLE=true` is set at launch; `/studio` and `/api` are never indexed). JSON-LD covers Chiropractor (behind a CMS switch), BreadcrumbList, Article and Person. There's a full **301 redirect map** from every URL in the current Wix sitemap (`next.config.ts`).
 
 Analytics events (GA4 via `NEXT_PUBLIC_GA_MEASUREMENT_ID`): `start_here_select`, `start_here_next_step`, `book_click`, `phone_click`, `email_click`, `contact_submit` (form + status), `resource_view`, `resource_next_step`, `chat_open`, `chat_message` (turn number only), `chat_link_click`. **No event includes form or chat content.**
 

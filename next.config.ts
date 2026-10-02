@@ -52,8 +52,11 @@ const nextConfig: NextConfig = {
     return legacyRedirects.map((r) => ({...r, statusCode: 301 as const}))
   },
   async headers() {
+    // Until launch is approved (SITE_INDEXABLE=true), tell crawlers not to index anything.
+    const indexable = process.env.SITE_INDEXABLE === 'true'
     return [
       {source: '/:path*', headers: securityHeaders},
+      ...(indexable ? [] : [{source: '/:path*', headers: [{key: 'X-Robots-Tag', value: 'noindex, nofollow'}]}]),
       // Never index the CMS or API.
       {source: '/studio/:path*', headers: [{key: 'X-Robots-Tag', value: 'noindex, nofollow'}]},
       {source: '/api/:path*', headers: [{key: 'X-Robots-Tag', value: 'noindex, nofollow'}]},

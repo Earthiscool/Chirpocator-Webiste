@@ -12,7 +12,7 @@ Don't launch publicly until the 🔴 items in [`CLIENT_APPROVAL_CHECKLIST.md`](C
    - For rate limiting: Vercel → **Storage / Marketplace → Upstash Redis**. It injects `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`.
    - Optional: `NEXT_PUBLIC_GA_MEASUREMENT_ID`, Turnstile keys.
    - **Never** add `SANITY_API_WRITE_TOKEN` to Vercel. It's only for local seeding.
-3. Preview deployments stay `noindex` automatically (robots disallow everything unless `VERCEL_ENV=production`). Keep Vercel Deployment Protection on for previews.
+3. Every deployment is `noindex` (robots.txt + `X-Robots-Tag`) until you set `SITE_INDEXABLE=true` on Production at launch and redeploy. Keep Vercel Deployment Protection on for previews.
 
 ## 2. Sanity
 
@@ -51,6 +51,6 @@ Don't launch publicly until the 🔴 items in [`CLIENT_APPROVAL_CHECKLIST.md`](C
 - [ ] Assistant answers a test question on production. Logs show `outcome: ok` (Vercel → Logs, filter `[chat]`).
 - [ ] Contact and provider forms deliver to the right inboxes
 - [ ] Publish an FAQ edit in the Studio and confirm it's live within seconds (webhook)
-- [ ] `https://www.iwcmainline.com/robots.txt` allows crawling and lists the sitemap
+- [ ] `SITE_INDEXABLE=true` set on Production, redeployed; `robots.txt` allows crawling and lists the sitemap; no `X-Robots-Tag: noindex` header
 - [ ] Old URLs redirect (301)
 - [ ] PageSpeed Insights on the homepage and one pathway page (targets: LCP ≤ 2.5 s, INP ≤ 200 ms, CLS < 0.1)

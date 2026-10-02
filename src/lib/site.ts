@@ -52,7 +52,9 @@ export const getNavigation = cache(async (): Promise<Navigation> => {
 })
 
 export function siteUrl(path = '') {
-  const base = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/$/, '')
+  // Explicit site URL → Vercel's production domain (set automatically) → local dev.
+  const vercelProd = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  const base = (process.env.NEXT_PUBLIC_SITE_URL || (vercelProd ? `https://${vercelProd}` : 'http://localhost:3000')).replace(/\/$/, '')
   return `${base}${path}`
 }
 

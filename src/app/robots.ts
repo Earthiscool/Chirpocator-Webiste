@@ -3,12 +3,12 @@ import type {MetadataRoute} from 'next'
 import {siteUrl} from '@/lib/site'
 
 /**
- * Production: allow crawling except CMS/API.
- * Any non-production deployment (previews, staging) is fully disallowed.
+ * Indexing is OPT-IN: search engines are blocked everywhere (local, previews,
+ * and Vercel production) until SITE_INDEXABLE=true is set for the approved,
+ * launched site. This keeps unapproved working copy out of search results.
  */
 export default function robots(): MetadataRoute.Robots {
-  const isProd = process.env.VERCEL_ENV ? process.env.VERCEL_ENV === 'production' : process.env.SITE_INDEXABLE === 'true'
-  if (!isProd) return {rules: [{userAgent: '*', disallow: '/'}]}
+  if (process.env.SITE_INDEXABLE !== 'true') return {rules: [{userAgent: '*', disallow: '/'}]}
   return {
     rules: [{userAgent: '*', allow: '/', disallow: ['/studio', '/api/']}],
     sitemap: siteUrl('/sitemap.xml'),
