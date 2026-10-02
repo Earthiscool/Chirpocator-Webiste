@@ -36,14 +36,14 @@ const approvedTestimonials = /* groq */ `_type == "testimonial" && permissionOnF
 const testimonial = /* groq */ `{_id, quote, attribution, theme}`
 
 const articleCard = /* groq */ `{
-  _id, title, "slug": slug.current, excerpt, topic, publishedAt, mainImage${image},
+  _id, title, "slug": slug.current, excerpt, topic, publishedAt, mainImage${image}, author->${providerCard}, reviewedBy->${providerCard}, reviewedAt,
   "readingMinutes": round(length(pt::text(body)) / 5 / 220)
 }`
 
 /* Global ------------------------------------------------------------------- */
 
 export const settingsQuery = defineQuery(`*[_id == "siteSettings"][0]{
-  ..., logo${image}, defaultSeo{title, description, image${image}}
+  ..., logo${image}, clinicImage${image}, defaultSeo{title, description, image${image}}
 }`)
 
 export const navigationQuery = defineQuery(`*[_id == "navigation"][0]{main, bookLabel, footerGroups}`)
@@ -52,9 +52,9 @@ export const navigationQuery = defineQuery(`*[_id == "navigation"][0]{main, book
 
 export const homeQuery = defineQuery(`*[_id == "homePage"][0]{
   ...,
-  heroPrimaryCta${cta}, heroSecondaryCta${cta}, heroImage${image},
+  heroPrimaryCta${cta}, heroSecondaryCta${cta}, heroImage${image}, reframeImage${image},
   drJennProvider->${providerCard}, drJennImage${image}, drJennCta${cta},
-  toolsCta${cta}, expectCta${cta},
+  toolsCta${cta}, expectCta${cta}, toolGroups[]{..., cta${cta}},
   educationArticles[]->${articleCard},
   finalPrimaryCta${cta}, finalSecondaryCta${cta},
   ${seo},
@@ -73,7 +73,7 @@ export const pathwaySlugsQuery = defineQuery(`*[_type == "pathway" && defined(sl
 
 export const pathwayQuery = defineQuery(`*[_type == "pathway" && slug.current == $slug][0]{
   ...${pathwayCard},
-  heroHeadline, heroIntro, heroImage${image}, recognition, approachHeading, approach,
+  heroHeadline, heroIntro, heroImage${image}, approachImage${image}, pageHeadings, movementPrinciples, recognition, approachHeading, approach,
   tools[]{_key, name, description, "service": service->{title, "slug": slug.current}},
   outcomes, whatToExpect, faqs[]->${faqItem}, primaryCta${cta}, ${seo},
   "services": *[_type == "service" && references(^._id)] | order(title asc) ${serviceCard},
@@ -87,16 +87,18 @@ export const serviceSlugsQuery = defineQuery(`*[_type == "service" && defined(sl
 export const serviceQuery = defineQuery(`*[_type == "service" && slug.current == $slug][0]{
   ...${serviceCard},
   "pathways": pathways[]->{title, "slug": slug.current, accent},
-  heroHeadline, heroIntro, heroImage${image}, recognition, whatItIs, howWeUseIt, mayFit, boundaries,
+  heroHeadline, heroIntro, heroImage${image}, approachImage${image}, pageHeadings, nextSteps[]{_key, title, body, cta${cta}}, recognition, whatItIs, howWeUseIt, mayFit, boundaries,
   whatToExpect, rationale, faqs[]->${faqItem}, providers[]->${providerCard},
   visitLength, pricingNote, bookingOption->${bookingOption}, primaryCta${cta}, disclaimer, ${seo},
   "testimonials": *[${approvedTestimonials} && references(^.pathways[]._ref)][0...2] ${testimonial},
-  "related": *[_type == "service" && _id != ^._id && count(pathways[@._ref in ^.^.pathways[]._ref]) > 0][0...3] ${serviceCard}
+  "related": relatedServices[defined(reason) && length(reason) > 0]{"reason": reason, ...service->${serviceCard}}
 }`)
 
 /* Team ---------------------------------------------------------------------- */
 
-export const providersQuery = defineQuery(`*[_type == "provider" && defined(slug.current)] | order(order asc) ${providerCard}`)
+export const providersQuery = defineQuery(
+  `*[_type == "provider" && defined(slug.current)] | order(order asc) ${providerCard}`,
+)
 export const providerSlugsQuery = defineQuery(`*[_type == "provider" && defined(slug.current)].slug.current`)
 
 const providerFull = /* groq */ `{
@@ -114,7 +116,7 @@ export const articlesQuery = defineQuery(
 export const articleSlugsQuery = defineQuery(`*[_type == "article" && defined(slug.current)].slug.current`)
 
 export const articleQuery = defineQuery(`*[_type == "article" && slug.current == $slug][0]{
-  ...${articleCard}, body, author->${providerCard},
+  ...${articleCard}, body, sources,
   pathway->{title, "slug": slug.current, patientVoice},
   services[]->${serviceCard}, ${seo},
   "related": *[_type == "article" && _id != ^._id && topic == ^.topic] | order(publishedAt desc)[0...2] ${articleCard}
@@ -123,7 +125,9 @@ export const articleQuery = defineQuery(`*[_type == "article" && slug.current ==
 /* FAQ & booking ------------------------------------------------------------- */
 
 export const faqsQuery = defineQuery(`*[_type == "faq"] | order(category asc, order asc) ${faqItem}`)
-export const bookingOptionsQuery = defineQuery(`*[_type == "bookingOption"] | order(order asc) ${bookingOption}`)
+export const bookingOptionsQuery = defineQuery(
+  `*[_type == "bookingOption"] | order(order asc) { ...${bookingOption}, "providers": *[_type == "provider" && bookingOption._ref == ^._id] ${providerCard} }`,
+)
 
 /* Page singletons ----------------------------------------------------------- */
 

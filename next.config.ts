@@ -53,7 +53,10 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     // Until launch is approved (SITE_INDEXABLE=true), tell crawlers not to index anything.
-    const indexable = process.env.SITE_INDEXABLE === 'true'
+    const indexable =
+      process.env.SITE_INDEXABLE === 'true' &&
+      process.env.VERCEL_ENV !== 'preview' &&
+      process.env.IWC_REDESIGN_REVIEW !== 'true'
     return [
       {source: '/:path*', headers: securityHeaders},
       ...(indexable ? [] : [{source: '/:path*', headers: [{key: 'X-Robots-Tag', value: 'noindex, nofollow'}]}]),

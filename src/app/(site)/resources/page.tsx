@@ -20,7 +20,12 @@ const getData = () =>
 
 export async function generateMetadata(): Promise<Metadata> {
   const [page] = await getData()
-  return buildMetadata({seo: page?.seo, title: 'Resources & Articles | IWC Wayne, PA', description: page?.intro, path: '/resources'})
+  return buildMetadata({
+    seo: page?.seo,
+    title: 'Resources & Articles | IWC Wayne, PA',
+    description: page?.intro,
+    path: '/resources',
+  })
 }
 
 export default async function ResourcesPageRoute({searchParams}: Props) {
@@ -39,7 +44,7 @@ export default async function ResourcesPageRoute({searchParams}: Props) {
                 <Link
                   href="/resources"
                   aria-current={!topic ? 'page' : undefined}
-                  className="inline-flex min-h-10 items-center rounded-full border border-line px-4 text-sm text-navy-900 aria-[current=page]:border-navy-900 aria-[current=page]:bg-navy-900 aria-[current=page]:text-white"
+                  className="inline-flex min-h-11 items-center rounded-full border border-line px-4 text-sm text-navy-900 aria-[current=page]:border-navy-900 aria-[current=page]:bg-navy-900 aria-[current=page]:text-white"
                 >
                   All
                 </Link>
@@ -49,7 +54,7 @@ export default async function ResourcesPageRoute({searchParams}: Props) {
                   <Link
                     href={`/resources?topic=${t}`}
                     aria-current={topic === t ? 'page' : undefined}
-                    className="inline-flex min-h-10 items-center rounded-full border border-line px-4 text-sm text-navy-900 aria-[current=page]:border-navy-900 aria-[current=page]:bg-navy-900 aria-[current=page]:text-white"
+                    className="inline-flex min-h-11 items-center rounded-full border border-line px-4 text-sm text-navy-900 aria-[current=page]:border-navy-900 aria-[current=page]:bg-navy-900 aria-[current=page]:text-white"
                   >
                     {topicName(t)}
                   </Link>
@@ -61,19 +66,26 @@ export default async function ResourcesPageRoute({searchParams}: Props) {
         {shown.length ? (
           <ArticleCards articles={shown} headingLevel="h2" />
         ) : (
-          <p className="text-muted">New articles are on the way. In the meantime, the FAQ answers the questions we hear most.</p>
+          <p className="text-muted">
+            New articles are on the way. In the meantime, the FAQ answers the questions we hear most.
+          </p>
         )}
       </SectionShell>
-      <section className="on-navy bg-navy-900 text-white">
+      <section className="border-t border-line bg-teal-100 text-navy-900">
         <div className="container-site section-y grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-6">
-            <Eyebrow tone="on-navy" className="mb-4">
+            <Eyebrow tone="teal" className="mb-4">
               Clinical updates
             </Eyebrow>
             <h2 className="display-md">{page?.newsletterHeading || 'Practical insight, occasionally'}</h2>
-            {page?.newsletterBody && <p className="mt-4 text-navy-100">{page.newsletterBody}</p>}
+            {page?.newsletterBody && <p className="mt-4 text-muted">{page.newsletterBody}</p>}
             {page?.substackUrl && (
-              <a href={page.substackUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-block text-sm font-semibold text-gold-400 underline underline-offset-4">
+              <a
+                href={page.substackUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-block text-sm font-semibold text-teal-700 underline underline-offset-4"
+              >
                 Read on Substack <span className="sr-only">(opens in a new tab)</span>
               </a>
             )}

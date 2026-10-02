@@ -8,7 +8,15 @@ import {Chat, Phone} from '../icons'
  * One loud action (Book) and two quiet ones — never three equals.
  * The assistant launches from here on mobile so it never covers page controls.
  */
-export function MobileActionBar({phoneE164, bookLabel, assistant}: {phoneE164: string; bookLabel: string; assistant: boolean}) {
+export function MobileActionBar({
+  phoneE164,
+  bookLabel,
+  assistant,
+}: {
+  phoneE164: string
+  bookLabel: string
+  assistant: boolean
+}) {
   return (
     <div
       className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-white/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur md:hidden"
@@ -37,7 +45,7 @@ export function MobileActionBar({phoneE164, bookLabel, assistant}: {phoneE164: s
         <Link
           href="/book"
           data-track="mobile-bar"
-          className="inline-flex min-h-12 flex-1 items-center justify-center rounded-full bg-orange-600 font-semibold text-white"
+          className="inline-flex min-h-12 flex-1 items-center justify-center rounded-md bg-orange-600 font-semibold text-white"
         >
           {bookLabel}
         </Link>

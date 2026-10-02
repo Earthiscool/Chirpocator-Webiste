@@ -19,7 +19,7 @@ export function NewsletterForm() {
 
   if (state.status === 'success') {
     return (
-      <p role="status" className="font-semibold text-white">
+      <p role="status" className="font-semibold text-navy-900">
         {state.message}
       </p>
     )
@@ -39,13 +39,13 @@ export function NewsletterForm() {
           placeholder="you@example.com"
           aria-invalid={state.status === 'error'}
           aria-describedby={state.status === 'error' ? `${id}-msg` : undefined}
-          className="min-h-12 flex-1 rounded-full border border-white/25 bg-white/10 px-5 text-white placeholder:text-white/50 focus:border-white focus:outline-none"
+          className="min-h-12 min-w-0 flex-1 rounded-md border border-line bg-white px-5 text-navy-900 placeholder:text-muted focus:border-teal-700"
         />
         <SubmitButton variant="book">Subscribe</SubmitButton>
       </div>
       <AntiSpam />
       {state.status === 'error' && (
-        <p id={`${id}-msg`} role="alert" className="mt-3 text-sm text-gold-100">
+        <p id={`${id}-msg`} role="alert" className="mt-3 text-sm text-orange-700">
           {state.message}
         </p>
       )}

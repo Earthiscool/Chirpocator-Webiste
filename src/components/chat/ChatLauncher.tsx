@@ -49,11 +49,10 @@ export function ChatLauncher(config: ChatConfig) {
         onClick={() => (open ? close() : openChat('launcher'))}
         aria-expanded={open}
         aria-controls="iwc-assistant"
-        className={`group fixed bottom-6 right-6 z-40 hidden items-center gap-3 rounded-full bg-navy-900 py-3 pl-4 pr-5 text-[0.95rem] font-semibold text-white shadow-[0_18px_40px_-16px_rgba(11,31,74,0.65)] transition-[transform,opacity] duration-300 hover:-translate-y-0.5 md:inline-flex ${open ? 'pointer-events-none translate-y-2 opacity-0' : ''}`}
+        className={`group fixed bottom-6 right-6 z-40 hidden items-center gap-3 rounded-full bg-navy-900 py-3 pl-4 pr-5 text-[0.95rem] font-semibold text-white shadow-sm transition-[transform,opacity] duration-200 md:inline-flex ${open ? 'pointer-events-none translate-y-2 opacity-0' : ''}`}
       >
         <span className="relative flex size-8 items-center justify-center rounded-full bg-white/10">
           <Chat className="size-[1.1rem] text-gold-400" aria-hidden />
-          <span className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full border-2 border-navy-900 bg-teal-500" aria-hidden />
         </span>
         Questions? Ask IWC
       </button>

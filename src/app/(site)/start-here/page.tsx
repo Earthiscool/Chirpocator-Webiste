@@ -2,7 +2,7 @@ import type {Metadata} from 'next'
 import {Suspense} from 'react'
 
 import {Phone} from '@/components/icons'
-import {PageHero, SectionShell} from '@/components/sections'
+import {PageHero, PathwayCards, SectionShell} from '@/components/sections'
 import {StartHereSelector} from '@/components/start-here/StartHereSelector'
 import {ButtonLink} from '@/components/ui'
 import {buildMetadata} from '@/lib/seo'
@@ -28,12 +28,14 @@ export default async function StartHerePage() {
     <>
       <PageHero
         eyebrow={page?.eyebrow || 'Start Here'}
-        title={page?.headline || 'You do not need to know which service to book. Start with what you are trying to solve.'}
+        title={
+          page?.headline || 'You do not need to know which service to book. Start with what you are trying to solve.'
+        }
         intro={page?.intro}
       />
-      <SectionShell tone="paper" className="!pt-12 md:!pt-16">
+      <SectionShell tone="paper" className="!pt-7 md:!pt-8">
         {pathways?.length ? (
-          <Suspense fallback={null}>
+          <Suspense fallback={<PathwayCards pathways={pathways} />}>
             <StartHereSelector pathways={pathways} prompt={page?.selectorPrompt} />
           </Suspense>
         ) : (

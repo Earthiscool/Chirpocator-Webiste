@@ -41,19 +41,39 @@ const server = http.createServer(async (req, res) => {
   if (req.method === 'POST' && url.pathname === '/v1/responses') {
     last.openai = {body, auth: req.headers.authorization}
     counts.openai++
-    const reply =
-      'IWC has four pathways. If something keeps coming back, [Pain + Recovery](/how-we-help/pain-recovery) is a good place to start, or try [Start Here](/start-here). You can also call the office.'
+    const inputText = JSON.stringify(body.input)
+    if (inputText.includes('IWC_MOCK_OUTAGE')) {
+      res.writeHead(500, {'Content-Type': 'application/json'})
+      return res.end(JSON.stringify({error: {message: 'Mock upstream outage'}}))
+    }
+    const reply = inputText.includes('IWC_MOCK_LONG')
+      ? 'x'.repeat(8000)
+      : inputText.includes('IWC_MOCK_UNKNOWN')
+        ? "I don't have that information. Please contact the office through [Book a Visit](/book)."
+        : inputText.includes('IWC_MOCK_CLAIM')
+          ? 'I cannot predict outcomes. The team can discuss your situation at an evaluation.'
+          : 'IWC has four pathways. If something keeps coming back, [Pain + Recovery](/how-we-help/pain-recovery) is a good place to start, or try [Start Here](/start-here). You can also call the office.'
     res.writeHead(200, {'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', Connection: 'keep-alive'})
     const send = (type, data) => res.write(`event: ${type}\ndata: ${JSON.stringify({type, ...data})}\n\n`)
     send('response.created', {response: {id: 'resp_test', status: 'in_progress'}, sequence_number: 0})
     const parts = reply.match(/.{1,24}/g) ?? []
     let seq = 1
     for (const delta of parts) {
-      send('response.output_text.delta', {delta, item_id: 'msg_test', output_index: 0, content_index: 0, sequence_number: seq++})
+      send('response.output_text.delta', {
+        delta,
+        item_id: 'msg_test',
+        output_index: 0,
+        content_index: 0,
+        sequence_number: seq++,
+      })
       await new Promise((r) => setTimeout(r, 5))
     }
     send('response.completed', {
-      response: {id: 'resp_test', status: 'completed', usage: {input_tokens: 1200, output_tokens: 60, total_tokens: 1260}},
+      response: {
+        id: 'resp_test',
+        status: 'completed',
+        usage: {input_tokens: 1200, output_tokens: 60, total_tokens: 1260},
+      },
       sequence_number: seq,
     })
     return res.end()

@@ -8,7 +8,7 @@ import {getSettings} from '@/lib/site'
 
 import {addNewsletterContact, sendEmail} from './delivery'
 import {ContactSchema, fieldErrors, type FormState, NewsletterSchema, ProviderSchema} from './schema'
-import {checkFormToken, verifyTurnstile} from './security'
+import {checkFormToken, hasFormSigningSecret, verifyTurnstile} from './security'
 
 /**
  * Server actions for the contact, provider, and newsletter forms.
@@ -20,6 +20,7 @@ async function guard(form: FormData): Promise<FormState | null> {
   const h = await headers()
   // Honeypot: real people never see or fill this field. Pretend success to bots.
   if (String(form.get('website') ?? '').length > 0) return {status: 'success', message: 'Thank you.'}
+  if (!hasFormSigningSecret()) return {status: 'error', message: await unavailable()}
   if (!checkFormToken(String(form.get('_t') ?? ''))) {
     return {status: 'error', message: 'Please wait a moment and submit again — the form may have expired.'}
   }
@@ -46,8 +47,15 @@ export async function submitContact(_prev: FormState, form: FormData): Promise<F
   if (blocked) return blocked
 
   const parsed = ContactSchema.safeParse(Object.fromEntries(form))
-  const values = {name: String(form.get('name') ?? ''), email: String(form.get('email') ?? ''), phone: String(form.get('phone') ?? ''), topic: String(form.get('topic') ?? ''), message: String(form.get('message') ?? '').slice(0, 1000)}
-  if (!parsed.success) return {status: 'error', message: 'Please check the highlighted fields.', errors: fieldErrors(parsed.error), values}
+  const values = {
+    name: String(form.get('name') ?? ''),
+    email: String(form.get('email') ?? ''),
+    phone: String(form.get('phone') ?? ''),
+    topic: String(form.get('topic') ?? ''),
+    message: String(form.get('message') ?? '').slice(0, 1000),
+  }
+  if (!parsed.success)
+    return {status: 'error', message: 'Please check the highlighted fields.', errors: fieldErrors(parsed.error), values}
 
   const d = parsed.data
   const message = redactSensitive(d.message)
@@ -68,8 +76,12 @@ export async function submitContact(_prev: FormState, form: FormData): Promise<F
       '— Sent from the website contact form. Do not reply with health information by email.',
     ].join('\n'),
   })
-  if (!result.ok) return {status: 'error', message: result.reason === 'unconfigured' ? await unavailable() : await failed(), values}
-  return {status: 'success', message: `Thank you, ${d.name.split(' ')[0]}. Your message has been sent — we'll be in touch by ${d.preferred}.`}
+  if (!result.ok)
+    return {status: 'error', message: result.reason === 'unconfigured' ? await unavailable() : await failed(), values}
+  return {
+    status: 'success',
+    message: `Thank you, ${d.name.split(' ')[0]}. Your message has been sent — we'll be in touch by ${d.preferred}.`,
+  }
 }
 
 export async function submitProvider(_prev: FormState, form: FormData): Promise<FormState> {
@@ -85,7 +97,8 @@ export async function submitProvider(_prev: FormState, form: FormData): Promise<
     phone: String(form.get('phone') ?? ''),
     note: String(form.get('note') ?? '').slice(0, 600),
   }
-  if (!parsed.success) return {status: 'error', message: 'Please check the highlighted fields.', errors: fieldErrors(parsed.error), values}
+  if (!parsed.success)
+    return {status: 'error', message: 'Please check the highlighted fields.', errors: fieldErrors(parsed.error), values}
 
   const d = parsed.data
   const note = redactSensitive(d.note)
@@ -108,16 +121,29 @@ export async function submitProvider(_prev: FormState, form: FormData): Promise<
       'Arrange a secure method before exchanging any patient details.',
     ].join('\n'),
   })
-  if (!result.ok) return {status: 'error', message: result.reason === 'unconfigured' ? await unavailable() : await failed(), values}
-  return {status: 'success', message: "Thank you. We've received your note and will contact you to arrange next steps, including a secure way to share patient information."}
+  if (!result.ok)
+    return {status: 'error', message: result.reason === 'unconfigured' ? await unavailable() : await failed(), values}
+  return {
+    status: 'success',
+    message:
+      "Thank you. We've received your note and will contact you to arrange next steps, including a secure way to share patient information.",
+  }
 }
 
 export async function subscribeNewsletter(_prev: FormState, form: FormData): Promise<FormState> {
   const blocked = await guard(form)
   if (blocked) return blocked
   const parsed = NewsletterSchema.safeParse({email: form.get('email')})
-  if (!parsed.success) return {status: 'error', message: 'Please enter a valid email address.', errors: fieldErrors(parsed.error)}
+  if (!parsed.success)
+    return {status: 'error', message: 'Please enter a valid email address.', errors: fieldErrors(parsed.error)}
   const result = await addNewsletterContact(parsed.data.email)
-  if (!result.ok) return {status: 'error', message: result.reason === 'unconfigured' ? 'Sign-up opens soon. In the meantime, follow along on Substack.' : await failed()}
+  if (!result.ok)
+    return {
+      status: 'error',
+      message:
+        result.reason === 'unconfigured'
+          ? 'Sign-up opens soon. In the meantime, follow along on Substack.'
+          : await failed(),
+    }
   return {status: 'success', message: "You're on the list. Thank you."}
 }

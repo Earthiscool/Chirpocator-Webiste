@@ -38,6 +38,7 @@ export interface SiteSettings {
   shortName?: string
   brandLine?: string
   logo?: SanityImage
+  clinicImage?: SanityImage
   phone: string
   phoneE164: string
   email: string
@@ -106,7 +107,17 @@ export interface ToolItem {
   service?: {title: string; slug: string} | null
 }
 
+export type PageHeadings = Partial<
+  Record<
+    'recognition' | 'definition' | 'approach' | 'fit' | 'expect' | 'rationale' | 'tools' | 'faqs' | 'final',
+    string
+  >
+>
+
 export interface Pathway extends PathwayCard {
+  pageHeadings?: PageHeadings
+  approachImage?: SanityImage
+  movementPrinciples?: TitledItem[]
   heroHeadline: string
   heroIntro?: string
   heroImage?: SanityImage
@@ -140,6 +151,7 @@ export interface BookingOption {
   priceNote?: string
   audience?: 'new' | 'existing' | 'any'
   bookingUrl?: string
+  providers?: ProviderCard[]
 }
 
 export interface ProviderCard {
@@ -164,6 +176,9 @@ export interface Provider extends ProviderCard {
 }
 
 export interface Service extends ServiceCard {
+  pageHeadings?: PageHeadings
+  approachImage?: SanityImage
+  nextSteps?: PathwayCard['nextSteps']
   pathways?: {title: string; slug: string; accent: Accent}[]
   heroHeadline: string
   heroIntro?: string
@@ -183,7 +198,7 @@ export interface Service extends ServiceCard {
   primaryCta?: Cta
   disclaimer?: string
   testimonials?: Testimonial[]
-  related?: ServiceCard[]
+  related?: (ServiceCard & {reason?: string})[]
   seo?: Seo
 }
 
@@ -195,10 +210,14 @@ export interface ArticleCard {
   topic: string
   publishedAt: string
   mainImage?: SanityImage
+  author?: ProviderCard | null
+  reviewedBy?: ProviderCard | null
+  reviewedAt?: string
   readingMinutes?: number
 }
 
 export interface Article extends ArticleCard {
+  sources?: {_key: string; title: string; url: string}[]
   body: RichText
   author?: ProviderCard | null
   pathway?: {title: string; slug: string; patientVoice: string} | null
@@ -223,6 +242,7 @@ export interface HomePage {
   reframeHeading?: string
   reframeBody?: RichText
   reframePull?: string
+  reframeImage?: SanityImage
   pathwaysHeading?: string
   pathwaysIntro?: string
   processHeading?: string
@@ -238,7 +258,7 @@ export interface HomePage {
   proofPoints?: TitledItem[]
   toolsHeading?: string
   toolsIntro?: string
-  toolGroups?: {_key: string; title: string; body?: string; items?: string[]}[]
+  toolGroups?: {_key: string; title: string; body?: string; items?: string[]; cta?: Cta}[]
   toolsCta?: Cta
   expectHeading?: string
   expectItems?: TitledItem[]

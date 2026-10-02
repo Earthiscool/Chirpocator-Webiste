@@ -14,9 +14,18 @@ type Status = 'idle' | 'checking' | 'streaming' | 'unavailable' | 'error'
 const MAX_CHARS = 800
 const DEFAULT_WELCOME =
   'Welcome to IWC. I can help you explore our approach, find information about services, or choose a starting point. What would you like to know?'
-const DEFAULT_NOTICE = "I share general information and can't give medical advice. Please don't enter personal health details."
+const DEFAULT_NOTICE =
+  "I share general information and can't give medical advice. Please don't enter personal health details."
 
-export function ChatPanel({open, onClose, welcome, suggestions, notice, phone, phoneE164}: ChatConfig & {open: boolean; onClose: () => void}) {
+export function ChatPanel({
+  open,
+  onClose,
+  welcome,
+  suggestions,
+  notice,
+  phone,
+  phoneE164,
+}: ChatConfig & {open: boolean; onClose: () => void}) {
   const [messages, setMessages] = useState<Msg[]>([])
   const [draft, setDraft] = useState('')
   const [status, setStatus] = useState<Status>('checking')
@@ -137,11 +146,19 @@ export function ChatPanel({open, onClose, welcome, suggestions, notice, phone, p
             How can we help?
           </h2>
         </div>
-        <button type="button" onClick={onClose} className="-mr-2 inline-flex size-10 items-center justify-center rounded-full hover:bg-white/10" aria-label="Close assistant">
+        <button
+          type="button"
+          onClick={onClose}
+          className="-mr-2 inline-flex size-10 items-center justify-center rounded-full hover:bg-white/10"
+          aria-label="Close assistant"
+        >
           <Close className="size-5" aria-hidden />
         </button>
       </div>
-      <p id={noticeId} className="border-b border-line bg-gold-100 px-5 py-2.5 text-[0.8rem] leading-snug text-navy-900">
+      <p
+        id={noticeId}
+        className="border-b border-line bg-gold-100 px-5 py-2.5 text-[0.8rem] leading-snug text-navy-900"
+      >
         {notice || DEFAULT_NOTICE} In an emergency, call 911.
       </p>
 
@@ -154,7 +171,11 @@ export function ChatPanel({open, onClose, welcome, suggestions, notice, phone, p
         {status === 'unavailable' && messages.length === 0 && (
           <div className="rounded-2xl border border-line bg-white p-4 text-[0.93rem] text-navy-900">
             <p>The assistant isn&apos;t available right now. Our team is happy to help directly:</p>
-            <a href={`tel:${phoneE164}`} data-track="chat" className="mt-3 inline-flex items-center gap-2 font-semibold text-teal-700 underline underline-offset-4">
+            <a
+              href={`tel:${phoneE164}`}
+              data-track="chat"
+              className="mt-3 inline-flex items-center gap-2 font-semibold text-teal-700 underline underline-offset-4"
+            >
               <Phone className="size-4" aria-hidden /> Call {phone}
             </a>
           </div>
@@ -165,7 +186,11 @@ export function ChatPanel({open, onClose, welcome, suggestions, notice, phone, p
             <Typing key={i} />
           ) : (
             <Bubble key={i} role={m.role}>
-              {m.role === 'assistant' ? <Markdown text={m.content} onLink={(href) => track('chat_link_click', {destination: href})} /> : <p className="whitespace-pre-wrap">{m.content}</p>}
+              {m.role === 'assistant' ? (
+                <Markdown text={m.content} onLink={(href) => track('chat_link_click', {destination: href})} />
+              ) : (
+                <p className="whitespace-pre-wrap">{m.content}</p>
+              )}
             </Bubble>
           ),
         )}
@@ -202,7 +227,10 @@ export function ChatPanel({open, onClose, welcome, suggestions, notice, phone, p
       </div>
 
       {/* Composer */}
-      <form onSubmit={onSubmit} className="border-t border-line bg-white px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3">
+      <form
+        onSubmit={onSubmit}
+        className="border-t border-line bg-white px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3"
+      >
         <label htmlFor="iwc-chat-input" className="sr-only">
           Your question
         </label>
@@ -217,7 +245,7 @@ export function ChatPanel({open, onClose, welcome, suggestions, notice, phone, p
             maxLength={MAX_CHARS}
             disabled={status === 'unavailable'}
             placeholder={status === 'unavailable' ? 'Assistant unavailable' : 'Ask about services, visits, or booking'}
-            className="max-h-32 min-h-11 flex-1 resize-none rounded-2xl border border-line bg-paper px-4 py-2.5 text-[0.95rem] text-navy-900 placeholder:text-muted/80 focus:border-navy-900/40 focus:outline-none disabled:opacity-60"
+            className="max-h-32 min-h-11 flex-1 resize-none rounded-2xl border border-line bg-paper px-4 py-2.5 text-[0.95rem] text-navy-900 placeholder:text-muted/80 focus:border-navy-900/40 disabled:opacity-60"
             aria-describedby={`${noticeId} iwc-chat-count`}
           />
           <button
@@ -229,8 +257,11 @@ export function ChatPanel({open, onClose, welcome, suggestions, notice, phone, p
             <Send className="size-5" aria-hidden />
           </button>
         </div>
-        <p id="iwc-chat-count" className={`mt-1.5 text-right text-[0.72rem] ${remaining < 80 ? 'text-orange-700' : 'text-muted'}`}>
-          {remaining < 200 ? `${remaining} characters left` : 'Conversations are not saved.'}
+        <p
+          id="iwc-chat-count"
+          className={`mt-1.5 text-right text-[0.72rem] ${remaining < 80 ? 'text-orange-700' : 'text-muted'}`}
+        >
+          {remaining < 200 ? `${remaining} characters left` : 'Please avoid sensitive information.'}
         </p>
       </form>
     </div>
@@ -258,7 +289,11 @@ function Typing() {
     <div className="flex justify-start" aria-hidden>
       <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-md border border-line bg-white px-4 py-4">
         {[0, 1, 2].map((i) => (
-          <span key={i} className="size-1.5 rounded-full bg-navy-900/50 motion-safe:animate-[typing_1.2s_ease-in-out_infinite]" style={{animationDelay: `${i * 160}ms`}} />
+          <span
+            key={i}
+            className="size-1.5 rounded-full bg-navy-900/50 motion-safe:animate-[typing_1.2s_ease-in-out_infinite]"
+            style={{animationDelay: `${i * 160}ms`}}
+          />
         ))}
       </div>
     </div>

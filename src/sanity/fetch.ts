@@ -5,6 +5,7 @@ import type {QueryParams} from 'next-sanity'
 
 import {client} from './client'
 import {isSanityConfigured} from './env'
+import {applyReviewCopy} from '@/lib/review-copy'
 
 /** Fallback revalidation if the publish webhook is not configured. */
 const REVALIDATE_SECONDS = 300
@@ -41,9 +42,10 @@ export async function sanityFetch<T>({
         .withConfig({token, useCdn: false, perspective: 'drafts', stega: {enabled: true}})
         .fetch<T>(query, params, {cache: 'no-store'})
     }
-    return await client.fetch<T>(query, params, {
+    const data = await client.fetch<T>(query, params, {
       next: {revalidate: REVALIDATE_SECONDS, tags},
     })
+    return applyReviewCopy(data)
   } catch (error) {
     console.error('[sanity] fetch failed', {tags, message: (error as Error).message})
     return null

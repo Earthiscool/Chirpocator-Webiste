@@ -1,12 +1,14 @@
 import {defineEnableDraftMode} from 'next-sanity/draft-mode'
-
 import {client} from '@/sanity/client'
 
-/**
- * Called by the Studio's Preview tool. It validates a short-lived secret
- * created by the Studio before enabling draft mode, so visitors can't
- * switch it on themselves.
- */
-export const {GET} = defineEnableDraftMode({
-  client: client.withConfig({token: process.env.SANITY_API_READ_TOKEN}),
-})
+/** Studio-issued secrets remain mandatory. Missing setup never enables previews. */
+export async function GET(request: Request) {
+  const token = process.env.SANITY_API_READ_TOKEN
+  if (!token) return new Response('Preview unavailable', {status: 401, headers: {'Cache-Control': 'no-store'}})
+  try {
+    const {GET: enable} = defineEnableDraftMode({client: client.withConfig({token})})
+    return await enable(request)
+  } catch {
+    return new Response('Preview unavailable', {status: 503, headers: {'Cache-Control': 'no-store'}})
+  }
+}

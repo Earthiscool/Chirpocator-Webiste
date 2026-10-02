@@ -5,12 +5,12 @@ import {stegaClean} from 'next-sanity'
 
 import {FaqList} from '@/components/Faqs'
 import {ArrowRight} from '@/components/icons'
-import {Reveal} from '@/components/Reveal'
+import {DecisionOptions, EditorialSection, PracticalDetails, RecognitionRows} from '@/components/Editorial'
 import {RichText} from '@/components/RichText'
 import {SanityImg} from '@/components/SanityImg'
-import {accentOf, CheckList, CtaBand, ItemGrid, PageHero, SectionShell, Testimonials} from '@/components/sections'
+import {CtaBand, PageHero, SectionShell, Testimonials} from '@/components/sections'
 import {BreadcrumbJsonLd} from '@/components/seo/JsonLd'
-import {ButtonLink, CtaButton, Eyebrow} from '@/components/ui'
+import {ButtonLink, CtaButton} from '@/components/ui'
 import {buildMetadata} from '@/lib/seo'
 import {sanityFetch, sanityFetchStatic} from '@/sanity/fetch'
 import {pathwayQuery, pathwaySlugsQuery} from '@/sanity/queries'
@@ -30,18 +30,42 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
   const {slug} = await params
   const p = await getPathway(slug)
   if (!p) return {}
-  return buildMetadata({seo: p.seo, title: `${p.title} | IWC Wayne, PA`, description: p.cardSummary, path: `/how-we-help/${slug}`})
+  return buildMetadata({
+    seo: p.seo,
+    title: `${p.title} | IWC Wayne, PA`,
+    description: p.cardSummary,
+    path: `/how-we-help/${slug}`,
+  })
 }
 
 export default async function PathwayPage({params}: Props) {
   const {slug} = await params
   const p = await getPathway(slug)
   if (!p) notFound()
-  const a = accentOf(p.accent)
-  const bookingCta = p.primaryCta?.href ? p.primaryCta : {label: 'Book a Visit', href: '/book'}
-
+  const h = p.pageHeadings ?? {}
+  const isPain = slug === 'pain-recovery'
+  const isFunctional = slug === 'functional-health'
+  const family = isFunctional
+    ? 'functional'
+    : slug.startsWith('prevention')
+      ? 'prevention'
+      : isPain
+        ? 'pain'
+        : 'performance'
+  const bookingCta = p.primaryCta?.href ? p.primaryCta : {label: 'Arrange a visit', href: '/book'}
+  const linkedServices = new Set(p.tools?.map((t) => t.service?.slug).filter(Boolean))
+  const extraServices = p.services?.filter((s) => !linkedServices.has(s.slug))
+  const photo = p.heroImage?.asset ? (
+    <SanityImg
+      image={p.heroImage}
+      aspect={5 / 4}
+      sizes="(min-width: 1024px) 38vw, 100vw"
+      priority
+      className="rounded-lg"
+    />
+  ) : undefined
   return (
-    <>
+    <div className={`pathway-${family}`}>
       <BreadcrumbJsonLd
         items={[
           {name: 'Home', path: '/'},
@@ -51,155 +75,143 @@ export default async function PathwayPage({params}: Props) {
       />
       <PageHero
         eyebrow={p.title}
-        accent={stegaClean(p.accent)}
         title={p.heroHeadline}
         intro={p.heroIntro}
+        accent={stegaClean(p.accent)}
         aside={
-          p.heroImage?.asset ? (
-            <SanityImg image={p.heroImage} aspect={4 / 5} sizes="(min-width: 1024px) 38vw, 100vw" priority className="rounded-[1.75rem]" />
-          ) : (
-            <figure className="on-navy relative overflow-hidden rounded-[1.75rem] bg-navy-900 p-8 text-white md:p-10">
-              <span className={`absolute inset-y-0 left-0 w-1 ${a.bar}`} aria-hidden />
-              <p className="eyebrow text-gold-400">In your words</p>
-              <blockquote className="mt-5 font-display text-[clamp(1.6rem,1.2rem+1.4vw,2.4rem)] italic leading-[1.15]">
-                &ldquo;{p.patientVoice}&rdquo;
-              </blockquote>
-              <figcaption className="mt-6 text-sm leading-relaxed text-navy-100">{p.cardSummary}</figcaption>
-            </figure>
-          )
+          photo ??
+          (isPain ? (
+            <div>
+              <h2 className="font-semibold text-navy-900">{h.recognition ?? `Is ${p.title} right for you?`}</h2>
+              <RecognitionRows items={p.recognition} />
+            </div>
+          ) : undefined)
         }
       >
-        <CtaButton cta={bookingCta} variant="book" track="pathway-hero" />
-        <ButtonLink href="/start-here" variant="link" arrow track="pathway-hero">
-          Not sure? Start Here
+        <CtaButton cta={bookingCta} variant="primary" track="pathway-hero" />
+        <ButtonLink href="/start-here" variant="link" arrow>
+          Help me choose
         </ButtonLink>
       </PageHero>
-
-      {!!p.recognition?.length && (
-        <SectionShell tone="white">
-          <div className="grid gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-4">
-              <Eyebrow className="mb-4">Is this for me?</Eyebrow>
-              <h2 className="display-md text-navy-900">Sound familiar?</h2>
-            </div>
-            <div className="lg:col-span-8">
-              <CheckList items={p.recognition} columns={2} />
-            </div>
-          </div>
+      {isFunctional && (
+        <SectionShell tone="paper" className="compact-section">
+          <DecisionOptions items={p.nextSteps} />
         </SectionShell>
       )}
-
-      {(p.approach?.length || p.outcomes?.length) && (
-        <SectionShell tone="paper">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-7">
-              <Eyebrow className="mb-4">How we think about it</Eyebrow>
-              {p.approachHeading && <h2 className="display-lg text-navy-900">{p.approachHeading}</h2>}
-              <RichText value={p.approach} className="mt-8 text-[1.05rem]" />
-            </div>
-            {!!p.outcomes?.length && (
-              <aside className="lg:col-span-5">
-                <div className="rounded-2xl border border-line bg-white p-7 md:p-8">
-                  <h2 className="eyebrow text-navy-900">What we work toward</h2>
-                  <ul className="mt-5 space-y-4">
-                    {p.outcomes.map((o) => (
-                      <li key={o} className="flex gap-4 text-navy-900">
-                        <span className={`mt-2.5 size-1.5 shrink-0 rounded-full ${a.dot}`} aria-hidden />
-                        {o}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mt-6 border-t border-line pt-5 text-sm text-muted">Goals, not guarantees. Every plan is reassessed as you progress.</p>
-                </div>
-              </aside>
-            )}
-          </div>
-        </SectionShell>
-      )}
-
-      {!!p.tools?.length && (
-        <SectionShell tone="white">
-          <div className="mb-12 max-w-2xl">
-            <Eyebrow className="mb-4">What we may use</Eyebrow>
-            <h2 className="display-md text-navy-900">Tools shown in context — used only when they fit.</h2>
-          </div>
-          <ul className="grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
-            {p.tools.map((t, i) => (
-              <Reveal as="li" key={t._key} delay={(i % 3) * 60} className="flex flex-col border-b border-r border-line bg-paper p-6">
-                <h3 className="font-semibold text-navy-900">{t.name}</h3>
-                {t.description && <p className="mt-2 flex-1 text-[0.95rem] leading-relaxed text-muted">{t.description}</p>}
-                {t.service?.slug && (
-                  <Link href={`/services/${t.service.slug}`} className={`mt-4 inline-flex items-center gap-2 text-sm font-semibold ${a.text}`}>
-                    About {t.service.title} <ArrowRight className="size-4" aria-hidden />
-                  </Link>
-                )}
-              </Reveal>
-            ))}
-          </ul>
-        </SectionShell>
-      )}
-
-      {!!p.whatToExpect?.length && (
-        <SectionShell tone="paper">
-          <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div>
-              <Eyebrow className="mb-4">What happens next</Eyebrow>
-              <h2 className="display-md text-navy-900">What to expect</h2>
-            </div>
-            <ButtonLink href="/faq" variant="link" arrow>
-              First-visit FAQ
-            </ButtonLink>
-          </div>
-          <ItemGrid items={p.whatToExpect} columns={3} />
-        </SectionShell>
-      )}
-
-      {!!p.services?.length && (
-        <SectionShell tone="white">
-          <Eyebrow className="mb-4">Related services &amp; programs</Eyebrow>
-          <h2 className="display-md mb-10 text-navy-900">Go deeper</h2>
-          <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {p.services.map((s) => (
-              <li key={s._id}>
-                <Link href={`/services/${s.slug}`} className="group flex h-full flex-col rounded-2xl border border-line p-6 transition-colors hover:border-navy-900/30">
-                  <span className="eyebrow text-muted">{stegaClean(s.kind) === 'program' ? 'Program' : 'Service'}</span>
-                  <span className="display-sm mt-3 text-navy-900">{s.title}</span>
-                  <span className="mt-2 flex-1 text-[0.95rem] text-muted">{s.summary}</span>
-                  <ArrowRight className="mt-5 size-5 text-navy-900 transition-transform group-hover:translate-x-1" aria-hidden />
-                </Link>
+      {!!p.movementPrinciples?.length && (
+        <SectionShell tone="white" className="compact-section">
+          <ul className="grid gap-6 md:grid-cols-3">
+            {p.movementPrinciples.map((m) => (
+              <li key={m._key} className="border-t border-teal-500 pt-4">
+                <h2 className="display-sm text-navy-900">{m.title}</h2>
+                <p className="mt-2 text-muted">{m.body}</p>
               </li>
             ))}
           </ul>
         </SectionShell>
       )}
-
+      {(!isPain || photo) && !!p.recognition?.length && (
+        <SectionShell tone="white">
+          <EditorialSection title={h.recognition ?? `Is ${p.title} right for you?`}>
+            <RecognitionRows items={p.recognition} />
+          </EditorialSection>
+        </SectionShell>
+      )}
+      {!!p.approach?.length && (
+        <SectionShell tone="paper">
+          <EditorialSection
+            title={p.approachHeading ?? p.title}
+            aside={
+              p.approachImage?.asset && (
+                <SanityImg
+                  image={p.approachImage}
+                  aspect={4 / 3}
+                  sizes="(min-width: 1024px) 35vw, 100vw"
+                  className="mt-6 rounded-lg"
+                />
+              )
+            }
+          >
+            <RichText value={p.approach} />
+            {!!p.outcomes?.length && (
+              <div className="mt-7 border-t border-line pt-5">
+                <h3 className="font-semibold text-navy-900">What we work toward</h3>
+                <ul className="mt-3 list-disc space-y-2 pl-5 text-muted">
+                  {p.outcomes.map((o) => (
+                    <li key={o}>{o}</li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-sm text-muted">Goals, not guarantees. Your response guides reassessment.</p>
+              </div>
+            )}
+          </EditorialSection>
+        </SectionShell>
+      )}
+      {!!p.whatToExpect?.length && (
+        <SectionShell tone="white">
+          <h2 className="display-md mb-6 text-navy-900">{h.expect ?? `Your ${p.title} visit`}</h2>
+          <PracticalDetails items={p.whatToExpect} />
+          <ButtonLink href="/faq" variant="link" className="mt-5" arrow>
+            First-visit FAQ
+          </ButtonLink>
+        </SectionShell>
+      )}
+      {!!p.tools?.length && (
+        <SectionShell tone="paper">
+          <EditorialSection title={h.tools ?? `Care options for ${p.title}`}>
+            <ul className="divide-y divide-line">
+              {p.tools.map((t) => (
+                <li key={t._key} className="py-4 first:pt-0">
+                  <h3 className="font-semibold text-navy-900">{t.name}</h3>
+                  {t.description && <p className="mt-1 text-muted">{t.description}</p>}
+                  {t.service?.slug && (
+                    <Link
+                      href={`/services/${t.service.slug}`}
+                      className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-teal-700"
+                    >
+                      Explore {t.service.title}
+                      <ArrowRight className="size-4" aria-hidden />
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+            {!!extraServices?.length && (
+              <ul className="mt-3 border-t border-line">
+                {extraServices.map((s) => (
+                  <li key={s._id}>
+                    <Link
+                      href={`/services/${s.slug}`}
+                      className="inline-flex min-h-11 items-center gap-2 text-teal-700"
+                    >
+                      {s.title}
+                      <ArrowRight className="size-4" aria-hidden />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </EditorialSection>
+        </SectionShell>
+      )}
       {!!p.testimonials?.length && (
-        <SectionShell tone="deep">
-          <Eyebrow className="mb-8">In patients&apos; words</Eyebrow>
+        <SectionShell tone="white">
           <Testimonials items={p.testimonials} />
         </SectionShell>
       )}
-
       {!!p.faqs?.length && (
-        <SectionShell tone="paper">
-          <div className="grid gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-4">
-              <Eyebrow className="mb-4">Questions</Eyebrow>
-              <h2 className="display-md text-navy-900">What people ask before booking</h2>
-            </div>
-            <div className="lg:col-span-8">
-              <FaqList faqs={p.faqs} />
-            </div>
-          </div>
+        <SectionShell tone="white">
+          <EditorialSection title={h.faqs ?? `Questions about ${p.title}`}>
+            <FaqList faqs={p.faqs} />
+          </EditorialSection>
         </SectionShell>
       )}
-
       <CtaBand
-        title="You don't need to know the perfect service. You just need the right starting point."
+        title={h.final ?? `Explore your next step in ${p.title}`}
         primary={bookingCta}
         secondary={{label: 'Start Here', href: '/start-here'}}
         track="pathway-final"
       />
-    </>
+    </div>
   )
 }

@@ -1,5 +1,16 @@
+import {editorialReview, pageHeadings} from './objects/editorial'
 import {accessibleImage, articleBody, cta, richText, seo, titledItem} from './objects/shared'
-import {article, bookingOption, chatKnowledge, faq, legalPage, pathway, provider, service, testimonial} from './documents'
+import {
+  article,
+  bookingOption,
+  chatKnowledge,
+  faq,
+  legalPage,
+  pathway,
+  provider,
+  service,
+  testimonial,
+} from './documents'
 import {
   aboutPage,
   bookingPage,
@@ -16,6 +27,8 @@ import {
 export const schemaTypes = [
   // objects
   accessibleImage,
+  editorialReview,
+  pageHeadings,
   cta,
   seo,
   richText,

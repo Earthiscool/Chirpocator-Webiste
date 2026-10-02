@@ -1,0 +1,15 @@
+✔ default mode only reports the read-only plan (57.505875ms)
+✔ mutation mode requires an editor token (53.636708ms)
+✔ existing client drafts prevent creation (53.597125ms)
+✔ creation preserves source data and backs up the transaction revision (64.732583ms)
+✔ rollback deletes only the exact newly created draft revision (50.301666ms)
+✔ rollback refuses a previously edited draft (51.029167ms)
+✔ rollback preserves edits that race with its initial read (51.438125ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 445.919792

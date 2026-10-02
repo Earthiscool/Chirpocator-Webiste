@@ -15,9 +15,12 @@ test('no server secrets in client JavaScript', () => {
   const env = readFileSync('.env.local', 'utf8')
   const secrets = env
     .split('\n')
-    .filter((l) => /^(SANITY_API_(READ|WRITE)_TOKEN|SANITY_REVALIDATE_SECRET|OPENAI_API_KEY|RESEND_API_KEY)=/.test(l))
+    .filter((l) =>
+      /^(SANITY_API_(READ|WRITE)_TOKEN|SANITY_REVALIDATE_SECRET|OPENAI_API_KEY|RESEND_API_KEY|FORM_SECRET)=/.test(l),
+    )
     .map((l) => l.split('=').slice(1).join('='))
     .filter((v) => v.length > 8)
+    .concat(['test-key-not-real', 'local-form-signing-test-only']) // known server-only values used by the local mock harness
   expect(secrets.length).toBeGreaterThan(0)
   const bundle = files('.next/static').filter((f) => f.endsWith('.js'))
   for (const f of bundle) {
@@ -35,7 +38,9 @@ test('no secrets in rendered HTML or API responses', async ({request}) => {
 })
 
 test('draft mode cannot be enabled without a Studio-issued secret', async ({request}) => {
-  const res = await request.get('/api/draft-mode/enable?sanity-preview-secret=guess&sanity-preview-pathname=/', {maxRedirects: 0})
+  const res = await request.get('/api/draft-mode/enable?sanity-preview-secret=guess&sanity-preview-pathname=/', {
+    maxRedirects: 0,
+  })
   expect(res.status()).toBe(401)
   const cookies = res.headers()['set-cookie'] ?? ''
   expect(cookies).not.toContain('__prerender_bypass')

@@ -42,7 +42,8 @@ export function NavMenu({items, bookLabel, phone, phoneE164}: Props) {
     }
   }, [open])
 
-  const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`))
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`)
 
   return (
     <>
@@ -51,12 +52,17 @@ export function NavMenu({items, bookLabel, phone, phoneE164}: Props) {
           {items.map((item) => (
             <li key={item.label} className="relative">
               {item.children?.length ? (
-                <DesktopDropdown item={item} open={open === item.label} setOpen={setOpen} active={isActive(item.href)} />
+                <DesktopDropdown
+                  item={item}
+                  open={open === item.label}
+                  setOpen={setOpen}
+                  active={isActive(item.href)}
+                />
               ) : (
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? 'page' : undefined}
-                  className="relative rounded-full px-3.5 py-2 text-[0.94rem] font-medium text-navy-900 transition-colors hover:bg-white aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-3.5 aria-[current=page]:after:-bottom-0.5 aria-[current=page]:after:h-px aria-[current=page]:after:bg-gold-400"
+                  className="relative rounded-md px-3.5 py-2 text-[0.94rem] font-medium text-navy-900 transition-colors hover:bg-white aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-3.5 aria-[current=page]:after:-bottom-0.5 aria-[current=page]:after:h-px aria-[current=page]:after:bg-gold-400"
                 >
                   {item.label}
                 </Link>
@@ -69,7 +75,7 @@ export function NavMenu({items, bookLabel, phone, phoneE164}: Props) {
       <div className="flex items-center gap-2 sm:gap-3">
         <a
           href={`tel:${phoneE164}`}
-          className="hidden items-center gap-2 rounded-full px-3 py-2 text-[0.94rem] font-medium text-navy-900 hover:bg-white xl:inline-flex"
+          className="hidden items-center gap-2 rounded-md px-3 py-2 text-[0.94rem] font-medium text-navy-900 hover:bg-white xl:inline-flex"
           data-track="header"
         >
           <Phone className="size-4 text-teal-700" aria-hidden />
@@ -78,14 +84,14 @@ export function NavMenu({items, bookLabel, phone, phoneE164}: Props) {
         <Link
           href="/book"
           data-track="header"
-          className="hidden min-h-11 items-center whitespace-nowrap rounded-full bg-orange-600 px-5 text-[0.95rem] font-semibold text-white transition-colors hover:bg-orange-700 sm:inline-flex"
+          className="hidden min-h-11 items-center whitespace-nowrap rounded-md bg-orange-600 px-5 text-[0.95rem] font-semibold text-white transition-colors hover:bg-orange-700 sm:inline-flex"
         >
           {bookLabel}
         </Link>
         <button
           type="button"
           onClick={() => setDrawer(true)}
-          className="inline-flex size-11 items-center justify-center rounded-full text-navy-900 hover:bg-white lg:hidden"
+          className="inline-flex size-11 items-center justify-center rounded-md text-navy-900 hover:bg-white lg:hidden"
           aria-label="Open menu"
           aria-expanded={drawer}
           aria-controls="mobile-menu"
@@ -136,7 +142,7 @@ function DesktopDropdown({
         aria-expanded={open}
         aria-controls={id}
         onClick={() => setOpen(open ? null : item.label)}
-        className={`relative flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.94rem] font-medium text-navy-900 transition-colors hover:bg-white ${active ? 'after:absolute after:inset-x-3.5 after:-bottom-0.5 after:h-px after:bg-gold-400' : ''}`}
+        className={`relative flex items-center gap-1 rounded-md px-3.5 py-2 text-[0.94rem] font-medium text-navy-900 transition-colors hover:bg-white ${active ? 'after:absolute after:inset-x-3.5 after:-bottom-0.5 after:h-px after:bg-gold-400' : ''}`}
       >
         {item.label}
         <Chevron className={`size-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} aria-hidden />
@@ -146,14 +152,17 @@ function DesktopDropdown({
         hidden={!open}
         className={`absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 ${wide ? 'w-[40rem]' : 'w-[22rem]'}`}
       >
-        <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_24px_60px_-20px_rgba(11,31,74,0.25)]">
+        <div className="overflow-hidden rounded-lg border border-line bg-white shadow-[0_24px_60px_-20px_rgba(11,31,74,0.25)]">
           <ul className={`grid gap-px bg-line/60 ${wide ? 'grid-cols-2' : 'grid-cols-1'}`}>
             {item.children?.map((c) => (
               <li key={c.href + c.label} className="bg-white">
                 <Link href={c.href} className="group block h-full px-5 py-4 transition-colors hover:bg-paper">
                   <span className="flex items-center justify-between gap-3 font-semibold text-navy-900">
                     {c.label}
-                    <ArrowRight className="size-4 -translate-x-1 text-gold-700 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" aria-hidden />
+                    <ArrowRight
+                      className="size-4 -translate-x-1 text-gold-700 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
+                      aria-hidden
+                    />
                   </span>
                   {c.description && <span className="mt-1 block text-sm leading-snug text-muted">{c.description}</span>}
                 </Link>
@@ -161,7 +170,10 @@ function DesktopDropdown({
             ))}
           </ul>
           {item.href && item.href !== item.children?.[0]?.href && (
-            <Link href={item.href} className="flex items-center justify-between border-t border-line bg-paper px-5 py-3 text-sm font-semibold text-navy-900 hover:bg-paper-deep">
+            <Link
+              href={item.href}
+              className="flex items-center justify-between border-t border-line bg-paper px-5 py-3 text-sm font-semibold text-navy-900 hover:bg-paper-deep"
+            >
               {item.label === 'How We Help' ? 'Not sure? Compare all four pathways' : `All of ${item.label}`}
               <ArrowRight className="size-4" aria-hidden />
             </Link>
@@ -226,7 +238,7 @@ function MobileDrawer({
             ref={closeRef}
             type="button"
             onClick={onClose}
-            className="inline-flex size-11 items-center justify-center rounded-full hover:bg-white/10"
+            className="inline-flex size-11 items-center justify-center rounded-md hover:bg-white/10"
             aria-label="Close menu"
           >
             <Close className="size-6" aria-hidden />
@@ -238,9 +250,12 @@ function MobileDrawer({
               <li key={item.label}>
                 {item.children?.length ? (
                   <details className="accordion group" open={isActive(item.href)}>
-                    <summary className="flex cursor-pointer items-center justify-between py-4 font-display text-2xl">
+                    <summary className="flex cursor-pointer items-center justify-between py-4 font-semibold text-xl">
                       {item.label}
-                      <Chevron className="size-5 text-gold-400 transition-transform group-open:rotate-180" aria-hidden />
+                      <Chevron
+                        className="size-5 text-gold-400 transition-transform group-open:rotate-180"
+                        aria-hidden
+                      />
                     </summary>
                     <ul className="pb-4">
                       {item.children.map((c) => (
@@ -261,7 +276,7 @@ function MobileDrawer({
                   <Link
                     href={item.href}
                     aria-current={isActive(item.href) ? 'page' : undefined}
-                    className="block py-4 font-display text-2xl aria-[current=page]:text-gold-400"
+                    className="block py-4 font-semibold text-xl aria-[current=page]:text-gold-400"
                   >
                     {item.label}
                   </Link>
@@ -271,13 +286,17 @@ function MobileDrawer({
           </ul>
         </nav>
         <div className="grid shrink-0 gap-3 border-t border-white/10 bg-navy-900 p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
-          <Link href="/book" data-track="mobile-menu" className="inline-flex min-h-12 items-center justify-center rounded-full bg-orange-600 font-semibold text-white">
+          <Link
+            href="/book"
+            data-track="mobile-menu"
+            className="inline-flex min-h-12 items-center justify-center rounded-md bg-orange-600 font-semibold text-white"
+          >
             {bookLabel}
           </Link>
           <a
             href={`tel:${phoneE164}`}
             data-track="mobile-menu"
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 font-semibold"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-white/25 font-semibold"
           >
             <Phone className="size-4" aria-hidden /> Call {phone}
           </a>

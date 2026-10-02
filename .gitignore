@@ -51,3 +51,6 @@ next-env.d.ts
 /playwright-report
 /blob-report
 /screenshots
+
+# local content snapshots and inspection files
+/tmp/

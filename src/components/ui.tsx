@@ -11,11 +11,11 @@ type Variant = 'book' | 'primary' | 'primary-on-navy' | 'secondary' | 'secondary
 
 const base =
   'inline-flex items-center justify-center gap-2 font-semibold transition-[background-color,color,border-color,box-shadow,transform] duration-200 ease-out select-none'
-const sizes = 'min-h-12 px-6 text-[0.95rem] rounded-full'
+const sizes = 'min-h-12 px-5 text-[0.95rem] rounded-md'
 const variants: Record<Variant, string> = {
   // The one loud button: "Book a Visit" (client: orange for CTA).
   book: `${base} ${sizes} bg-orange-600 text-white shadow-[0_1px_0_rgba(0,0,0,0.08)] hover:bg-orange-700 active:translate-y-px`,
-  primary: `${base} ${sizes} bg-navy-900 text-white hover:bg-navy-700 active:translate-y-px`,
+  primary: `${base} ${sizes} bg-orange-600 text-white hover:bg-orange-700 active:translate-y-px`,
   'primary-on-navy': `${base} ${sizes} bg-white text-navy-900 hover:bg-gold-100 active:translate-y-px`,
   secondary: `${base} ${sizes} border border-navy-900/25 text-navy-900 hover:border-navy-900 hover:bg-white`,
   'secondary-on-navy': `${base} ${sizes} border border-white/30 text-white hover:border-white hover:bg-white/5`,
@@ -31,7 +31,15 @@ interface ButtonLinkProps extends Omit<ComponentProps<typeof Link>, 'href'> {
   arrow?: boolean
 }
 
-export function ButtonLink({href, variant = 'primary', track, arrow, children, className = '', ...rest}: ButtonLinkProps) {
+export function ButtonLink({
+  href,
+  variant = 'primary',
+  track,
+  arrow,
+  children,
+  className = '',
+  ...rest
+}: ButtonLinkProps) {
   const r = resolveHref(href)
   const trackAttrs = track ? {'data-track': track} : {}
   const content = (
@@ -63,7 +71,17 @@ export function ButtonLink({href, variant = 'primary', track, arrow, children, c
   )
 }
 
-export function CtaButton({cta, variant, track, arrow}: {cta?: Cta | null; variant?: Variant; track?: string; arrow?: boolean}) {
+export function CtaButton({
+  cta,
+  variant,
+  track,
+  arrow,
+}: {
+  cta?: Cta | null
+  variant?: Variant
+  track?: string
+  arrow?: boolean
+}) {
   if (!cta?.label || !cta.href) return null
   return (
     <ButtonLink href={cta.href} variant={variant} track={track} arrow={arrow}>
@@ -91,19 +109,39 @@ export function Emphasis({text}: {text?: string | null}) {
   )
 }
 
-export function Eyebrow({children, tone = 'gold', className = ''}: {children: ReactNode; tone?: 'gold' | 'teal' | 'navy' | 'on-navy'; className?: string}) {
+export function Eyebrow({
+  children,
+  tone = 'gold',
+  className = '',
+}: {
+  children: ReactNode
+  tone?: 'gold' | 'teal' | 'navy' | 'on-navy'
+  className?: string
+}) {
   const color = {gold: 'text-gold-700', teal: 'text-teal-700', navy: 'text-navy-900', 'on-navy': 'text-gold-400'}[tone]
   return <p className={`eyebrow ${color} ${className}`}>{children}</p>
 }
 
 /** "Pain | Performance | Prevention" with refined dividers. */
-export function BrandLine({text, tone = 'light', className = ''}: {text?: string; tone?: 'light' | 'navy'; className?: string}) {
+export function BrandLine({
+  text,
+  tone = 'light',
+  className = '',
+}: {
+  text?: string
+  tone?: 'light' | 'navy'
+  className?: string
+}) {
   const parts = (text ?? 'Pain | Performance | Prevention').split('|').map((s) => s.trim())
   return (
-    <p className={`eyebrow flex flex-wrap items-center gap-x-3 gap-y-1 ${tone === 'navy' ? 'text-gold-400' : 'text-gold-700'} ${className}`}>
+    <p
+      className={`eyebrow flex flex-wrap items-center gap-x-3 gap-y-1 ${tone === 'navy' ? 'text-gold-400' : 'text-gold-700'} ${className}`}
+    >
       {parts.map((p, i) => (
         <span key={p} className="flex items-center gap-3">
-          {i > 0 && <span aria-hidden className={`h-3 w-px ${tone === 'navy' ? 'bg-gold-400/60' : 'bg-gold-700/40'}`} />}
+          {i > 0 && (
+            <span aria-hidden className={`h-3 w-px ${tone === 'navy' ? 'bg-gold-400/60' : 'bg-gold-700/40'}`} />
+          )}
           {p}
         </span>
       ))}
@@ -131,7 +169,11 @@ export function SectionHeader({
   if (!title) return null
   return (
     <div className={`${align === 'center' ? 'mx-auto text-center' : ''} max-w-3xl ${className}`}>
-      {eyebrow && <Eyebrow tone={tone === 'navy' ? 'on-navy' : 'gold'} className="mb-4">{eyebrow}</Eyebrow>}
+      {eyebrow && (
+        <Eyebrow tone={tone === 'navy' ? 'on-navy' : 'gold'} className="mb-4">
+          {eyebrow}
+        </Eyebrow>
+      )}
       <Tag className={`display-lg ${tone === 'navy' ? 'text-white' : 'text-navy-900'}`}>
         <Emphasis text={title} />
       </Tag>

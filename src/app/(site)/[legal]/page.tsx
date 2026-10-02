@@ -30,8 +30,16 @@ export default async function LegalPageRoute({params}: Props) {
   if (!page) notFound()
   return (
     <article className="container-site max-w-4xl py-14 md:py-20">
-      <Eyebrow className="mb-4">Last updated {new Date(page.lastUpdated).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}</Eyebrow>
-      <h1 className="display-lg text-navy-900">{page.title}</h1>
+      <Eyebrow className="mb-4">
+        Last updated{' '}
+        {new Date(page.lastUpdated).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          timeZone: 'UTC',
+        })}
+      </Eyebrow>
+      <h1 className="article-title text-navy-900">{page.title}</h1>
       {page.intro && <p className="lede mt-5 text-muted">{page.intro}</p>}
       <RichText value={page.body} className="mt-10" />
     </article>

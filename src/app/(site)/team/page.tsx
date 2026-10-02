@@ -23,9 +23,9 @@ export default async function TeamPageRoute() {
   return (
     <>
       <PageHero eyebrow={page?.eyebrow || 'Team'} title={page?.headline || 'Our team'} intro={page?.intro} />
-      <SectionShell tone="paper">
+      <SectionShell tone="white">
         {providers?.length ? (
-          <ul className="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {providers.map((p, i) => (
               <Reveal as="li" key={p._id} delay={i * 90}>
                 <ProviderTile p={p} />
@@ -35,10 +35,12 @@ export default async function TeamPageRoute() {
         ) : (
           <p className="text-muted">Team profiles are being updated.</p>
         )}
-        {page?.collectiveNote && <p className="mt-16 max-w-2xl border-t border-line pt-8 text-lg text-navy-900">{page.collectiveNote}</p>}
+        {page?.collectiveNote && (
+          <p className="mt-8 max-w-2xl border-t border-line pt-8 text-lg text-navy-900">{page.collectiveNote}</p>
+        )}
       </SectionShell>
       <CtaBand
-        title="Not sure who to see? Start with what you are trying to solve."
+        title="Find the right practitioner for your next step."
         primary={{label: 'Start Here', href: '/start-here'}}
         secondary={{label: 'Book a Visit', href: '/book'}}
         track="team-final"

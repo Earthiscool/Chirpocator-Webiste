@@ -19,6 +19,8 @@ const redis =
     ? new Redis({url: process.env.UPSTASH_REDIS_REST_URL, token: process.env.UPSTASH_REDIS_REST_TOKEN})
     : null
 
+export const hasDurableRateLimit = Boolean(redis)
+
 let warned = false
 function memoryLimiter(max: number, windowMs: number): Limiter {
   const hits = new Map<string, number[]>()
@@ -40,7 +42,12 @@ function memoryLimiter(max: number, windowMs: number): Limiter {
 
 function make(prefix: string, max: number, window: `${number} m` | `${number} h`, windowMs: number): Limiter {
   if (!redis) return memoryLimiter(max, windowMs)
-  return new Ratelimit({redis, prefix: `iwc:${prefix}`, limiter: Ratelimit.slidingWindow(max, window), analytics: false})
+  return new Ratelimit({
+    redis,
+    prefix: `iwc:${prefix}`,
+    limiter: Ratelimit.slidingWindow(max, window),
+    analytics: false,
+  })
 }
 
 export const limiters = {

@@ -2,7 +2,7 @@ import 'server-only'
 
 import {cache} from 'react'
 
-import {sanityFetch} from '@/sanity/fetch'
+import {sanityFetch, sanityFetchStatic} from '@/sanity/fetch'
 import {navigationQuery, settingsQuery} from '@/sanity/queries'
 import type {Navigation, SiteSettings} from '@/sanity/types'
 
@@ -46,6 +46,12 @@ export const getSettings = cache(async (): Promise<SiteSettings> => {
   return data ? {...fallbackSettings, ...data} : fallbackSettings
 })
 
+/** APIs use published settings even when an editor has a preview cookie. */
+export const getPublishedSettings = cache(async (): Promise<SiteSettings> => {
+  const data = await sanityFetchStatic<SiteSettings>(settingsQuery)
+  return data ? {...fallbackSettings, ...data} : fallbackSettings
+})
+
 export const getNavigation = cache(async (): Promise<Navigation> => {
   const data = await sanityFetch<Navigation>({query: navigationQuery, tags: ['navigation']})
   return data?.main?.length ? data : fallbackNavigation
@@ -54,7 +60,13 @@ export const getNavigation = cache(async (): Promise<Navigation> => {
 export function siteUrl(path = '') {
   // Explicit site URL → Vercel's production domain (set automatically) → local dev.
   const vercelProd = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  const base = (process.env.NEXT_PUBLIC_SITE_URL || (vercelProd ? `https://${vercelProd}` : 'http://localhost:3000')).replace(/\/$/, '')
+  const preview =
+    process.env.VERCEL_ENV === 'preview' && process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined
+  const base = (
+    preview ||
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (vercelProd ? `https://${vercelProd}` : 'http://localhost:3000')
+  ).replace(/\/$/, '')
   return `${base}${path}`
 }
 

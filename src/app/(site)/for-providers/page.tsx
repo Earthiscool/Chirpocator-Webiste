@@ -15,7 +15,12 @@ const getPage = () => sanityFetch<ProvidersPage>({query: providersPageQuery, tag
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage()
-  return buildMetadata({seo: page?.seo, title: 'Refer a Patient | Integrative Wellbeing & Chiropractic', description: page?.intro, path: '/for-providers'})
+  return buildMetadata({
+    seo: page?.seo,
+    title: 'Provider Collaboration | Integrative Wellbeing & Chiropractic',
+    description: page?.intro,
+    path: '/for-providers',
+  })
 }
 
 export default async function ForProvidersPage() {
@@ -23,9 +28,13 @@ export default async function ForProvidersPage() {
   const email = s.providerEmail || s.email
   return (
     <>
-      <PageHero eyebrow={page?.eyebrow || 'For Providers'} title={page?.headline || 'For providers'} intro={page?.intro}>
+      <PageHero
+        eyebrow={page?.eyebrow || 'For Providers'}
+        title={page?.headline || 'For providers'}
+        intro={page?.intro}
+      >
         <ButtonLink href="#refer" variant="primary" track="providers-hero">
-          Refer a patient
+          Request a professional call
         </ButtonLink>
         <ButtonLink href={`tel:${s.phoneE164}`} variant="link" track="providers-hero">
           <Phone className="size-4" aria-hidden /> {s.phone}
@@ -47,13 +56,13 @@ export default async function ForProvidersPage() {
             </div>
           )}
         </div>
-        {page?.promise && <p className="lede mt-16 max-w-3xl border-l border-gold-400 pl-6 font-display text-[1.5rem] leading-snug text-navy-900">{page.promise}</p>}
+        {page?.promise && <p className="mt-8 max-w-3xl border-l border-gold-400 pl-6 text-navy-900">{page.promise}</p>}
       </SectionShell>
 
       {!!page?.whatWeDo?.length && (
         <SectionShell tone="paper">
           <Eyebrow className="mb-4">What we do</Eyebrow>
-          <h2 className="display-md mb-12 text-navy-900">Assessment, selective tools, education, and a functional plan</h2>
+          <h2 className="display-md mb-12 text-navy-900">Assessment and collaboration</h2>
           <ItemGrid items={page.whatWeDo} columns={4} />
         </SectionShell>
       )}
@@ -61,7 +70,7 @@ export default async function ForProvidersPage() {
       <SectionShell tone="white">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           {!!page?.whatWeDoNot?.length && (
-            <div className="rounded-2xl bg-paper p-7 md:p-9">
+            <div className="border-l-2 border-teal-500 pl-6">
               <Eyebrow tone="teal" className="mb-4">
                 Scope
               </Eyebrow>
@@ -89,14 +98,21 @@ export default async function ForProvidersPage() {
       <SectionShell tone="paper" id="refer">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
-            <Eyebrow className="mb-4">Refer a patient</Eyebrow>
+            <Eyebrow className="mb-4">Request a professional call</Eyebrow>
             <h2 className="display-md text-navy-900">Start with a conversation</h2>
-            <p className="mt-4 text-muted">Introduce yourself and we will call you back to discuss the patient and arrange a secure way to share records.</p>
+            <p className="mt-4 text-muted">
+              Introduce yourself and request a call about clinical fit or collaboration. This form is for ordinary
+              contact. Please do not include patient details or records.
+            </p>
             <dl className="mt-8 space-y-3 text-navy-900">
               <div>
                 <dt className="text-sm text-muted">Direct line</dt>
                 <dd>
-                  <a href={`tel:${s.phoneE164}`} data-track="providers-direct" className="font-display text-xl hover:underline">
+                  <a
+                    href={`tel:${s.phoneE164}`}
+                    data-track="providers-direct"
+                    className="font-display text-xl hover:underline"
+                  >
                     {s.phone}
                   </a>
                 </dd>
@@ -104,7 +120,11 @@ export default async function ForProvidersPage() {
               <div>
                 <dt className="text-sm text-muted">Professional email (no patient information)</dt>
                 <dd>
-                  <a href={`mailto:${email}?subject=${encodeURIComponent('Provider inquiry')}`} data-track="providers-direct" className="underline underline-offset-4">
+                  <a
+                    href={`mailto:${email}?subject=${encodeURIComponent('Provider inquiry')}`}
+                    data-track="providers-direct"
+                    className="underline underline-offset-4"
+                  >
                     {email}
                   </a>
                 </dd>

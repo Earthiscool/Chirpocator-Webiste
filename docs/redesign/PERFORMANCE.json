@@ -1,0 +1,127 @@
+{
+  "base": "http://localhost:3100",
+  "capturedAt": "2026-10-02T02:23:53.907Z",
+  "method": "Local production build. Chromium, cold browser cache per route, warm application cache, no CPU/network throttling. Navigation and PerformanceObserver measurements; not Lighthouse, field Core Web Vitals, or clinical acceptance.",
+  "measurements": [
+    {
+      "route": "/",
+      "width": 375,
+      "status": 200,
+      "lcp": 128,
+      "cls": 0,
+      "ttfbMs": 16,
+      "domContentLoadedMs": 62.700000047683716,
+      "loadMs": 148.60000002384186,
+      "resources": 24,
+      "knownTransferBytes": 517416
+    },
+    {
+      "route": "/start-here",
+      "width": 375,
+      "status": 200,
+      "lcp": 40,
+      "cls": 0,
+      "ttfbMs": 8.600000023841858,
+      "domContentLoadedMs": 27,
+      "loadMs": 41.10000002384186,
+      "resources": 22,
+      "knownTransferBytes": 502526
+    },
+    {
+      "route": "/services/therapeutic-massage",
+      "width": 375,
+      "status": 200,
+      "lcp": 64,
+      "cls": 0,
+      "ttfbMs": 22.300000071525574,
+      "domContentLoadedMs": 38.60000002384186,
+      "loadMs": 57.800000071525574,
+      "resources": 26,
+      "knownTransferBytes": 518002
+    },
+    {
+      "route": "/book",
+      "width": 375,
+      "status": 200,
+      "lcp": 52,
+      "cls": 0,
+      "ttfbMs": 19.899999976158142,
+      "domContentLoadedMs": 47.200000047683716,
+      "loadMs": 65.30000007152557,
+      "resources": 26,
+      "knownTransferBytes": 602976
+    },
+    {
+      "route": "/resources/which-labs-are-useful",
+      "width": 375,
+      "status": 200,
+      "lcp": 44,
+      "cls": 0,
+      "ttfbMs": 12.299999952316284,
+      "domContentLoadedMs": 30.899999976158142,
+      "loadMs": 44.89999997615814,
+      "resources": 24,
+      "knownTransferBytes": 502573
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "status": 200,
+      "lcp": 40,
+      "cls": 0,
+      "ttfbMs": 3.899999976158142,
+      "domContentLoadedMs": 14.600000023841858,
+      "loadMs": 50.89999997615814,
+      "resources": 31,
+      "knownTransferBytes": 649289
+    },
+    {
+      "route": "/start-here",
+      "width": 1280,
+      "status": 200,
+      "lcp": 40,
+      "cls": 0.010399779256184896,
+      "ttfbMs": 4.799999952316284,
+      "domContentLoadedMs": 26.5,
+      "loadMs": 40.800000071525574,
+      "resources": 29,
+      "knownTransferBytes": 609012
+    },
+    {
+      "route": "/services/therapeutic-massage",
+      "width": 1280,
+      "status": 200,
+      "lcp": 48,
+      "cls": 0,
+      "ttfbMs": 5.400000095367432,
+      "domContentLoadedMs": 25.5,
+      "loadMs": 45.10000002384186,
+      "resources": 35,
+      "knownTransferBytes": 635147
+    },
+    {
+      "route": "/book",
+      "width": 1280,
+      "status": 200,
+      "lcp": 56,
+      "cls": 0,
+      "ttfbMs": 16.5,
+      "domContentLoadedMs": 31.100000023841858,
+      "loadMs": 52.299999952316284,
+      "resources": 31,
+      "knownTransferBytes": 613595
+    },
+    {
+      "route": "/resources/which-labs-are-useful",
+      "width": 1280,
+      "status": 200,
+      "lcp": 40,
+      "cls": 0,
+      "ttfbMs": 4.299999952316284,
+      "domContentLoadedMs": 24.399999976158142,
+      "loadMs": 43.39999997615814,
+      "resources": 31,
+      "knownTransferBytes": 610979
+    }
+  ]
+}

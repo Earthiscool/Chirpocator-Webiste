@@ -1,0 +1,1594 @@
+{
+  "base": "http://localhost:3100",
+  "capturedAt": "2026-10-02T02:19:04.230Z",
+  "pages": [
+    {
+      "name": "home",
+      "route": "/",
+      "width": 375,
+      "status": 200,
+      "filename": "after-home-375.png",
+      "height": 9535,
+      "overflow": 0,
+      "h1": "Get back to what moves you.",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        },
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        }
+      ],
+      "words": 704,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "start-here",
+      "route": "/start-here?goal=performance",
+      "width": 375,
+      "status": 200,
+      "filename": "after-start-here-375.jpg",
+      "height": 3731,
+      "overflow": 0,
+      "h1": "Find your starting point.",
+      "images": [],
+      "words": 229,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "pathways",
+      "route": "/how-we-help",
+      "width": 375,
+      "status": 200,
+      "filename": "after-pathways-375.jpg",
+      "height": 5826,
+      "overflow": 0,
+      "h1": "Four ways to begin.",
+      "images": [],
+      "words": 354,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "pain",
+      "route": "/how-we-help/pain-recovery",
+      "width": 375,
+      "status": 200,
+      "filename": "after-pain-375.jpg",
+      "height": 5803,
+      "overflow": 0,
+      "h1": "A clearer plan for recurring pain.",
+      "images": [],
+      "words": 466,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "performance",
+      "route": "/how-we-help/performance",
+      "width": 375,
+      "status": 200,
+      "filename": "after-performance-375.jpg",
+      "height": 6227,
+      "overflow": 0,
+      "h1": "Move with more confidence.",
+      "images": [],
+      "words": 444,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "prevention",
+      "route": "/how-we-help/prevention-active-aging",
+      "width": 375,
+      "status": 200,
+      "filename": "after-prevention-375.jpg",
+      "height": 5254,
+      "overflow": 0,
+      "h1": "Keep doing what you love.",
+      "images": [],
+      "words": 369,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "functional",
+      "route": "/how-we-help/functional-health",
+      "width": 375,
+      "status": 200,
+      "filename": "after-functional-375.jpg",
+      "height": 6166,
+      "overflow": 0,
+      "h1": "Make room for the full conversation.",
+      "images": [],
+      "words": 432,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "chiropractic",
+      "route": "/services/chiropractic-sports-chiropractic",
+      "width": 375,
+      "status": 200,
+      "filename": "after-chiropractic-375.jpg",
+      "height": 5584,
+      "overflow": 0,
+      "h1": "Hands-on care. Assessment first.",
+      "images": [],
+      "words": 421,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "golf",
+      "route": "/services/golf-performance",
+      "width": 375,
+      "status": 200,
+      "filename": "after-golf-375.jpg",
+      "height": 5462,
+      "overflow": 0,
+      "h1": "More freedom in your swing.",
+      "images": [],
+      "words": 409,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "massage",
+      "route": "/services/therapeutic-massage",
+      "width": 375,
+      "status": 200,
+      "filename": "after-massage-375.jpg",
+      "height": 5376,
+      "overflow": 0,
+      "h1": "Massage tailored to you.",
+      "images": [
+        {
+          "alt": "Amie Hamel, LMT, smiling, wearing glasses and a patterned scarf",
+          "loaded": true
+        }
+      ],
+      "words": 316,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "scar",
+      "route": "/services/scar-release-functional-restoration",
+      "width": 375,
+      "status": 200,
+      "filename": "after-scar-375.jpg",
+      "height": 5185,
+      "overflow": 0,
+      "h1": "Recovery beyond the incision.",
+      "images": [],
+      "words": 368,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "holobiome",
+      "route": "/services/holobiome-gut-restoration",
+      "width": 375,
+      "status": 200,
+      "filename": "after-holobiome-375.jpg",
+      "height": 5551,
+      "overflow": 0,
+      "h1": "A guided conversation about gut health.",
+      "images": [],
+      "words": 443,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "labs",
+      "route": "/services/direct-access-lab-testing",
+      "width": 375,
+      "status": 200,
+      "filename": "after-labs-375.jpg",
+      "height": 5297,
+      "overflow": 0,
+      "h1": "Testing starts with a useful question.",
+      "images": [],
+      "words": 345,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "about",
+      "route": "/about",
+      "width": 375,
+      "status": 200,
+      "filename": "after-about-375.jpg",
+      "height": 8483,
+      "overflow": 0,
+      "h1": "Clinical judgment. A human connection.",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        }
+      ],
+      "words": 723,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "team",
+      "route": "/team",
+      "width": 375,
+      "status": 200,
+      "filename": "after-team-375.jpg",
+      "height": 4041,
+      "overflow": 0,
+      "h1": "Meet your care team.",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        },
+        {
+          "alt": "Dr. Irene Londer in navy scrubs, with purple hair.",
+          "loaded": true
+        },
+        {
+          "alt": "Amie Hamel, LMT, smiling, wearing glasses and a patterned scarf",
+          "loaded": true
+        }
+      ],
+      "words": 137,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "jenn",
+      "route": "/team/dr-jenn-hartmann",
+      "width": 375,
+      "status": 200,
+      "filename": "after-jenn-375.jpg",
+      "height": 4987,
+      "overflow": 0,
+      "h1": "Dr. Jenn Hartmann",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        }
+      ],
+      "words": 344,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "irene",
+      "route": "/team/dr-irene-londer",
+      "width": 375,
+      "status": 200,
+      "filename": "after-irene-375.jpg",
+      "height": 4243,
+      "overflow": 0,
+      "h1": "Dr. Irene Londer",
+      "images": [
+        {
+          "alt": "Dr. Irene Londer in navy scrubs, with purple hair.",
+          "loaded": true
+        }
+      ],
+      "words": 255,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "amie",
+      "route": "/team/amie-hamel",
+      "width": 375,
+      "status": 200,
+      "filename": "after-amie-375.jpg",
+      "height": 4315,
+      "overflow": 0,
+      "h1": "Amie Hamel",
+      "images": [
+        {
+          "alt": "Amie Hamel, LMT, smiling, wearing glasses and a patterned scarf",
+          "loaded": true
+        }
+      ],
+      "words": 240,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "resources",
+      "route": "/resources",
+      "width": 375,
+      "status": 200,
+      "filename": "after-resources-375.jpg",
+      "height": 3375,
+      "overflow": 0,
+      "h1": "Make sense of your next step.",
+      "images": [],
+      "words": 196,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "article",
+      "route": "/resources/which-labs-are-useful",
+      "width": 375,
+      "status": 200,
+      "filename": "after-article-375.jpg",
+      "height": 4761,
+      "overflow": 0,
+      "h1": "Which labs are useful, and when is testing not necessary?",
+      "images": [],
+      "words": 445,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "providers",
+      "route": "/for-providers",
+      "width": 375,
+      "status": 200,
+      "filename": "after-providers-375.jpg",
+      "height": 6365,
+      "overflow": 0,
+      "h1": "Another clinical perspective.",
+      "images": [],
+      "words": 408,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "book",
+      "route": "/book",
+      "width": 375,
+      "status": 200,
+      "filename": "after-book-375.jpg",
+      "height": 5746,
+      "overflow": 0,
+      "h1": "Arrange your visit.",
+      "images": [],
+      "words": 424,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "faq",
+      "route": "/faq",
+      "width": 375,
+      "status": 200,
+      "filename": "after-faq-375.jpg",
+      "height": 5689,
+      "overflow": 0,
+      "h1": "Before your first visit.",
+      "images": [],
+      "words": 363,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "legal",
+      "route": "/privacy",
+      "width": 375,
+      "status": 200,
+      "filename": "after-legal-375.jpg",
+      "height": 3369,
+      "overflow": 0,
+      "h1": "Website Privacy Policy",
+      "images": [],
+      "words": 289,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "not-found",
+      "route": "/missing-redesign-page",
+      "width": 375,
+      "status": 404,
+      "filename": "after-not-found-375.jpg",
+      "height": 3214,
+      "overflow": 0,
+      "h1": "We couldn't find that page — but we can help you find the right starting point.",
+      "images": [],
+      "words": 168,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "width": 768,
+      "status": 200,
+      "filename": "after-home-768.jpg",
+      "height": 6243,
+      "overflow": 0,
+      "h1": "Get back to what moves you.",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        },
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        }
+      ],
+      "words": 704,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "start-here",
+      "route": "/start-here?goal=performance",
+      "width": 768,
+      "status": 200,
+      "filename": "after-start-here-768.jpg",
+      "height": 2690,
+      "overflow": 0,
+      "h1": "Find your starting point.",
+      "images": [],
+      "words": 229,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "pathways",
+      "route": "/how-we-help",
+      "width": 768,
+      "status": 200,
+      "filename": "after-pathways-768.jpg",
+      "height": 3854,
+      "overflow": 0,
+      "h1": "Four ways to begin.",
+      "images": [],
+      "words": 354,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "pain",
+      "route": "/how-we-help/pain-recovery",
+      "width": 768,
+      "status": 200,
+      "filename": "after-pain-768.jpg",
+      "height": 4598,
+      "overflow": 0,
+      "h1": "A clearer plan for recurring pain.",
+      "images": [],
+      "words": 466,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "performance",
+      "route": "/how-we-help/performance",
+      "width": 768,
+      "status": 200,
+      "filename": "after-performance-768.jpg",
+      "height": 4782,
+      "overflow": 0,
+      "h1": "Move with more confidence.",
+      "images": [],
+      "words": 444,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "prevention",
+      "route": "/how-we-help/prevention-active-aging",
+      "width": 768,
+      "status": 200,
+      "filename": "after-prevention-768.jpg",
+      "height": 4170,
+      "overflow": 0,
+      "h1": "Keep doing what you love.",
+      "images": [],
+      "words": 369,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "functional",
+      "route": "/how-we-help/functional-health",
+      "width": 768,
+      "status": 200,
+      "filename": "after-functional-768.jpg",
+      "height": 4729,
+      "overflow": 0,
+      "h1": "Make room for the full conversation.",
+      "images": [],
+      "words": 432,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "chiropractic",
+      "route": "/services/chiropractic-sports-chiropractic",
+      "width": 768,
+      "status": 200,
+      "filename": "after-chiropractic-768.jpg",
+      "height": 4282,
+      "overflow": 0,
+      "h1": "Hands-on care. Assessment first.",
+      "images": [],
+      "words": 421,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "golf",
+      "route": "/services/golf-performance",
+      "width": 768,
+      "status": 200,
+      "filename": "after-golf-768.jpg",
+      "height": 4060,
+      "overflow": 0,
+      "h1": "More freedom in your swing.",
+      "images": [],
+      "words": 409,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "massage",
+      "route": "/services/therapeutic-massage",
+      "width": 768,
+      "status": 200,
+      "filename": "after-massage-768.jpg",
+      "height": 4339,
+      "overflow": 0,
+      "h1": "Massage tailored to you.",
+      "images": [
+        {
+          "alt": "Amie Hamel, LMT, smiling, wearing glasses and a patterned scarf",
+          "loaded": true
+        }
+      ],
+      "words": 316,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "scar",
+      "route": "/services/scar-release-functional-restoration",
+      "width": 768,
+      "status": 200,
+      "filename": "after-scar-768.jpg",
+      "height": 3812,
+      "overflow": 0,
+      "h1": "Recovery beyond the incision.",
+      "images": [],
+      "words": 368,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "holobiome",
+      "route": "/services/holobiome-gut-restoration",
+      "width": 768,
+      "status": 200,
+      "filename": "after-holobiome-768.jpg",
+      "height": 4117,
+      "overflow": 0,
+      "h1": "A guided conversation about gut health.",
+      "images": [],
+      "words": 443,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "labs",
+      "route": "/services/direct-access-lab-testing",
+      "width": 768,
+      "status": 200,
+      "filename": "after-labs-768.jpg",
+      "height": 3896,
+      "overflow": 0,
+      "h1": "Testing starts with a useful question.",
+      "images": [],
+      "words": 345,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "about",
+      "route": "/about",
+      "width": 768,
+      "status": 200,
+      "filename": "after-about-768.jpg",
+      "height": 6893,
+      "overflow": 0,
+      "h1": "Clinical judgment. A human connection.",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        }
+      ],
+      "words": 723,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "team",
+      "route": "/team",
+      "width": 768,
+      "status": 200,
+      "filename": "after-team-768.jpg",
+      "height": 2798,
+      "overflow": 0,
+      "h1": "Meet your care team.",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        },
+        {
+          "alt": "Dr. Irene Londer in navy scrubs, with purple hair.",
+          "loaded": true
+        },
+        {
+          "alt": "Amie Hamel, LMT, smiling, wearing glasses and a patterned scarf",
+          "loaded": true
+        }
+      ],
+      "words": 137,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "jenn",
+      "route": "/team/dr-jenn-hartmann",
+      "width": 768,
+      "status": 200,
+      "filename": "after-jenn-768.jpg",
+      "height": 3593,
+      "overflow": 0,
+      "h1": "Dr. Jenn Hartmann",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        }
+      ],
+      "words": 344,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "irene",
+      "route": "/team/dr-irene-londer",
+      "width": 768,
+      "status": 200,
+      "filename": "after-irene-768.jpg",
+      "height": 2976,
+      "overflow": 0,
+      "h1": "Dr. Irene Londer",
+      "images": [
+        {
+          "alt": "Dr. Irene Londer in navy scrubs, with purple hair.",
+          "loaded": true
+        }
+      ],
+      "words": 255,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "amie",
+      "route": "/team/amie-hamel",
+      "width": 768,
+      "status": 200,
+      "filename": "after-amie-768.jpg",
+      "height": 3097,
+      "overflow": 0,
+      "h1": "Amie Hamel",
+      "images": [
+        {
+          "alt": "Amie Hamel, LMT, smiling, wearing glasses and a patterned scarf",
+          "loaded": true
+        }
+      ],
+      "words": 240,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "resources",
+      "route": "/resources",
+      "width": 768,
+      "status": 200,
+      "filename": "after-resources-768.jpg",
+      "height": 2398,
+      "overflow": 0,
+      "h1": "Make sense of your next step.",
+      "images": [],
+      "words": 196,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "article",
+      "route": "/resources/which-labs-are-useful",
+      "width": 768,
+      "status": 200,
+      "filename": "after-article-768.jpg",
+      "height": 3455,
+      "overflow": 0,
+      "h1": "Which labs are useful, and when is testing not necessary?",
+      "images": [],
+      "words": 445,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "providers",
+      "route": "/for-providers",
+      "width": 768,
+      "status": 200,
+      "filename": "after-providers-768.jpg",
+      "height": 4852,
+      "overflow": 0,
+      "h1": "Another clinical perspective.",
+      "images": [],
+      "words": 408,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "book",
+      "route": "/book",
+      "width": 768,
+      "status": 200,
+      "filename": "after-book-768.jpg",
+      "height": 4636,
+      "overflow": 0,
+      "h1": "Arrange your visit.",
+      "images": [],
+      "words": 424,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "faq",
+      "route": "/faq",
+      "width": 768,
+      "status": 200,
+      "filename": "after-faq-768.jpg",
+      "height": 4526,
+      "overflow": 0,
+      "h1": "Before your first visit.",
+      "images": [],
+      "words": 363,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "legal",
+      "route": "/privacy",
+      "width": 768,
+      "status": 200,
+      "filename": "after-legal-768.jpg",
+      "height": 2521,
+      "overflow": 0,
+      "h1": "Website Privacy Policy",
+      "images": [],
+      "words": 289,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "not-found",
+      "route": "/missing-redesign-page",
+      "width": 768,
+      "status": 404,
+      "filename": "after-not-found-768.jpg",
+      "height": 2172,
+      "overflow": 0,
+      "h1": "We couldn't find that page — but we can help you find the right starting point.",
+      "images": [],
+      "words": 171,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-home-1280.png",
+      "height": 5533,
+      "overflow": 0,
+      "h1": "Get back to what moves you.",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        },
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        }
+      ],
+      "words": 704,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "start-here",
+      "route": "/start-here?goal=performance",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-start-here-1280.jpg",
+      "height": 2132,
+      "overflow": 0,
+      "h1": "Find your starting point.",
+      "images": [],
+      "words": 229,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "pathways",
+      "route": "/how-we-help",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-pathways-1280.jpg",
+      "height": 3180,
+      "overflow": 0,
+      "h1": "Four ways to begin.",
+      "images": [],
+      "words": 354,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "pain",
+      "route": "/how-we-help/pain-recovery",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-pain-1280.jpg",
+      "height": 3846,
+      "overflow": 0,
+      "h1": "A clearer plan for recurring pain.",
+      "images": [],
+      "words": 466,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "performance",
+      "route": "/how-we-help/performance",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-performance-1280.jpg",
+      "height": 4302,
+      "overflow": 0,
+      "h1": "Move with more confidence.",
+      "images": [],
+      "words": 444,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "prevention",
+      "route": "/how-we-help/prevention-active-aging",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-prevention-1280.jpg",
+      "height": 3694,
+      "overflow": 0,
+      "h1": "Keep doing what you love.",
+      "images": [],
+      "words": 369,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "functional",
+      "route": "/how-we-help/functional-health",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-functional-1280.jpg",
+      "height": 4156,
+      "overflow": 0,
+      "h1": "Make room for the full conversation.",
+      "images": [],
+      "words": 432,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "chiropractic",
+      "route": "/services/chiropractic-sports-chiropractic",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-chiropractic-1280.jpg",
+      "height": 3666,
+      "overflow": 0,
+      "h1": "Hands-on care. Assessment first.",
+      "images": [],
+      "words": 421,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "golf",
+      "route": "/services/golf-performance",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-golf-1280.jpg",
+      "height": 3495,
+      "overflow": 0,
+      "h1": "More freedom in your swing.",
+      "images": [],
+      "words": 409,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "massage",
+      "route": "/services/therapeutic-massage",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-massage-1280.jpg",
+      "height": 3526,
+      "overflow": 0,
+      "h1": "Massage tailored to you.",
+      "images": [
+        {
+          "alt": "Amie Hamel, LMT, smiling, wearing glasses and a patterned scarf",
+          "loaded": true
+        }
+      ],
+      "words": 316,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "scar",
+      "route": "/services/scar-release-functional-restoration",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-scar-1280.jpg",
+      "height": 3275,
+      "overflow": 0,
+      "h1": "Recovery beyond the incision.",
+      "images": [],
+      "words": 368,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "holobiome",
+      "route": "/services/holobiome-gut-restoration",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-holobiome-1280.jpg",
+      "height": 3580,
+      "overflow": 0,
+      "h1": "A guided conversation about gut health.",
+      "images": [],
+      "words": 443,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "labs",
+      "route": "/services/direct-access-lab-testing",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-labs-1280.jpg",
+      "height": 3348,
+      "overflow": 0,
+      "h1": "Testing starts with a useful question.",
+      "images": [],
+      "words": 345,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "about",
+      "route": "/about",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-about-1280.jpg",
+      "height": 4763,
+      "overflow": 0,
+      "h1": "Clinical judgment. A human connection.",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        }
+      ],
+      "words": 723,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "team",
+      "route": "/team",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-team-1280.jpg",
+      "height": 2034,
+      "overflow": 0,
+      "h1": "Meet your care team.",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        },
+        {
+          "alt": "Dr. Irene Londer in navy scrubs, with purple hair.",
+          "loaded": true
+        },
+        {
+          "alt": "Amie Hamel, LMT, smiling, wearing glasses and a patterned scarf",
+          "loaded": true
+        }
+      ],
+      "words": 137,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "jenn",
+      "route": "/team/dr-jenn-hartmann",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-jenn-1280.jpg",
+      "height": 2574,
+      "overflow": 0,
+      "h1": "Dr. Jenn Hartmann",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        }
+      ],
+      "words": 344,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "irene",
+      "route": "/team/dr-irene-londer",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-irene-1280.jpg",
+      "height": 2392,
+      "overflow": 0,
+      "h1": "Dr. Irene Londer",
+      "images": [
+        {
+          "alt": "Dr. Irene Londer in navy scrubs, with purple hair.",
+          "loaded": true
+        }
+      ],
+      "words": 255,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "amie",
+      "route": "/team/amie-hamel",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-amie-1280.jpg",
+      "height": 2389,
+      "overflow": 0,
+      "h1": "Amie Hamel",
+      "images": [
+        {
+          "alt": "Amie Hamel, LMT, smiling, wearing glasses and a patterned scarf",
+          "loaded": true
+        }
+      ],
+      "words": 240,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "resources",
+      "route": "/resources",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-resources-1280.jpg",
+      "height": 2003,
+      "overflow": 0,
+      "h1": "Make sense of your next step.",
+      "images": [],
+      "words": 196,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "article",
+      "route": "/resources/which-labs-are-useful",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-article-1280.jpg",
+      "height": 3223,
+      "overflow": 0,
+      "h1": "Which labs are useful, and when is testing not necessary?",
+      "images": [],
+      "words": 445,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "providers",
+      "route": "/for-providers",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-providers-1280.jpg",
+      "height": 3565,
+      "overflow": 0,
+      "h1": "Another clinical perspective.",
+      "images": [],
+      "words": 408,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "book",
+      "route": "/book",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-book-1280.jpg",
+      "height": 3538,
+      "overflow": 0,
+      "h1": "Arrange your visit.",
+      "images": [],
+      "words": 424,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "faq",
+      "route": "/faq",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-faq-1280.jpg",
+      "height": 4001,
+      "overflow": 0,
+      "h1": "Before your first visit.",
+      "images": [],
+      "words": 363,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "legal",
+      "route": "/privacy",
+      "width": 1280,
+      "status": 200,
+      "filename": "after-legal-1280.jpg",
+      "height": 2342,
+      "overflow": 0,
+      "h1": "Website Privacy Policy",
+      "images": [],
+      "words": 289,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "not-found",
+      "route": "/missing-redesign-page",
+      "width": 1280,
+      "status": 404,
+      "filename": "after-not-found-1280.jpg",
+      "height": 1686,
+      "overflow": 0,
+      "h1": "We couldn't find that page — but we can help you find the right starting point.",
+      "images": [],
+      "words": 181,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-home-1600.jpg",
+      "height": 5616,
+      "overflow": 0,
+      "h1": "Get back to what moves you.",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        },
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        }
+      ],
+      "words": 704,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "start-here",
+      "route": "/start-here?goal=performance",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-start-here-1600.jpg",
+      "height": 2128,
+      "overflow": 0,
+      "h1": "Find your starting point.",
+      "images": [],
+      "words": 229,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "pathways",
+      "route": "/how-we-help",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-pathways-1600.jpg",
+      "height": 3191,
+      "overflow": 0,
+      "h1": "Four ways to begin.",
+      "images": [],
+      "words": 354,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "pain",
+      "route": "/how-we-help/pain-recovery",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-pain-1600.jpg",
+      "height": 3882,
+      "overflow": 0,
+      "h1": "A clearer plan for recurring pain.",
+      "images": [],
+      "words": 466,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "performance",
+      "route": "/how-we-help/performance",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-performance-1600.jpg",
+      "height": 4298,
+      "overflow": 0,
+      "h1": "Move with more confidence.",
+      "images": [],
+      "words": 444,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "prevention",
+      "route": "/how-we-help/prevention-active-aging",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-prevention-1600.jpg",
+      "height": 3746,
+      "overflow": 0,
+      "h1": "Keep doing what you love.",
+      "images": [],
+      "words": 369,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "functional",
+      "route": "/how-we-help/functional-health",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-functional-1600.jpg",
+      "height": 4141,
+      "overflow": 0,
+      "h1": "Make room for the full conversation.",
+      "images": [],
+      "words": 432,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "chiropractic",
+      "route": "/services/chiropractic-sports-chiropractic",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-chiropractic-1600.jpg",
+      "height": 3678,
+      "overflow": 0,
+      "h1": "Hands-on care. Assessment first.",
+      "images": [],
+      "words": 421,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "golf",
+      "route": "/services/golf-performance",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-golf-1600.jpg",
+      "height": 3563,
+      "overflow": 0,
+      "h1": "More freedom in your swing.",
+      "images": [],
+      "words": 409,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "massage",
+      "route": "/services/therapeutic-massage",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-massage-1600.jpg",
+      "height": 3578,
+      "overflow": 0,
+      "h1": "Massage tailored to you.",
+      "images": [
+        {
+          "alt": "Amie Hamel, LMT, smiling, wearing glasses and a patterned scarf",
+          "loaded": true
+        }
+      ],
+      "words": 316,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "scar",
+      "route": "/services/scar-release-functional-restoration",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-scar-1600.jpg",
+      "height": 3288,
+      "overflow": 0,
+      "h1": "Recovery beyond the incision.",
+      "images": [],
+      "words": 368,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "holobiome",
+      "route": "/services/holobiome-gut-restoration",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-holobiome-1600.jpg",
+      "height": 3604,
+      "overflow": 0,
+      "h1": "A guided conversation about gut health.",
+      "images": [],
+      "words": 443,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "labs",
+      "route": "/services/direct-access-lab-testing",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-labs-1600.jpg",
+      "height": 3333,
+      "overflow": 0,
+      "h1": "Testing starts with a useful question.",
+      "images": [],
+      "words": 345,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "about",
+      "route": "/about",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-about-1600.jpg",
+      "height": 4881,
+      "overflow": 0,
+      "h1": "Clinical judgment. A human connection.",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        }
+      ],
+      "words": 723,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "team",
+      "route": "/team",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-team-1600.jpg",
+      "height": 2024,
+      "overflow": 0,
+      "h1": "Meet your care team.",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        },
+        {
+          "alt": "Dr. Irene Londer in navy scrubs, with purple hair.",
+          "loaded": true
+        },
+        {
+          "alt": "Amie Hamel, LMT, smiling, wearing glasses and a patterned scarf",
+          "loaded": true
+        }
+      ],
+      "words": 137,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "jenn",
+      "route": "/team/dr-jenn-hartmann",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-jenn-1600.jpg",
+      "height": 2588,
+      "overflow": 0,
+      "h1": "Dr. Jenn Hartmann",
+      "images": [
+        {
+          "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin.",
+          "loaded": true
+        }
+      ],
+      "words": 344,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "irene",
+      "route": "/team/dr-irene-londer",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-irene-1600.jpg",
+      "height": 2406,
+      "overflow": 0,
+      "h1": "Dr. Irene Londer",
+      "images": [
+        {
+          "alt": "Dr. Irene Londer in navy scrubs, with purple hair.",
+          "loaded": true
+        }
+      ],
+      "words": 255,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "amie",
+      "route": "/team/amie-hamel",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-amie-1600.jpg",
+      "height": 2374,
+      "overflow": 0,
+      "h1": "Amie Hamel",
+      "images": [
+        {
+          "alt": "Amie Hamel, LMT, smiling, wearing glasses and a patterned scarf",
+          "loaded": true
+        }
+      ],
+      "words": 240,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "resources",
+      "route": "/resources",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-resources-1600.jpg",
+      "height": 1981,
+      "overflow": 0,
+      "h1": "Make sense of your next step.",
+      "images": [],
+      "words": 196,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "article",
+      "route": "/resources/which-labs-are-useful",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-article-1600.jpg",
+      "height": 3214,
+      "overflow": 0,
+      "h1": "Which labs are useful, and when is testing not necessary?",
+      "images": [],
+      "words": 445,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "providers",
+      "route": "/for-providers",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-providers-1600.jpg",
+      "height": 3600,
+      "overflow": 0,
+      "h1": "Another clinical perspective.",
+      "images": [],
+      "words": 408,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "book",
+      "route": "/book",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-book-1600.jpg",
+      "height": 3501,
+      "overflow": 0,
+      "h1": "Arrange your visit.",
+      "images": [],
+      "words": 424,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "faq",
+      "route": "/faq",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-faq-1600.jpg",
+      "height": 4021,
+      "overflow": 0,
+      "h1": "Before your first visit.",
+      "images": [],
+      "words": 363,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "legal",
+      "route": "/privacy",
+      "width": 1600,
+      "status": 200,
+      "filename": "after-legal-1600.jpg",
+      "height": 2337,
+      "overflow": 0,
+      "h1": "Website Privacy Policy",
+      "images": [],
+      "words": 289,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "name": "not-found",
+      "route": "/missing-redesign-page",
+      "width": 1600,
+      "status": 404,
+      "filename": "after-not-found-1600.jpg",
+      "height": 1646,
+      "overflow": 0,
+      "h1": "We couldn't find that page — but we can help you find the right starting point.",
+      "images": [],
+      "words": 181,
+      "errors": [],
+      "failed": []
+    }
+  ]
+}

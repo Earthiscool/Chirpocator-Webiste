@@ -1,0 +1,514 @@
+{
+  "homePage": {
+    "heroHeadline": "Get back to what moves you.",
+    "heroSubhead": "Care with Dr. Jenn Hartmann for active people navigating recurring pain, stalled recovery, or movement limitations. We connect the relevant pieces and build a practical plan around your goals.",
+    "trustItems": [
+      {
+        "_type": "titledItem",
+        "_key": "review0",
+        "title": "Wayne, Pennsylvania",
+        "body": "Care on the Philadelphia Main Line."
+      },
+      {
+        "_type": "titledItem",
+        "_key": "review1",
+        "title": "Independent practitioners",
+        "body": "Chiropractic physicians and therapeutic massage."
+      },
+      {
+        "_type": "titledItem",
+        "_key": "review2",
+        "title": "Care that connects",
+        "body": "Assessment, movement, and collaboration."
+      }
+    ],
+    "recognitionHeading": "When something keeps getting in the way.",
+    "recognitionCards": [
+      "The pain settles, then comes back.",
+      "Recovery has stalled despite trying several approaches.",
+      "You want to keep training, golfing, or moving comfortably.",
+      "You feel capable, but not quite like yourself."
+    ],
+    "recognitionCoda": "",
+    "reframeHeading": "Understand what matters. Build from there.",
+    "reframeBody": [
+      {
+        "_type": "block",
+        "_key": "reframe",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "reframetext",
+            "text": "Your history, movement, and everyday demands help put symptoms in context. Dr. Jenn considers the painful area alongside relevant tissue, load, and recovery factors, then explains the priorities in plain language. Your plan may include hands-on care, movement work, or another clinical opinion. The starting point is an assessment of you, with space for questions and decisions together.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "reframePull": "",
+    "pathwaysHeading": "Four ways to begin.",
+    "pathwaysIntro": "Choose the goal that feels closest to yours.",
+    "processHeading": "From your first conversation to your next step.",
+    "processSteps": [
+      {
+        "_type": "titledItem",
+        "_key": "review0",
+        "title": "Listen",
+        "body": "Your history, goals, and what you have tried."
+      },
+      {
+        "_type": "titledItem",
+        "_key": "review1",
+        "title": "Assess",
+        "body": "Examine the areas relevant to your concerns."
+      },
+      {
+        "_type": "titledItem",
+        "_key": "review2",
+        "title": "Connect the dots",
+        "body": "Explain what matters and why."
+      },
+      {
+        "_type": "titledItem",
+        "_key": "review3",
+        "title": "Build the plan",
+        "body": "Choose care and home strategies together."
+      },
+      {
+        "_type": "titledItem",
+        "_key": "review4",
+        "title": "Measure progress",
+        "body": "Reassess your response and adjust the plan."
+      }
+    ],
+    "processNote": "",
+    "drJennHeading": "Meet Dr. Jenn Hartmann.",
+    "drJennBody": [
+      {
+        "_type": "block",
+        "_key": "jenn",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "jenntext",
+            "text": "Dr. Jenn brings sports chiropractic, manual therapy, movement, and functional health into one clinical conversation. She starts by listening, then looks for the information that helps decide what to do next. Her love of sport began at five and still shapes her interest in helping people return to the activities they care about. She is especially invested in young athletes pursuing their goals. When a different specialist is the better fit, collaboration and referral are part of the plan.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "drJennHighlights": [],
+    "proofHeading": "Get to know the people behind your care.",
+    "proofPoints": [
+      {
+        "_type": "titledItem",
+        "_key": "review0",
+        "title": "Individual clinical roles",
+        "body": "See each practitioner’s background, approach, and services."
+      }
+    ],
+    "toolsHeading": "The right tools, in the right context.",
+    "toolsIntro": "Assessment guides which tools belong in your plan.",
+    "toolGroups": [
+      {
+        "_key": "manual",
+        "title": "Manual care",
+        "body": "Hands-on care informed by your assessment.",
+        "items": [],
+        "cta": {
+          "label": "Explore chiropractic",
+          "href": "/services/chiropractic-sports-chiropractic"
+        }
+      },
+      {
+        "_key": "movement",
+        "title": "Movement",
+        "body": "Sport, golf, posture, and everyday function.",
+        "items": [],
+        "cta": {
+          "label": "Explore performance",
+          "href": "/how-we-help/performance"
+        }
+      },
+      {
+        "_key": "recovery",
+        "title": "Recovery support",
+        "body": "Supporting options when they fit your goals.",
+        "items": [],
+        "cta": {
+          "label": "Explore recovery",
+          "href": "/how-we-help/pain-recovery"
+        }
+      },
+      {
+        "_key": "functional",
+        "title": "Functional health",
+        "body": "Consultation, nutrition, and useful health information.",
+        "items": [],
+        "cta": {
+          "label": "Explore functional health",
+          "href": "/how-we-help/functional-health"
+        }
+      }
+    ],
+    "expectHeading": "A first visit with a clear purpose.",
+    "expectItems": [
+      {
+        "_type": "titledItem",
+        "_key": "review0",
+        "title": "Bring your questions",
+        "body": "Share your goals, what you have tried, and relevant reports."
+      },
+      {
+        "_type": "titledItem",
+        "_key": "review1",
+        "title": "Make room for movement",
+        "body": "Wear comfortable clothing you can move in."
+      },
+      {
+        "_type": "titledItem",
+        "_key": "review2",
+        "title": "Know the next step",
+        "body": "Discuss recommendations, provider fit, and follow-up together."
+      }
+    ],
+    "educationHeading": "Useful questions. Thoughtful answers.",
+    "finalHeading": "Let’s find your starting point.",
+    "finalBody": "Choose your goal. We’ll help you take the next step."
+  },
+  "startHerePage": {
+    "headline": "Find your starting point.",
+    "intro": "Choose the goal that sounds most like you. You’ll see two or three relevant next steps.",
+    "selectorPrompt": "What would you like help with?"
+  },
+  "aboutPage": {
+    "headline": "Clinical judgment. A human connection.",
+    "intro": "Meet Dr. Jenn Hartmann. Sports chiropractic, movement, manual therapy, and functional health inform how she assesses and explains care.",
+    "closing": "Bring your questions. Start a conversation."
+  },
+  "teamPage": {
+    "headline": "Meet your care team.",
+    "intro": "Independent practitioners with distinct skills and a shared commitment to thoughtful care. Explore each person’s approach and services before choosing a visit."
+  },
+  "providersPage": {
+    "headline": "Another clinical perspective.",
+    "intro": "A collaborative resource for clinicians, coaches, concierge physicians, and athlete agents. Start a professional conversation about fit and communication."
+  },
+  "bookingPage": {
+    "headline": "Arrange your visit.",
+    "intro": "Choose a visit below, then call or request it by email. If you’re unsure, Start Here can help you find the right entry point.",
+    "firstVisitNote": [
+      {
+        "_type": "block",
+        "_key": "review-firstvisit",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "span-firstvisit",
+            "text": "Wear comfortable clothing you can move in, and bring relevant reports and your questions. Contact the office to confirm appointment length, current fees, and any arrival requirements.",
+            "marks": []
+          }
+        ]
+      }
+    ]
+  },
+  "faqPage": {
+    "headline": "Before your first visit.",
+    "intro": "Practical answers about choosing a provider, arranging a visit, preparing, and what happens next."
+  },
+  "resourcesPage": {
+    "headline": "Make sense of your next step.",
+    "intro": "Explore questions about recurring pain, movement, golf, and health information. Follow the relevant links when you want to learn more."
+  },
+  "pathway-pain-recovery": {
+    "heroHeadline": "A clearer plan for recurring pain.",
+    "heroIntro": "When pain returns or recovery stalls, start with a focused assessment of the painful area and the relevant movement, tissue, and load context.",
+    "cardSummary": "For recurring pain, injury, or recovery that has stalled.",
+    "approachHeading": "Start with what is keeping you from moving.",
+    "pageHeadings": {
+      "recognition": "When pain keeps interrupting life",
+      "tools": "Care informed by your assessment",
+      "expect": "Your evaluation, explained",
+      "faqs": "Questions about pain and recovery",
+      "final": "Start with an evaluation."
+    }
+  },
+  "pathway-performance": {
+    "heroHeadline": "Move with more confidence.",
+    "heroIntro": "For athletes, golfers, and active adults who want a clearer understanding of mobility, stability, strength, and recovery in the activities they enjoy.",
+    "cardSummary": "For movement, training, golf, and the demands of sport.",
+    "approachHeading": "Mobility. Stability. Strength.",
+    "pageHeadings": {
+      "recognition": "When movement holds you back",
+      "tools": "Support for the demands of your sport",
+      "expect": "From assessment to practical priorities",
+      "faqs": "Questions about performance care",
+      "final": "Bring your goals. Build your next step."
+    },
+    "movementPrinciples": [
+      {
+        "_key": "mobility",
+        "title": "Mobility",
+        "body": "Available movement for the positions your sport requires."
+      },
+      {
+        "_key": "stability",
+        "title": "Stability",
+        "body": "Control through those positions, including balance and coordination."
+      },
+      {
+        "_key": "strength",
+        "title": "Strength",
+        "body": "Capacity for the load and repetition of your activity."
+      }
+    ]
+  },
+  "pathway-prevention": {
+    "heroHeadline": "Keep doing what you love.",
+    "heroIntro": "Build a practical starting point for staying active. We consider current movement, previous injuries, and the everyday activities you want to keep doing.",
+    "cardSummary": "For staying active and capable through everyday life.",
+    "approachHeading": "Sustainable care for an active life.",
+    "pageHeadings": {
+      "recognition": "The activities you want to keep",
+      "tools": "Support that fits your daily life",
+      "expect": "A practical starting point",
+      "faqs": "Questions about prevention",
+      "final": "Begin with where you are today."
+    }
+  },
+  "pathway-functional-health": {
+    "heroHeadline": "Make room for the full conversation.",
+    "heroIntro": "Feeling tired or unwell despite being told your results are fine? Start with your history, goals, and existing information, then discuss which next steps may help.",
+    "cardSummary": "For nutrition, gut health, energy, and understanding labs.",
+    "approachHeading": "History and context before more testing.",
+    "pageHeadings": {
+      "recognition": "When you still have questions",
+      "tools": "Consultation, testing, and programme options",
+      "expect": "What a consultation involves",
+      "faqs": "Questions about functional health",
+      "final": "Start with a functional health consultation."
+    },
+    "nextSteps": [
+      {
+        "_key": "consult",
+        "title": "Consultation",
+        "body": "Discuss symptoms, goals, and any existing results with Dr. Jenn.",
+        "cta": {
+          "label": "Arrange a consultation",
+          "href": "/book#booking-functional"
+        }
+      },
+      {
+        "_key": "labs",
+        "title": "Direct Access Labs",
+        "body": "Understand ordering, draw arrangements, and the separate role of interpretation.",
+        "cta": {
+          "label": "Explore lab testing",
+          "href": "/services/direct-access-lab-testing"
+        }
+      },
+      {
+        "_key": "gut",
+        "title": "Holobiome",
+        "body": "Learn about the phased gut programme and discuss whether it fits.",
+        "cta": {
+          "label": "Explore Holobiome",
+          "href": "/services/holobiome-gut-restoration"
+        }
+      }
+    ]
+  },
+  "service-chiropractic": {
+    "heroHeadline": "Hands-on care. Assessment first.",
+    "pageHeadings": {
+      "recognition": "When chiropractic care may fit",
+      "definition": "What your chiropractic assessment considers",
+      "approach": "How hands-on care and movement fit together",
+      "fit": "Choosing care for your needs",
+      "expect": "Inside your chiropractic visit",
+      "rationale": "The role of conservative care",
+      "faqs": "Questions about chiropractic care",
+      "final": "Start with a focused evaluation."
+    },
+    "pricingNote": "",
+    "visitLength": "",
+    "whatToExpect": [
+      {
+        "_key": "k4975qlm",
+        "_type": "titledItem",
+        "body": "History, assessment, a clear explanation of what we found, and treatment when appropriate.",
+        "title": "First visit"
+      },
+      {
+        "_key": "k4arzixn",
+        "_type": "titledItem",
+        "body": "Comfortable clothing you can move in.",
+        "title": "What to wear"
+      },
+      {
+        "_key": "k4bmz4ui",
+        "_type": "titledItem",
+        "body": "Progress is reassessed each visit and the plan adjusted to how you're responding.",
+        "title": "Follow-up visits"
+      }
+    ]
+  },
+  "service-golf": {
+    "heroHeadline": "More freedom in your swing.",
+    "pageHeadings": {
+      "recognition": "When your body limits your game",
+      "definition": "What a golf assessment looks at",
+      "approach": "Care that complements your coaching",
+      "fit": "Is a golf evaluation right for you?",
+      "expect": "From rotation to a practical plan",
+      "rationale": "Why movement matters for golf",
+      "faqs": "Questions before a golf evaluation",
+      "final": "Bring your golf goals."
+    },
+    "pricingNote": "",
+    "visitLength": ""
+  },
+  "service-massage": {
+    "heroHeadline": "Massage tailored to you.",
+    "pageHeadings": {
+      "recognition": "What brings you to a session",
+      "definition": "How your massage session is tailored",
+      "approach": "Amie’s approach to assessment and comfort",
+      "fit": "Choosing the right session",
+      "expect": "Your first massage session",
+      "rationale": "How massage can support your plan",
+      "faqs": "Questions before a massage",
+      "final": "Arrange your session with Amie."
+    },
+    "pricingNote": "",
+    "visitLength": "",
+    "whatToExpect": [
+      {
+        "_key": "k563q5dj",
+        "_type": "titledItem",
+        "body": "Including a brief conversation and assessment.",
+        "title": "Your session"
+      },
+      {
+        "_key": "k573ix9z",
+        "_type": "titledItem",
+        "body": "The work is adjusted to your comfort throughout.",
+        "title": "Pressure you control"
+      },
+      {
+        "_key": "k58f5y33",
+        "_type": "titledItem",
+        "body": "Simple suggestions for between sessions.",
+        "title": "Practical follow-up"
+      }
+    ]
+  },
+  "service-scar": {
+    "heroHeadline": "Recovery beyond the incision.",
+    "pageHeadings": {
+      "recognition": "When healed tissue still feels restrictive",
+      "definition": "How scar work fits into recovery",
+      "approach": "Evaluate the tissue and the movement around it",
+      "fit": "Fit, healing, and clearance",
+      "expect": "What scar-focused care involves",
+      "rationale": "A functional approach to scar tissue",
+      "faqs": "Questions about scar care",
+      "final": "Discuss the right starting visit."
+    },
+    "pricingNote": "",
+    "visitLength": ""
+  },
+  "service-holobiome": {
+    "heroHeadline": "A guided conversation about gut health.",
+    "pageHeadings": {
+      "recognition": "When you want a structured approach",
+      "definition": "Understanding the Holobiome programme",
+      "approach": "Consultation before commitment",
+      "fit": "Programme fit and boundaries",
+      "expect": "Phases, guidance, and support",
+      "rationale": "Gut health in context",
+      "faqs": "Questions about Holobiome",
+      "final": "Begin with a consultation."
+    },
+    "pricingNote": "",
+    "visitLength": ""
+  },
+  "service-labs": {
+    "heroHeadline": "Testing starts with a useful question.",
+    "pageHeadings": {
+      "recognition": "When you are considering lab testing",
+      "definition": "Ordering tests and reviewing results",
+      "approach": "Decide what information would change your plan",
+      "fit": "When testing may be useful",
+      "expect": "Ordering, draw arrangements, and follow-up",
+      "rationale": "What results can and cannot tell you",
+      "faqs": "Questions about direct access labs",
+      "final": "Talk through your testing questions."
+    },
+    "nextSteps": [
+      {
+        "_key": "ordering",
+        "title": "Ordering information",
+        "body": "Ask the office about current panels, ordering destinations, and draw arrangements.",
+        "cta": {
+          "label": "Ask about ordering",
+          "href": "/book#contact"
+        }
+      },
+      {
+        "_key": "interpretation",
+        "title": "Review results with Dr. Jenn",
+        "body": "Arrange a Functional Health Consultation to discuss results and next steps.",
+        "cta": {
+          "label": "Arrange a consultation",
+          "href": "/book#booking-functional"
+        }
+      }
+    ],
+    "pricingNote": "",
+    "visitLength": ""
+  },
+  "provider-jenn-hartmann": {
+    "photo": {
+      "alt": "Dr. Jenn Hartmann wearing glasses and a white polo shirt, resting her hand near her chin."
+    }
+  },
+  "provider-irene-londer": {
+    "photo": {
+      "alt": "Dr. Irene Londer in navy scrubs, with purple hair."
+    }
+  },
+  "article-useful-labs": {
+    "title": "Which labs are useful, and when is testing not necessary?"
+  },
+  "booking-athlete": {
+    "duration": "",
+    "priceNote": ""
+  },
+  "booking-existing": {
+    "duration": "",
+    "priceNote": ""
+  },
+  "booking-functional": {
+    "duration": "",
+    "priceNote": ""
+  },
+  "booking-massage": {
+    "duration": "",
+    "priceNote": ""
+  },
+  "booking-new-patient": {
+    "duration": "",
+    "priceNote": ""
+  },
+  "booking-performance": {
+    "duration": "",
+    "priceNote": ""
+  }
+}

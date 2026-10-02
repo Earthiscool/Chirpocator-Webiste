@@ -1,0 +1,129 @@
+
+> iwc-website@0.1.0 test:e2e
+> playwright test
+
+[WebServer] (node:99828) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:99829) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:99855) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:99933) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:99959) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:99961) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:99987) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 94 tests using 1 worker
+
+(node:99991) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:99855) Warning: `--localstorage-file` was provided without a valid path
+  ✓   1 [desktop] › tests/e2e/a11y.spec.ts:7:7 › WCAG 2.2 AA automated checks: / (1.0s)
+  ✓   2 [desktop] › tests/e2e/a11y.spec.ts:7:7 › WCAG 2.2 AA automated checks: /start-here?goal=performance (508ms)
+  ✓   3 [desktop] › tests/e2e/a11y.spec.ts:7:7 › WCAG 2.2 AA automated checks: /how-we-help/pain-recovery (611ms)
+  ✓   4 [desktop] › tests/e2e/a11y.spec.ts:7:7 › WCAG 2.2 AA automated checks: /services/holobiome-gut-restoration (582ms)
+  ✓   5 [desktop] › tests/e2e/a11y.spec.ts:7:7 › WCAG 2.2 AA automated checks: /about (643ms)
+  ✓   6 [desktop] › tests/e2e/a11y.spec.ts:7:7 › WCAG 2.2 AA automated checks: /team/amie-hamel (491ms)
+  ✓   7 [desktop] › tests/e2e/a11y.spec.ts:7:7 › WCAG 2.2 AA automated checks: /book (680ms)
+  ✓   8 [desktop] › tests/e2e/a11y.spec.ts:7:7 › WCAG 2.2 AA automated checks: /for-providers (622ms)
+  ✓   9 [desktop] › tests/e2e/a11y.spec.ts:7:7 › WCAG 2.2 AA automated checks: /faq (652ms)
+  ✓  10 [desktop] › tests/e2e/a11y.spec.ts:7:7 › WCAG 2.2 AA automated checks: /resources (515ms)
+  ✓  11 [desktop] › tests/e2e/a11y.spec.ts:7:7 › WCAG 2.2 AA automated checks: /resources/which-labs-are-useful (517ms)
+  ✓  12 [desktop] › tests/e2e/a11y.spec.ts:7:7 › WCAG 2.2 AA automated checks: /privacy (451ms)
+  ✓  13 [desktop] › tests/e2e/a11y.spec.ts:23:5 › chat panel passes automated accessibility checks (746ms)
+  ✓  14 [desktop] › tests/e2e/a11y.spec.ts:32:5 › reduced motion: content is visible without animation (121ms)
+  ✓  15 [desktop] › tests/e2e/booking-forms.spec.ts:7:5 › booking page offers every blueprint entry point with a real action (145ms)
+  ✓  16 [desktop] › tests/e2e/booking-forms.spec.ts:18:5 › deep links from pathways highlight the right visit (187ms)
+[WebServer] [rate-limit] Upstash Redis not configured — using per-instance memory limits.
+  ✓  17 [desktop] › tests/e2e/booking-forms.spec.ts:25:5 › contact form validates on the server and shows accessible errors (2.9s)
+  ✓  18 [desktop] › tests/e2e/booking-forms.spec.ts:35:5 › contact form delivers through the email service and redacts identifiers (3.0s)
+  ✓  19 [desktop] › tests/e2e/booking-forms.spec.ts:57:5 › honeypot submissions are silently dropped (3.0s)
+  ✓  20 [desktop] › tests/e2e/booking-forms.spec.ts:69:5 › provider form sends clinician details only, to the referral inbox (3.0s)
+  ✓  21 [desktop] › tests/e2e/booking-forms.spec.ts:85:5 › newsletter sign-up adds the contact to the audience (3.0s)
+[WebServer] (node:99959) Warning: `--localstorage-file` was provided without a valid path
+[WebServer] [rate-limit] Upstash Redis not configured — using per-instance memory limits.
+  ✓  22 [desktop] › tests/e2e/booking-forms.spec.ts:96:5 › without an email service the form says so honestly (no fake success) (3.0s)
+[WebServer] [rate-limit] Upstash Redis not configured — using per-instance memory limits.
+  ✓  23 [desktop] › tests/e2e/chat.spec.ts:17:5 › assistant opens, streams a grounded reply, and links only to site pages (1.0s)
+  ✓  24 [desktop] › tests/e2e/chat.spec.ts:36:5 › server sends the model approved, published content — with privacy settings (58ms)
+  ✓  25 [desktop] › tests/e2e/chat.spec.ts:55:5 › identifiers are redacted before they reach the model (60ms)
+  ✓  26 [desktop] › tests/e2e/chat.spec.ts:67:5 › emergencies get 911/988 guidance immediately, without calling the model (6ms)
+  ✓  27 [desktop] › tests/e2e/chat.spec.ts:80:5 › input validation and origin checks (7ms)
+[WebServer] [rate-limit] Upstash Redis not configured — using per-instance memory limits.
+  ✓  28 [desktop] › tests/e2e/chat.spec.ts:89:5 › without an API key the assistant shows an honest unavailable state (1.0s)
+  ✓  29 [desktop] › tests/e2e/navigation.spec.ts:3:5 › main navigation matches the approved architecture (127ms)
+  ✓  30 [desktop] › tests/e2e/navigation.spec.ts:12:5 › How We Help dropdown is keyboard operable (131ms)
+  ✓  31 [desktop] › tests/e2e/navigation.spec.ts:24:5 › dropdown links navigate to pathway pages (228ms)
+  ✓  32 [desktop] › tests/e2e/navigation.spec.ts:35:5 › skip link moves focus to main content (112ms)
+  ✓  33 [desktop] › tests/e2e/navigation.spec.ts:44:5 › important internal links resolve (no broken links on key pages) (478ms)
+  ✓  34 [desktop] › tests/e2e/redesign.spec.ts:9:7 › Start Here: Pain + Recovery has focus, state and real next steps (183ms)
+  ✓  35 [desktop] › tests/e2e/redesign.spec.ts:9:7 › Start Here: Performance has focus, state and real next steps (174ms)
+  ✓  36 [desktop] › tests/e2e/redesign.spec.ts:9:7 › Start Here: Prevention + Active Aging has focus, state and real next steps (183ms)
+  ✓  37 [desktop] › tests/e2e/redesign.spec.ts:9:7 › Start Here: Functional Health has focus, state and real next steps (178ms)
+  ✓  38 [desktop] › tests/e2e/redesign.spec.ts:28:5 › all twelve homepage sections are in order and visible without JavaScript (101ms)
+  ✓  39 [desktop] › tests/e2e/redesign.spec.ts:52:5 › massage and golf preserve actual provider ownership; recommendations are explicitly curated (197ms)
+  ✓  40 [desktop] › tests/e2e/redesign.spec.ts:68:5 › provider request is retained through the booking email action (190ms)
+[WebServer] (node:99987) Warning: `--localstorage-file` was provided without a valid path
+[WebServer] [rate-limit] Upstash Redis not configured — using per-instance memory limits.
+  ✓  41 [desktop] › tests/e2e/redesign.spec.ts:77:5 › production assistant stays unavailable with a key but without approval/shared limits (47ms)
+  ✓  42 [desktop] › tests/e2e/redesign.spec.ts:87:5 › assistant handles unknown/unsupported fixtures, bounds output, and reports upstream failure (1.5s)
+  ✓  43 [desktop] › tests/e2e/redesign.spec.ts:108:5 › Start Here offers useful pathways before JavaScript is available (89ms)
+  ✓  44 [desktop] › tests/e2e/redesign.spec.ts:118:5 › failed portraits become descriptive text instead of empty panels (140ms)
+  ✓  45 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › / renders with sound SEO basics (138ms)
+  ✓  46 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /start-here renders with sound SEO basics (109ms)
+  ✓  47 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /how-we-help renders with sound SEO basics (107ms)
+  ✓  48 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /how-we-help/pain-recovery renders with sound SEO basics (106ms)
+  ✓  49 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /how-we-help/performance renders with sound SEO basics (105ms)
+  ✓  50 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /how-we-help/prevention-active-aging renders with sound SEO basics (103ms)
+  ✓  51 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /how-we-help/functional-health renders with sound SEO basics (106ms)
+  ✓  52 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /services/chiropractic-sports-chiropractic renders with sound SEO basics (99ms)
+  ✓  53 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /services/golf-performance renders with sound SEO basics (101ms)
+  ✓  54 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /services/therapeutic-massage renders with sound SEO basics (110ms)
+  ✓  55 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /services/holobiome-gut-restoration renders with sound SEO basics (101ms)
+  ✓  56 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /services/scar-release-functional-restoration renders with sound SEO basics (100ms)
+  ✓  57 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /services/direct-access-lab-testing renders with sound SEO basics (102ms)
+  ✓  58 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /about renders with sound SEO basics (107ms)
+  ✓  59 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /team renders with sound SEO basics (113ms)
+  ✓  60 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /team/dr-jenn-hartmann renders with sound SEO basics (106ms)
+  ✓  61 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /team/dr-irene-londer renders with sound SEO basics (110ms)
+  ✓  62 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /team/amie-hamel renders with sound SEO basics (104ms)
+  ✓  63 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /resources renders with sound SEO basics (104ms)
+  ✓  64 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /resources/why-does-my-back-pain-keep-coming-back renders with sound SEO basics (102ms)
+  ✓  65 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /for-providers renders with sound SEO basics (122ms)
+  ✓  66 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /book renders with sound SEO basics (128ms)
+  ✓  67 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /faq renders with sound SEO basics (105ms)
+  ✓  68 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /privacy renders with sound SEO basics (100ms)
+  ✓  69 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /terms renders with sound SEO basics (97ms)
+  ✓  70 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /accessibility renders with sound SEO basics (97ms)
+  ✓  71 [desktop] › tests/e2e/routes.spec.ts:35:9 › every primary route › /disclaimer renders with sound SEO basics (97ms)
+  ✓  72 [desktop] › tests/e2e/routes.spec.ts:53:5 › unknown pages return 404 with a way forward (126ms)
+  ✓  73 [desktop] › tests/e2e/routes.spec.ts:59:5 › legacy Wix URLs 301-redirect to the new architecture (9ms)
+  ✓  74 [desktop] › tests/e2e/routes.spec.ts:79:5 › sitemap lists published pages only; robots blocks non-production (6ms)
+  ✓  75 [desktop] › tests/e2e/routes.spec.ts:90:5 › CMS and API are excluded from indexing (321ms)
+  ✓  76 [desktop] › tests/e2e/routes.spec.ts:97:5 › structured data: business, breadcrumbs, article (140ms)
+  ✓  77 [desktop] › tests/e2e/routes.spec.ts:110:5 › homepage keeps the blueprint narrative order (119ms)
+  ✓  78 [desktop] › tests/e2e/security.spec.ts:14:5 › no server secrets in client JavaScript (142ms)
+  ✓  79 [desktop] › tests/e2e/security.spec.ts:33:5 › no secrets in rendered HTML or API responses (6ms)
+  ✓  80 [desktop] › tests/e2e/security.spec.ts:40:5 › draft mode cannot be enabled without a Studio-issued secret (4ms)
+  ✓  81 [desktop] › tests/e2e/security.spec.ts:49:5 › revalidation webhook rejects unsigned requests (7ms)
+  ✓  82 [desktop] › tests/e2e/security.spec.ts:54:5 › security headers are set (5ms)
+  ✓  83 [desktop] › tests/e2e/security.spec.ts:62:5 › testimonials without written permission never render (4ms)
+  ✓  84 [desktop] › tests/e2e/start-here.spec.ts:3:5 › choosing a goal shows 2–3 real next steps and updates the URL (216ms)
+  ✓  85 [desktop] › tests/e2e/start-here.spec.ts:24:5 › browser Back returns to the unselected state (182ms)
+  ✓  86 [desktop] › tests/e2e/start-here.spec.ts:33:5 › selector is fully keyboard operable (127ms)
+  ✓  87 [desktop] › tests/e2e/start-here.spec.ts:41:5 › shared links open with the choice preselected (96ms)
+  ✓  88 [desktop] › tests/e2e/start-here.spec.ts:47:5 › no medical questionnaire: the page asks for no personal input (89ms)
+  ✓  89 [desktop] › tests/e2e/z-rate-limit.spec.ts:4:5 › chat endpoint rate-limits bursts (17ms)
+(node:329) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  90 [mobile] › tests/e2e/mobile.spec.ts:3:5 › mobile menu opens, traps focus, and closes with Escape (263ms)
+  ✓  91 [mobile] › tests/e2e/mobile.spec.ts:17:5 › mobile menu navigates via pathway group (1.2s)
+  ✓  92 [mobile] › tests/e2e/mobile.spec.ts:26:5 › persistent mobile actions: call, assistant, book (497ms)
+  ✓  93 [mobile] › tests/e2e/mobile.spec.ts:38:5 › no horizontal overflow on key pages at phone width (308ms)
+  ✓  94 [mobile] › tests/e2e/mobile.spec.ts:46:5 › touch targets in the action bar are at least 44px (134ms)
+
+  94 passed (42.8s)

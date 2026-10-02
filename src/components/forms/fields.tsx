@@ -65,7 +65,25 @@ export function Field({
   )
 }
 
-export function TextArea({label, name, error, hint, required, maxLength = 1000, rows = 5, defaultValue}: {label: string; name: string; error?: string; hint?: string; required?: boolean; maxLength?: number; rows?: number; defaultValue?: string}) {
+export function TextArea({
+  label,
+  name,
+  error,
+  hint,
+  required,
+  maxLength = 1000,
+  rows = 5,
+  defaultValue,
+}: {
+  label: string
+  name: string
+  error?: string
+  hint?: string
+  required?: boolean
+  maxLength?: number
+  rows?: number
+  defaultValue?: string
+}) {
   const id = useId()
   const [count, setCount] = useState(0)
   return (
@@ -102,7 +120,21 @@ export function TextArea({label, name, error, hint, required, maxLength = 1000, 
   )
 }
 
-export function Select({label, name, options, error, defaultValue, required = true}: {label: string; name: string; options: readonly string[]; error?: string; defaultValue?: string; required?: boolean}) {
+export function Select({
+  label,
+  name,
+  options,
+  error,
+  defaultValue,
+  required = true,
+}: {
+  label: string
+  name: string
+  options: readonly string[]
+  error?: string
+  defaultValue?: string
+  required?: boolean
+}) {
   const id = useId()
   return (
     <div>
@@ -136,14 +168,33 @@ export function Select({label, name, options, error, defaultValue, required = tr
   )
 }
 
-export function Radios({legend, name, options, defaultValue}: {legend: string; name: string; options: {value: string; label: string}[]; defaultValue: string}) {
+export function Radios({
+  legend,
+  name,
+  options,
+  defaultValue,
+}: {
+  legend: string
+  name: string
+  options: {value: string; label: string}[]
+  defaultValue: string
+}) {
   return (
     <fieldset>
       <legend className="text-sm font-semibold text-navy-900">{legend}</legend>
       <div className="mt-2 flex flex-wrap gap-3">
         {options.map((o) => (
-          <label key={o.value} className="flex min-h-11 cursor-pointer items-center gap-2.5 rounded-full border border-line bg-white px-4 has-[:checked]:border-navy-900 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-orange-600">
-            <input type="radio" name={name} value={o.value} defaultChecked={o.value === defaultValue} className="size-4 accent-navy-900" />
+          <label
+            key={o.value}
+            className="flex min-h-11 cursor-pointer items-center gap-2.5 rounded-full border border-line bg-white px-4 has-[:checked]:border-navy-900 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-orange-600"
+          >
+            <input
+              type="radio"
+              name={name}
+              value={o.value}
+              defaultChecked={o.value === defaultValue}
+              className="size-4 accent-navy-900"
+            />
             <span className="text-[0.95rem] text-navy-900">{o.label}</span>
           </label>
         ))}
@@ -157,7 +208,15 @@ export function Consent({name = 'consent', error, children}: {name?: string; err
   return (
     <div>
       <label htmlFor={id} className="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-navy-900">
-        <input id={id} name={name} type="checkbox" required className="mt-1 size-4 shrink-0 accent-navy-900" aria-invalid={Boolean(error)} aria-describedby={error ? `${id}-error` : undefined} />
+        <input
+          id={id}
+          name={name}
+          type="checkbox"
+          required
+          className="mt-1 size-4 shrink-0 accent-navy-900"
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? `${id}-error` : undefined}
+        />
         <span>{children}</span>
       </label>
       {error && (
@@ -198,14 +257,14 @@ export function AntiSpam() {
   )
 }
 
-export function SubmitButton({children, variant = 'book'}: {children: ReactNode; variant?: 'book' | 'primary'}) {
+export function SubmitButton({children}: {children: ReactNode; variant?: 'book' | 'primary'}) {
   const {pending} = useFormStatus()
   return (
     <button
       type="submit"
       disabled={pending}
       aria-disabled={pending}
-      className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-7 font-semibold text-white transition-colors disabled:opacity-60 ${variant === 'book' ? 'bg-orange-600 hover:bg-orange-700' : 'bg-navy-900 hover:bg-navy-700'}`}
+      className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-6 font-semibold text-white transition-colors disabled:opacity-60 bg-orange-600 hover:bg-orange-700`}
     >
       {pending ? 'Sending…' : children}
     </button>

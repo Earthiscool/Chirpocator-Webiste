@@ -1,0 +1,12 @@
+
+> iwc-website@0.1.0 check
+> npm run typecheck && npm run lint
+
+
+> iwc-website@0.1.0 typecheck
+> tsc --noEmit
+
+
+> iwc-website@0.1.0 lint
+> eslint
+

@@ -24,14 +24,22 @@ export async function buildMetadata({
   const finalTitle = stegaClean(seo?.title || title)
   const finalDescription = stegaClean(seo?.description || description || settings.defaultSeo?.description || '')
   const img = seo?.image?.asset ? seo.image : settings.defaultSeo?.image
-  const ogImage = img?.asset ? [{url: imageUrl(img, 1200, 630), width: 1200, height: 630, alt: img.alt || ''}] : undefined
+  const ogImage = img?.asset
+    ? [{url: imageUrl(img, 1200, 630), width: 1200, height: 630, alt: img.alt || ''}]
+    : undefined
   const canonical = siteUrl(path)
 
   return {
     title: finalTitle,
     description: finalDescription,
     alternates: {canonical},
-    robots: seo?.noIndex ? {index: false, follow: true} : undefined,
+    robots:
+      seo?.noIndex ||
+      process.env.SITE_INDEXABLE !== 'true' ||
+      process.env.VERCEL_ENV === 'preview' ||
+      process.env.IWC_REDESIGN_REVIEW === 'true'
+        ? {index: false, follow: true}
+        : undefined,
     openGraph: {
       title: finalTitle,
       description: finalDescription,

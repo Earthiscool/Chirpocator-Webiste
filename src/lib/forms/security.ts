@@ -4,6 +4,8 @@ import {createHmac, timingSafeEqual} from 'node:crypto'
 
 const secret = () => process.env.FORM_SECRET || process.env.SANITY_REVALIDATE_SECRET || ''
 
+export const hasFormSigningSecret = () => Boolean(secret())
+
 /** Signed render timestamp: rejects bots that submit instantly or replay old forms. */
 export function issueFormToken(now = Date.now()) {
   const sig = createHmac('sha256', secret()).update(String(now)).digest('base64url').slice(0, 24)

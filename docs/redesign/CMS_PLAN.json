@@ -1,0 +1,275 @@
+{
+  "mode": "read-only plan",
+  "documents": [
+    {
+      "id": "homePage",
+      "fields": [
+        "heroHeadline",
+        "heroSubhead",
+        "trustItems",
+        "recognitionHeading",
+        "recognitionCards",
+        "recognitionCoda",
+        "reframeHeading",
+        "reframeBody",
+        "reframePull",
+        "pathwaysHeading",
+        "pathwaysIntro",
+        "processHeading",
+        "processSteps",
+        "processNote",
+        "drJennHeading",
+        "drJennBody",
+        "drJennHighlights",
+        "proofHeading",
+        "proofPoints",
+        "toolsHeading",
+        "toolsIntro",
+        "toolGroups",
+        "expectHeading",
+        "expectItems",
+        "educationHeading",
+        "finalHeading",
+        "finalBody"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4IdAIZc"
+    },
+    {
+      "id": "startHerePage",
+      "fields": [
+        "headline",
+        "intro",
+        "selectorPrompt"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "aboutPage",
+      "fields": [
+        "headline",
+        "intro",
+        "closing"
+      ],
+      "sourceRevision": "46VzHZkMMKrBpAafKKZ4me"
+    },
+    {
+      "id": "teamPage",
+      "fields": [
+        "headline",
+        "intro"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "providersPage",
+      "fields": [
+        "headline",
+        "intro"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "bookingPage",
+      "fields": [
+        "headline",
+        "intro",
+        "firstVisitNote"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "faqPage",
+      "fields": [
+        "headline",
+        "intro"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "resourcesPage",
+      "fields": [
+        "headline",
+        "intro"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "pathway-pain-recovery",
+      "fields": [
+        "heroHeadline",
+        "heroIntro",
+        "cardSummary",
+        "approachHeading",
+        "pageHeadings"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "pathway-performance",
+      "fields": [
+        "heroHeadline",
+        "heroIntro",
+        "cardSummary",
+        "approachHeading",
+        "pageHeadings",
+        "movementPrinciples"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "pathway-prevention",
+      "fields": [
+        "heroHeadline",
+        "heroIntro",
+        "cardSummary",
+        "approachHeading",
+        "pageHeadings"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "pathway-functional-health",
+      "fields": [
+        "heroHeadline",
+        "heroIntro",
+        "cardSummary",
+        "approachHeading",
+        "pageHeadings",
+        "nextSteps"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "service-chiropractic",
+      "fields": [
+        "heroHeadline",
+        "pageHeadings",
+        "pricingNote",
+        "visitLength",
+        "whatToExpect"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "service-golf",
+      "fields": [
+        "heroHeadline",
+        "pageHeadings",
+        "pricingNote",
+        "visitLength"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "service-massage",
+      "fields": [
+        "heroHeadline",
+        "pageHeadings",
+        "pricingNote",
+        "visitLength",
+        "whatToExpect"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "service-scar",
+      "fields": [
+        "heroHeadline",
+        "pageHeadings",
+        "pricingNote",
+        "visitLength"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "service-holobiome",
+      "fields": [
+        "heroHeadline",
+        "pageHeadings",
+        "pricingNote",
+        "visitLength"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "service-labs",
+      "fields": [
+        "heroHeadline",
+        "pageHeadings",
+        "nextSteps",
+        "pricingNote",
+        "visitLength"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "provider-jenn-hartmann",
+      "fields": [
+        "photo"
+      ],
+      "sourceRevision": "46VzHZkMMKrBpAafKKZ4me"
+    },
+    {
+      "id": "provider-irene-londer",
+      "fields": [
+        "photo"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "article-useful-labs",
+      "fields": [
+        "title"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "booking-athlete",
+      "fields": [
+        "duration",
+        "priceNote"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "booking-existing",
+      "fields": [
+        "duration",
+        "priceNote"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "booking-functional",
+      "fields": [
+        "duration",
+        "priceNote"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "booking-massage",
+      "fields": [
+        "duration",
+        "priceNote"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "booking-new-patient",
+      "fields": [
+        "duration",
+        "priceNote"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    },
+    {
+      "id": "booking-performance",
+      "fields": [
+        "duration",
+        "priceNote"
+      ],
+      "sourceRevision": "cGpdB8J0BrZEyRS4Id2ttP"
+    }
+  ]
+}

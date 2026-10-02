@@ -19,7 +19,11 @@ export default defineConfig({
   reporter: [['list']],
   use: {baseURL: 'http://localhost:3100', trace: 'retain-on-failure'},
   projects: [
-    {name: 'desktop', use: {...devices['Desktop Chrome'], viewport: {width: 1280, height: 900}}, testIgnore: /mobile\.spec/},
+    {
+      name: 'desktop',
+      use: {...devices['Desktop Chrome'], viewport: {width: 1280, height: 900}},
+      testIgnore: /mobile\.spec/,
+    },
     {name: 'mobile', use: {...devices['iPhone 13'], browserName: 'chromium'}, testMatch: /mobile\.spec/},
   ],
   webServer: [
@@ -29,6 +33,8 @@ export default defineConfig({
       url: 'http://localhost:3100/robots.txt',
       reuseExistingServer: false,
       env: {
+        IWC_LOCAL_INTEGRATION_TEST: 'true',
+        FORM_SECRET: 'local-form-signing-test-only',
         OPENAI_API_KEY: 'test-key-not-real',
         OPENAI_BASE_URL: `${MOCK}/v1`,
         RESEND_API_KEY: 'test-key-not-real',
@@ -43,7 +49,19 @@ export default defineConfig({
       command: 'npx next start -p 3101',
       url: 'http://localhost:3101/robots.txt',
       reuseExistingServer: false,
-      env: {OPENAI_API_KEY: '', RESEND_API_KEY: ''},
+      env: {OPENAI_API_KEY: '', RESEND_API_KEY: '', FORM_SECRET: 'local-form-signing-test-only'},
+    },
+    {
+      command: 'npx next start -p 3104',
+      url: 'http://localhost:3104/robots.txt',
+      reuseExistingServer: false,
+      env: {
+        OPENAI_API_KEY: 'test-key-not-real',
+        IWC_ASSISTANT_APPROVED: '',
+        IWC_LOCAL_INTEGRATION_TEST: '',
+        UPSTASH_REDIS_REST_URL: '',
+        UPSTASH_REDIS_REST_TOKEN: '',
+      },
     },
   ],
 })

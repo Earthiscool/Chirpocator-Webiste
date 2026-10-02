@@ -15,11 +15,17 @@ import {sanityFetch} from '@/sanity/fetch'
 import {aboutPageQuery} from '@/sanity/queries'
 import type {AboutPage} from '@/sanity/types'
 
-const getPage = () => sanityFetch<AboutPage>({query: aboutPageQuery, tags: ['aboutPage', 'provider', 'service', 'testimonial']})
+const getPage = () =>
+  sanityFetch<AboutPage>({query: aboutPageQuery, tags: ['aboutPage', 'provider', 'service', 'testimonial']})
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage()
-  return buildMetadata({seo: page?.seo, title: 'About Dr. Jenn Hartmann | IWC Wayne, PA', description: page?.intro, path: '/about'})
+  return buildMetadata({
+    seo: page?.seo,
+    title: 'About Dr. Jenn Hartmann | IWC Wayne, PA',
+    description: page?.intro,
+    path: '/about',
+  })
 }
 
 export default async function AboutPageRoute() {
@@ -40,7 +46,7 @@ export default async function AboutPageRoute() {
       )}
       {/* Human opening */}
       <section className="border-b border-line bg-paper">
-        <div className="container-site grid items-end gap-12 pb-16 pt-12 md:pt-20 lg:grid-cols-12 lg:gap-16 lg:pb-24">
+        <div className="container-site grid items-center gap-8 py-10 md:py-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             <Eyebrow className="mb-5">{page?.eyebrow || 'About Dr. Jenn'}</Eyebrow>
             <h1 className="display-xl text-navy-900">
@@ -48,7 +54,13 @@ export default async function AboutPageRoute() {
             </h1>
             {page?.intro && <p className="lede mt-7 max-w-2xl text-muted">{page.intro}</p>}
             <div className="mt-9 flex flex-wrap items-center gap-4">
-              <ButtonLink href={p?.bookingOption ? `/book#${stegaClean(p.bookingOption._id)}` : '/book'} variant="book" track="about-hero">
+              <ButtonLink
+                href={
+                  p?.bookingOption ? `/book?provider=${stegaClean(p.slug)}#${stegaClean(p.bookingOption._id)}` : '/book'
+                }
+                variant="book"
+                track="about-hero"
+              >
                 Book with Dr. Jenn
               </ButtonLink>
               <ButtonLink href="/start-here" variant="link" arrow>
@@ -58,8 +70,14 @@ export default async function AboutPageRoute() {
           </div>
           <div className="lg:col-span-5">
             <div className="relative">
-              <div className="absolute -right-3 -top-3 h-full w-full rounded-[1.75rem] border border-gold-400/70" aria-hidden />
-              <SanityImg image={portrait} aspect={4 / 5} sizes="(min-width: 1024px) 38vw, 100vw" priority className="relative rounded-[1.75rem]" slotLabel="Portrait" />
+              <SanityImg
+                image={portrait}
+                aspect={4 / 5}
+                sizes="(min-width: 1024px) 38vw, 100vw"
+                priority
+                className="relative rounded-lg"
+                slotLabel="Portrait"
+              />
             </div>
             {p && (
               <p className="mt-4 text-sm text-muted">
@@ -81,22 +99,22 @@ export default async function AboutPageRoute() {
                 <Emphasis text={s.heading} />
               </h2>
             </div>
-            <RichText value={s.body} className="text-[1.05rem] lg:col-span-7 lg:pt-10" />
+            <RichText value={s.body} className="text-[1.05rem] lg:col-span-7 " />
           </div>
         </SectionShell>
       ))}
 
       {/* Clinical philosophy */}
       {!!page?.philosophy?.length && (
-        <SectionShell tone="navy">
-          <Eyebrow tone="on-navy" className="mb-10">
+        <SectionShell tone="paper">
+          <Eyebrow tone="gold" className="mb-6">
             Clinical philosophy
           </Eyebrow>
           <ul className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
             {page.philosophy.map((ph, i) => (
               <Reveal as="li" key={ph._key ?? ph.title} delay={i * 100} className="border-t border-gold-400/60 pt-6">
-                <p className="font-display text-[1.75rem] leading-tight text-white">{ph.title}</p>
-                {ph.body && <p className="mt-3 text-navy-100">{ph.body}</p>}
+                <p className="display-sm text-navy-900">{ph.title}</p>
+                {ph.body && <p className="mt-3 text-muted">{ph.body}</p>}
               </Reveal>
             ))}
           </ul>

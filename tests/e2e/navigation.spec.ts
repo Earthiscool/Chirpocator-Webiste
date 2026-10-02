@@ -24,9 +24,12 @@ test('How We Help dropdown is keyboard operable', async ({page}) => {
 test('dropdown links navigate to pathway pages', async ({page}) => {
   await page.goto('/')
   await page.getByRole('button', {name: 'How We Help'}).click()
-  await page.getByRole('link', {name: /^Functional Health/}).first().click()
+  await page
+    .getByRole('link', {name: /^Functional Health/})
+    .first()
+    .click()
   await expect(page).toHaveURL(/\/how-we-help\/functional-health$/)
-  await expect(page.locator('h1')).toContainText('Make health data useful')
+  await expect(page.locator('h1')).toContainText('Make room for the full conversation.')
 })
 
 test('skip link moves focus to main content', async ({page}) => {
@@ -40,9 +43,19 @@ test('skip link moves focus to main content', async ({page}) => {
 
 test('important internal links resolve (no broken links on key pages)', async ({page, request}) => {
   const checked = new Set<string>()
-  for (const path of ['/', '/how-we-help/pain-recovery', '/services/golf-performance', '/about', '/book', '/faq', '/resources']) {
+  for (const path of [
+    '/',
+    '/how-we-help/pain-recovery',
+    '/services/golf-performance',
+    '/about',
+    '/book',
+    '/faq',
+    '/resources',
+  ]) {
     await page.goto(path)
-    const hrefs = await page.locator('a[href^="/"]').evaluateAll((as) => as.map((a) => (a as HTMLAnchorElement).getAttribute('href')!))
+    const hrefs = await page
+      .locator('a[href^="/"]')
+      .evaluateAll((as) => as.map((a) => (a as HTMLAnchorElement).getAttribute('href')!))
     for (const href of hrefs) {
       const clean = href.split('#')[0].split('?')[0]
       if (!clean || checked.has(clean) || clean.startsWith('/api/')) continue

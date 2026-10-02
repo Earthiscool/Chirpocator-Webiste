@@ -13,7 +13,7 @@ export function Wordmark({logo, name, tone = 'light'}: {logo?: SanityImage; name
   if (logo?.asset?._id) {
     return (
       <Link href="/" className="flex items-center" aria-label={`${name} — home`}>
-        <Image src={imageUrl(logo, 400)} alt="" width={180} height={48} className="h-10 w-auto" priority />
+        <Image src={imageUrl(logo, 400)} alt="" width={180} height={48} className="h-10 w-auto" preload />
       </Link>
     )
   }
@@ -26,7 +26,9 @@ export function Wordmark({logo, name, tone = 'light'}: {logo?: SanityImage; name
       >
         Integrative Wellbeing
       </span>
-      <span className={`mt-1 text-[0.62rem] font-semibold tracking-[0.3em] ${navy ? 'text-gold-400' : 'text-gold-700'}`}>
+      <span
+        className={`mt-1 text-[0.62rem] font-semibold tracking-[0.3em] ${navy ? 'text-gold-400' : 'text-gold-700'}`}
+      >
         &amp; CHIROPRACTIC
       </span>
     </Link>

@@ -1,11 +1,12 @@
 import OpenAI from 'openai'
 import {z} from 'zod'
 
+import {assistantConfigured} from '@/lib/chat/availability'
 import {loadKnowledge, selectContext} from '@/lib/chat/knowledge'
 import {buildInstructions} from '@/lib/chat/prompt'
 import {emergencyReply, isEmergency, redactSensitive} from '@/lib/chat/safety'
 import {clientKey, isSameOrigin, limiters} from '@/lib/rate-limit'
-import {getSettings} from '@/lib/site'
+import {getPublishedSettings} from '@/lib/site'
 
 export const maxDuration = 60
 
@@ -30,7 +31,11 @@ const json = (status: number, code: string, message: string, extra: Record<strin
 
 /** Lets the widget show an "unavailable" state without sending a message. */
 export async function GET() {
-  return Response.json({available: Boolean(process.env.OPENAI_API_KEY)}, {headers: {'Cache-Control': 'no-store'}})
+  const settings = await getPublishedSettings()
+  return Response.json(
+    {available: assistantConfigured(settings.assistantEnabled !== false)},
+    {headers: {'Cache-Control': 'no-store'}},
+  )
 }
 
 export async function POST(req: Request) {
@@ -42,11 +47,23 @@ export async function POST(req: Request) {
   if (length > MAX_BODY_BYTES) return json(413, 'too_large', 'That message is too long.')
 
   const key = clientKey(req.headers)
-  const [burst, daily] = await Promise.all([limiters.chatBurst.limit(key), limiters.chatDaily.limit(key)])
+  let burst, daily
+  try {
+    ;[burst, daily] = await Promise.all([limiters.chatBurst.limit(key), limiters.chatDaily.limit(key)])
+  } catch {
+    return json(503, 'unavailable', 'The assistant is temporarily unavailable. Please contact the office.')
+  }
   if (!burst.success || !daily.success) {
-    return json(429, 'rate_limited', 'You have sent a lot of messages. Please wait a few minutes, or call the office.', {
-      'Retry-After': String(Math.max(1, Math.ceil(((burst.success ? daily.reset : burst.reset) - Date.now()) / 1000))),
-    })
+    return json(
+      429,
+      'rate_limited',
+      'You have sent a lot of messages. Please wait a few minutes, or call the office.',
+      {
+        'Retry-After': String(
+          Math.max(1, Math.ceil(((burst.success ? daily.reset : burst.reset) - Date.now()) / 1000)),
+        ),
+      },
+    )
   }
 
   // 2. Validate.
@@ -59,20 +76,26 @@ export async function POST(req: Request) {
     return json(400, 'invalid', 'Please send a shorter question in plain text.')
   }
 
-  const settings = await getSettings()
+  const settings = await getPublishedSettings()
   const latest = body.messages[body.messages.length - 1].content
 
   // 3. Emergency screen — answer directly, never send to the model.
   if (isEmergency(latest)) {
     log({outcome: 'emergency', ms: Date.now() - started})
-    return new Response(emergencyReply(settings.phone), {headers: {'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store', 'X-IWC-Safety': 'emergency'}})
+    return new Response(emergencyReply(settings.phone), {
+      headers: {'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store', 'X-IWC-Safety': 'emergency'},
+    })
   }
 
   // 4. Without an API key, report unavailability honestly — no fake replies.
   const apiKey = process.env.OPENAI_API_KEY
-  if (!apiKey) {
+  if (!apiKey || !assistantConfigured(settings.assistantEnabled !== false)) {
     log({outcome: 'unconfigured', ms: Date.now() - started})
-    return json(503, 'unavailable', `The assistant isn't available right now. Please call ${settings.phone} or email ${settings.email}.`)
+    return json(
+      503,
+      'unavailable',
+      `The assistant isn't available right now. Please call ${settings.phone} or email ${settings.email}.`,
+    )
   }
 
   // 5. Redact identifiers from every user turn before it leaves our server.
@@ -86,6 +109,8 @@ export async function POST(req: Request) {
 
   // 6. Ground in published CMS content.
   const chunks = await loadKnowledge()
+  if (!chunks.length)
+    return json(503, 'unavailable', `Practice information is temporarily unavailable. Please call ${settings.phone}.`)
   const recentUserText = body.messages
     .filter((m) => m.role === 'user')
     .slice(-2)
@@ -107,16 +132,20 @@ export async function POST(req: Request) {
         input,
         stream: true,
         store: false, // do not retain conversations at OpenAI for later retrieval
-        max_output_tokens: Number(process.env.OPENAI_MAX_OUTPUT_TOKENS || 900),
+        max_output_tokens: Math.max(100, Math.min(1200, Number(process.env.OPENAI_MAX_OUTPUT_TOKENS) || 900)),
         ...(model.startsWith('gpt-5') || model.startsWith('o') ? {reasoning: {effort}} : {}),
         safety_identifier: key, // hashed, non-identifying; helps OpenAI detect abuse
       },
-      {timeout: 30_000, maxRetries: 1, signal: req.signal},
+      {timeout: 30_000, maxRetries: 0, signal: AbortSignal.any([req.signal, AbortSignal.timeout(30_000)])},
     )) as typeof stream
   } catch (e) {
     const status = (e as {status?: number}).status
     log({outcome: 'upstream_error', status, ms: Date.now() - started})
-    return json(502, 'upstream', `The assistant is having trouble right now. Please call ${settings.phone} or email ${settings.email}.`)
+    return json(
+      502,
+      'upstream',
+      `The assistant is having trouble right now. Please call ${settings.phone} or email ${settings.email}.`,
+    )
   }
 
   // 7. Stream plain text to the browser.
@@ -127,19 +156,34 @@ export async function POST(req: Request) {
       try {
         for await (const event of stream) {
           if (event.type === 'response.output_text.delta') {
-            chars += event.delta.length
-            controller.enqueue(encoder.encode(event.delta))
+            const delta = event.delta.slice(0, Math.max(0, 6000 - chars))
+            chars += delta.length
+            controller.enqueue(encoder.encode(delta))
+            if (chars >= 6000) {
+              ;(stream as unknown as {controller?: AbortController}).controller?.abort()
+              break
+            }
           } else if (event.type === 'response.completed') {
             const u = event.response.usage
-            log({outcome: 'ok', model, ms: Date.now() - started, in: u?.input_tokens, out: u?.output_tokens, ctx: context.length})
+            log({
+              outcome: 'ok',
+              model,
+              ms: Date.now() - started,
+              in: u?.input_tokens,
+              out: u?.output_tokens,
+              ctx: context.length,
+            })
           } else if (event.type === 'error' || event.type === 'response.failed') {
             throw new Error('stream_failed')
           }
         }
-        if (chars === 0) controller.enqueue(encoder.encode(`I'm not able to answer that right now. Please call ${settings.phone}.`))
+        if (chars === 0)
+          controller.enqueue(encoder.encode(`I'm not able to answer that right now. Please call ${settings.phone}.`))
       } catch {
         log({outcome: 'stream_error', ms: Date.now() - started})
-        controller.enqueue(encoder.encode(`\n\nSorry — the connection dropped. Please try again, or call ${settings.phone}.`))
+        controller.enqueue(
+          encoder.encode(`\n\nSorry — the connection dropped. Please try again, or call ${settings.phone}.`),
+        )
       } finally {
         controller.close()
       }
@@ -150,7 +194,11 @@ export async function POST(req: Request) {
   })
 
   return new Response(body$, {
-    headers: {'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff'},
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'no-store',
+      'X-Content-Type-Options': 'nosniff',
+    },
   })
 }
 

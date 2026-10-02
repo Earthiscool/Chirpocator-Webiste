@@ -1,0 +1,88 @@
+
+> iwc-website@0.1.0 build
+> next build
+
+▲ Next.js 16.3.8 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 103ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.9s
+  Running TypeScript ...
+  Finished TypeScript in 2.5s ...
+  Collecting page data using 9 workers ...
+(node:99610) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:99611) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:99613) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:99618) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:99617) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:99614) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:99616) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:99612) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:99615) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+  Generating static pages using 9 workers (0/40) ...
+  Generating static pages using 9 workers (10/40) 
+  Generating static pages using 9 workers (20/40) 
+  Generating static pages using 9 workers (30/40) 
+✓ Generating static pages using 9 workers (40/40) in 642ms
+  Finalizing page optimization ...
+
+Route (app)                                              Revalidate  Expire
+┌ ○ /                                                            5m      1y
+├ ○ /_not-found                                                  5m      1y
+├   /[legal]
+│ ├ ● /privacy                                                   5m      1y
+│ ├ ● /terms                                                     5m      1y
+│ ├ ● /accessibility                                             5m      1y
+│ └ ● /disclaimer                                                5m      1y
+├ ○ /about                                                       5m      1y
+├ ƒ /api/chat
+├ ƒ /api/draft-mode/disable
+├ ƒ /api/draft-mode/enable
+├ ƒ /api/form-token
+├ ƒ /api/revalidate
+├ ƒ /book
+├ ○ /faq                                                         5m      1y
+├ ○ /for-providers                                               5m      1y
+├ ○ /how-we-help                                                 5m      1y
+├   /how-we-help/[slug]
+│ ├ ● /how-we-help/functional-health                             5m      1y
+│ ├ ● /how-we-help/pain-recovery                                 5m      1y
+│ ├ ● /how-we-help/performance                                   5m      1y
+│ └ ● /how-we-help/prevention-active-aging                       5m      1y
+├ ○ /icon.svg
+├ ○ /opengraph-image
+├ ƒ /resources
+├   /resources/[slug]
+│ ├ ● /resources/why-does-my-back-pain-keep-coming-back          5m      1y
+│ ├ ● /resources/mobility-vs-stability-golf-swing                5m      1y
+│ └ ● /resources/which-labs-are-useful                           5m      1y
+├ ○ /robots.txt
+├   /services/[slug]
+│ ├ ● /services/chiropractic-sports-chiropractic                 5m      1y
+│ ├ ● /services/golf-performance                                 5m      1y
+│ ├ ● /services/holobiome-gut-restoration                        5m      1y
+│ └ ● [+3 more paths]
+├ ○ /sitemap.xml                                                 5m      1y
+├ ○ /start-here                                                  5m      1y
+├ ○ /studio/[[...tool]]
+├ ○ /team                                                        5m      1y
+└   /team/[slug]
+  ├ ● /team/amie-hamel                                           5m      1y
+  ├ ● /team/dr-irene-londer                                      5m      1y
+  └ ● /team/dr-jenn-hartmann                                     5m      1y
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
