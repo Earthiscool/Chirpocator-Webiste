@@ -36,7 +36,7 @@ export default async function Home() {
   return (
     <>
       <section id="hero" className="hero-home bg-paper" data-track="hero">
-        <div className="container-site grid items-center gap-7 md:grid-cols-2 md:gap-12">
+        <div className={`container-site grid items-center gap-7 md:gap-12 ${heroImage?.asset ? 'md:grid-cols-2' : ''}`}>
           <div>
             <BrandLine text={home.heroEyebrow} />
             <h1 className="display-xl mt-5 max-w-[12ch] text-navy-900">{home.heroHeadline}</h1>
@@ -123,7 +123,7 @@ export default async function Home() {
         {home.processNote && <p className="mt-6 text-muted">{home.processNote}</p>}
       </SectionShell>
       <SectionShell id="dr-jenn" tone="paper">
-        <div className="grid items-center gap-8 md:grid-cols-[.8fr_1.2fr] lg:gap-16">
+        <div className={`grid items-center gap-8 lg:gap-16 ${portrait?.asset ? 'md:grid-cols-[.8fr_1.2fr]' : 'max-w-3xl'}`}>
           {portrait?.asset && (
             <SanityImg
               image={portrait}

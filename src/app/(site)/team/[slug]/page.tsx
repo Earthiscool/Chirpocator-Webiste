@@ -61,17 +61,19 @@ export default async function ProviderPage({params}: Props) {
       />
       <section className="border-b border-line bg-paper">
         <div className="container-site grid items-center gap-8 py-10 md:py-14 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <SanityImg
-              image={p.photo}
-              aspect={4 / 5}
-              sizes="(min-width: 1024px) 32vw, 100vw"
-              priority
-              className="rounded-lg"
-              slotLabel="Portrait"
-            />
-          </div>
-          <div className="md:col-span-7 md:col-start-6">
+          {p.photo?.asset && (
+            <div className="md:col-span-4">
+              <SanityImg
+                image={p.photo}
+                aspect={4 / 5}
+                sizes="(min-width: 1024px) 32vw, 100vw"
+                priority
+                className="rounded-lg"
+                slotLabel="Portrait"
+              />
+            </div>
+          )}
+          <div className={p.photo?.asset ? 'md:col-span-7 md:col-start-6' : 'md:col-span-10'}>
             <Eyebrow className="mb-4">{p.role}</Eyebrow>
             <h1 className="display-xl text-navy-900">{p.name}</h1>
             {p.credentials && <p className="mt-3 text-teal-700">{p.credentials}</p>}

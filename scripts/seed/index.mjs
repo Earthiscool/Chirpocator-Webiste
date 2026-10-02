@@ -6,7 +6,7 @@
  *   node --env-file=.env.local scripts/seed/index.mjs --force   # overwrite seeded docs (destroys edits!)
  *
  * Optional: SEED_ASSETS_DIR=/path/to/photos uploads team headshots
- * (dr-jenn-hartmann.jpg, dr-irene-londer.png, amie-hamel.jpg) to the CMS.
+ * (dr-irene-londer.png, amie-hamel.jpg) to the CMS.
  * Photos are deliberately NOT stored in the git repository.
  */
 import fs from 'node:fs'
@@ -41,8 +41,9 @@ if (!projectId || !token) {
 const force = process.argv.includes('--force')
 const client = createClient({projectId, dataset, token, apiVersion: '2026-09-01', useCdn: false})
 
+// Dr. Jenn's interim photo was removed at the practice's request; add a
+// professional portrait through the Studio once the brand shoot is done.
 const headshots = {
-  'provider-jenn-hartmann': {file: 'dr-jenn-hartmann.jpg', alt: 'Dr. Jenn Hartmann smiling, wearing glasses and a white polo shirt'},
   'provider-irene-londer': {file: 'dr-irene-londer.png', alt: 'Dr. Irene Londer smiling, wearing navy scrubs'},
   'provider-amie-hamel': {file: 'amie-hamel.jpg', alt: 'Amie Hamel, LMT, smiling, wearing glasses and a patterned scarf'},
 }

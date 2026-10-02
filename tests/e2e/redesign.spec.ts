@@ -44,8 +44,9 @@ test('all twelve homepage sections are in order and visible without JavaScript',
     'final-cta',
   ])
   await expect(page.locator('#recognition li').first()).toBeVisible()
-  await expect(page.locator('#hero img')).toBeVisible()
-  await expect(page.locator('#hero')).toContainText('Dr. Jenn Hartmann')
+  // Dr. Jenn's interim photo was removed at the practice's request; the hero is text-only until a new portrait is added.
+  await expect(page.locator('#hero img')).toHaveCount(0)
+  await expect(page.locator('#hero h1')).toBeVisible()
   await context.close()
 })
 

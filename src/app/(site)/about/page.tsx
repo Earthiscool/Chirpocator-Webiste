@@ -68,24 +68,27 @@ export default async function AboutPageRoute() {
               </ButtonLink>
             </div>
           </div>
-          <div className="lg:col-span-5">
-            <div className="relative">
-              <SanityImg
-                image={portrait}
-                aspect={4 / 5}
-                sizes="(min-width: 1024px) 38vw, 100vw"
-                priority
-                className="relative rounded-lg"
-                slotLabel="Portrait"
-              />
+          {/* Portrait column only when a photo exists; otherwise the text stands alone. */}
+          {portrait?.asset && (
+            <div className="lg:col-span-5">
+              <div className="relative">
+                <SanityImg
+                  image={portrait}
+                  aspect={4 / 5}
+                  sizes="(min-width: 1024px) 38vw, 100vw"
+                  priority
+                  className="relative rounded-lg"
+                  slotLabel="Portrait"
+                />
+              </div>
+              {p && (
+                <p className="mt-4 text-sm text-muted">
+                  <span className="font-semibold text-navy-900">{p.name}</span>
+                  {p.credentials ? `, ${p.credentials}` : ''} · {p.role}
+                </p>
+              )}
             </div>
-            {p && (
-              <p className="mt-4 text-sm text-muted">
-                <span className="font-semibold text-navy-900">{p.name}</span>
-                {p.credentials ? `, ${p.credentials}` : ''} · {p.role}
-              </p>
-            )}
-          </div>
+          )}
         </div>
       </section>
 
