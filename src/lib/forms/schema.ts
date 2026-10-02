@@ -29,7 +29,7 @@ export const ContactSchema = z.object({
   consent: z.literal('on', {message: 'Please confirm you have read the note about health information.'}),
 })
 
-export const providerReasons = ['Refer a patient — please call me', 'Discuss collaboration', 'Something else'] as const
+export const providerReasons = ['Refer a patient (please call me)', 'Discuss collaboration', 'Something else'] as const
 
 export const ProviderSchema = z.object({
   name,

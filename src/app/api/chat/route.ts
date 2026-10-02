@@ -62,13 +62,13 @@ export async function POST(req: Request) {
   const settings = await getSettings()
   const latest = body.messages[body.messages.length - 1].content
 
-  // 3. Emergency screen — answer directly, never send to the model.
+  // 3. Emergency screen, answer directly, never send to the model.
   if (isEmergency(latest)) {
     log({outcome: 'emergency', ms: Date.now() - started})
     return new Response(emergencyReply(settings.phone), {headers: {'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store', 'X-IWC-Safety': 'emergency'}})
   }
 
-  // 4. Without an API key, report unavailability honestly — no fake replies.
+  // 4. Without an API key, report unavailability honestly, no fake replies.
   const apiKey = process.env.OPENAI_API_KEY
   if (!apiKey) {
     log({outcome: 'unconfigured', ms: Date.now() - started})
@@ -139,7 +139,7 @@ export async function POST(req: Request) {
         if (chars === 0) controller.enqueue(encoder.encode(`I'm not able to answer that right now. Please call ${settings.phone}.`))
       } catch {
         log({outcome: 'stream_error', ms: Date.now() - started})
-        controller.enqueue(encoder.encode(`\n\nSorry — the connection dropped. Please try again, or call ${settings.phone}.`))
+        controller.enqueue(encoder.encode(`\n\nSorry, the connection dropped. Please try again, or call ${settings.phone}.`))
       } finally {
         controller.close()
       }
@@ -154,7 +154,7 @@ export async function POST(req: Request) {
   })
 }
 
-/** Operational logging only — never message content. */
+/** Operational logging only, never message content. */
 function log(fields: Record<string, unknown>) {
   console.info('[chat]', JSON.stringify(fields))
 }

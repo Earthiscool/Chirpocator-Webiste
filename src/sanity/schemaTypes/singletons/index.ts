@@ -21,7 +21,7 @@ export const siteSettings = defineType({
     defineField({name: 'practiceName', type: 'string', group: 'practice', validation: (r) => r.required()}),
     defineField({name: 'shortName', type: 'string', group: 'practice', initialValue: 'IWC'}),
     defineField({name: 'brandLine', type: 'string', group: 'brand', initialValue: 'Pain | Performance | Prevention'}),
-    defineField({name: 'logo', title: 'Logo (optional — replaces the text wordmark)', type: 'accessibleImage', group: 'brand'}),
+    defineField({name: 'logo', title: 'Logo (optional, replaces the text wordmark)', type: 'accessibleImage', group: 'brand'}),
     defineField({
       name: 'phone',
       title: 'Phone (display)',
@@ -148,7 +148,7 @@ export const navigation = defineType({
   title: 'Navigation',
   type: 'document',
   description:
-    'The approved top navigation is: Start Here · How We Help · About · Resources · For Providers · Book a Visit. Keep it short — services belong under pathways.',
+    'The approved top navigation is: Start Here · How We Help · About · Resources · For Providers · Book a Visit. Keep it short. Services belong under pathways.',
   fields: [
     defineField({
       name: 'main',
@@ -189,7 +189,7 @@ export const navigation = defineType({
 })
 
 /* -------------------------------------------------------------------------- */
-/*  Homepage — guided clinical conversation, in the blueprint's order         */
+/*  Homepage, guided clinical conversation, in the blueprint's order         */
 /* -------------------------------------------------------------------------- */
 export const homePage = defineType({
   name: 'homePage',
@@ -225,7 +225,7 @@ export const homePage = defineType({
     }),
     defineField({
       name: 'mapFactors',
-      title: '"Whole picture" map — factors',
+      title: '"Whole picture" map: factors',
       type: 'array',
       group: 'hero',
       of: [{type: 'string'}],

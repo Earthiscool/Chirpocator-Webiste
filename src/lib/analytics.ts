@@ -2,7 +2,7 @@
  * Privacy-safe analytics events (GA4 via gtag).
  *
  * Event names follow the blueprint's measurement plan. Parameters describe
- * *where* and *what kind* of action happened — never form contents, chat
+ * *where* and *what kind* of action happened, never form contents, chat
  * messages, or anything a visitor typed.
  */
 export type AnalyticsEvent =

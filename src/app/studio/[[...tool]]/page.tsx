@@ -1,5 +1,5 @@
 /**
- * Sanity Studio — the CMS for IWC staff, at /studio.
+ * Sanity Studio, the CMS for IWC staff, at /studio.
  * Access requires a Sanity account invited to the project (sanity.io/manage).
  */
 import {NextStudio} from 'next-sanity/studio'

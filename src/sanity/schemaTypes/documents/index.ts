@@ -6,7 +6,7 @@ const slugField = (source = 'title') =>
     title: 'URL slug',
     type: 'slug',
     options: {source, maxLength: 80},
-    description: 'The web address for this page. Changing it breaks existing links — ask your developer to add a redirect.',
+    description: 'The web address for this page. Changing it breaks existing links, so ask your developer to add a redirect.',
     validation: (rule) => rule.required(),
   })
 
@@ -20,7 +20,7 @@ const pathwayAccents = [
 ]
 
 /* -------------------------------------------------------------------------- */
-/*  Pathway — the four "How We Help" entry points                             */
+/*  Pathway, the four "How We Help" entry points                             */
 /* -------------------------------------------------------------------------- */
 export const pathway = defineType({
   name: 'pathway',
@@ -105,7 +105,7 @@ export const pathway = defineType({
       title: 'Tools we may use (in context)',
       type: 'array',
       group: 'page',
-      description: 'Modalities appear as tools inside an approach — not a menu. Link a service page where one exists.',
+      description: 'Modalities appear as tools inside an approach, not a menu. Link a service page where one exists.',
       of: [
         defineArrayMember({
           type: 'object',
@@ -125,7 +125,7 @@ export const pathway = defineType({
       type: 'array',
       group: 'page',
       of: [{type: 'string'}],
-      description: 'Realistic goals — never guarantees.',
+      description: 'Realistic goals, never guarantees.',
     }),
     defineField({name: 'whatToExpect', title: 'What to expect', type: 'array', group: 'page', of: [{type: 'titledItem'}]}),
     defineField({name: 'faqs', title: 'FAQs on this page', type: 'array', group: 'page', of: [{type: 'reference', to: [{type: 'faq'}]}]}),
@@ -259,7 +259,7 @@ export const provider = defineType({
 })
 
 /* -------------------------------------------------------------------------- */
-/*  Testimonial — only shown with permission on file                          */
+/*  Testimonial, only shown with permission on file                          */
 /* -------------------------------------------------------------------------- */
 export const testimonial = defineType({
   name: 'testimonial',
@@ -308,7 +308,7 @@ export const testimonial = defineType({
   ],
   preview: {
     select: {title: 'attribution', subtitle: 'quote', ok: 'permissionOnFile'},
-    prepare: ({title, subtitle, ok}) => ({title: `${ok ? '' : '⚠︎ No permission — hidden · '}${title ?? ''}`, subtitle}),
+    prepare: ({title, subtitle, ok}) => ({title: `${ok ? '' : '⚠︎ No permission, hidden · '}${title ?? ''}`, subtitle}),
   },
 })
 
@@ -394,7 +394,7 @@ export const article = defineType({
 })
 
 /* -------------------------------------------------------------------------- */
-/*  Booking option — one scheduling entry point                               */
+/*  Booking option, one scheduling entry point                               */
 /* -------------------------------------------------------------------------- */
 export const bookingOption = defineType({
   name: 'bookingOption',
@@ -418,7 +418,7 @@ export const bookingOption = defineType({
       title: 'Online booking link',
       type: 'url',
       description:
-        'Paste the exact scheduling link for this visit type. If empty, the site shows "Call to book" and a request form instead — it never invents a link.',
+        'Paste the exact scheduling link for this visit type. If empty, the site shows "Call to book" and a request form instead. It never invents a link.',
       validation: (r) => r.uri({scheme: ['https']}),
     }),
     defineField({name: 'order', type: 'number', validation: (r) => r.required()}),
@@ -460,7 +460,7 @@ export const legalPage = defineType({
 })
 
 /* -------------------------------------------------------------------------- */
-/*  Chatbot knowledge — approved facts for the website assistant              */
+/*  Chatbot knowledge, approved facts for the website assistant              */
 /* -------------------------------------------------------------------------- */
 export const chatKnowledge = defineType({
   name: 'chatKnowledge',

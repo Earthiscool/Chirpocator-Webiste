@@ -23,7 +23,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
   return buildMetadata({seo: page.seo, title: page.title, description: page.intro, path: `/${legal}`})
 }
 
-/** Privacy, terms, accessibility, disclaimer — all edited in the CMS. */
+/** Privacy, terms, accessibility, disclaimer, all edited in the CMS. */
 export default async function LegalPageRoute({params}: Props) {
   const {legal} = await params
   const page = await getPage(legal)

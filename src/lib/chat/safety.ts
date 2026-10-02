@@ -25,7 +25,7 @@ export function isEmergency(text: string) {
 
 export function emergencyReply(phone: string) {
   return [
-    "If this could be an emergency, please **call 911** or go to the nearest emergency department now. If you're thinking about harming yourself, call or text **988** (Suicide & Crisis Lifeline) — it's free and available 24/7.",
+    "If this could be an emergency, please **call 911** or go to the nearest emergency department now. If you're thinking about harming yourself, call or text **988** (Suicide & Crisis Lifeline). It's free and available 24/7.",
     '',
     `I'm a website assistant and can't help with urgent medical situations. For non-urgent questions, you can reach the IWC office at [${phone}](tel:${phone.replace(/[^\d+]/g, '')}).`,
   ].join('\n')

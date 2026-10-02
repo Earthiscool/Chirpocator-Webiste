@@ -9,7 +9,7 @@ import {isSanityConfigured} from '@/sanity/env'
  * Source of truth = PUBLISHED CMS content, fetched with the tokenless client
  * (which cannot read drafts) and an explicit drafts filter as a second guard.
  * When staff publish a change in the Studio, the assistant's knowledge
- * updates with the same cache tags — no prompt rewriting required.
+ * updates with the same cache tags, no prompt rewriting required.
  */
 export interface KnowledgeChunk {
   id: string
@@ -47,8 +47,8 @@ const join = (arr?: (string | undefined | null)[], sep = '; ') => (arr ?? []).fi
 
 export const STATIC_PAGES: {url: string; title: string}[] = [
   {url: '/', title: 'Home'},
-  {url: '/start-here', title: 'Start Here — guided selector'},
-  {url: '/how-we-help', title: 'How We Help — all pathways'},
+  {url: '/start-here', title: 'Start Here: guided selector'},
+  {url: '/how-we-help', title: 'How We Help: all pathways'},
   {url: '/about', title: 'About Dr. Jenn'},
   {url: '/team', title: 'Team'},
   {url: '/resources', title: 'Resources / articles'},
@@ -122,7 +122,7 @@ export async function loadKnowledge(): Promise<KnowledgeChunk[]> {
   for (const pr of raw.providers ?? []) {
     chunks.push({
       id: `provider-${pr.slug}`,
-      title: `${pr.name}${pr.credentials ? `, ${pr.credentials}` : ''} — ${pr.role}`,
+      title: `${pr.name}${pr.credentials ? `, ${pr.credentials}` : ''}, ${pr.role}`,
       url: `/team/${pr.slug}`,
       text: join([pr.headline, pr.bio, pr.approach, pr.bestFit && `Best fit: ${join(pr.bestFit)}.`, pr.credentials2?.map((c) => `${c.label}: ${join(c.items, ', ')}`).join('. ')], ' '),
     })
@@ -147,7 +147,7 @@ const tokenize = (s: string) =>
     .filter((t) => t.length > 2 && !STOP.has(t))
     .map((t) => t.replace(/(ing|ed|es|s)$/, ''))
 
-/** Lightweight BM25 ranking over the chunks — no vector database required. */
+/** Lightweight BM25 ranking over the chunks, no vector database required. */
 export function selectContext(chunks: KnowledgeChunk[], query: string, budget = 7000): KnowledgeChunk[] {
   const q = [...new Set(tokenize(query))]
   const docs = chunks.map((c) => ({c, toks: tokenize(`${c.title} ${c.title} ${c.text}`)}))

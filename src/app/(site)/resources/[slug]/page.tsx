@@ -94,7 +94,7 @@ export default async function ArticlePage({params}: Props) {
         <div className="container-site max-w-4xl py-14 md:py-20">
           <RichText value={a.body} className="text-[1.0625rem] md:text-[1.125rem]" />
           <p className="mt-14 max-w-[68ch] border-t border-line pt-6 text-sm text-muted">
-            This article is general education, not medical advice. Your situation may be different — an individual evaluation is the right place to make decisions about your care.
+            This article is general education, not medical advice. Your situation may be different, and an individual evaluation is the right place to make decisions about your care.
           </p>
         </div>
       </article>

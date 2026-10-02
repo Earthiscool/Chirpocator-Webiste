@@ -3,8 +3,8 @@ import {defineConfig, devices} from '@playwright/test'
 /**
  * End-to-end tests run against a PRODUCTION build (`npm run build` first).
  *
- *   :3100  "integrated" — OpenAI + Resend pointed at the local mock (tests/mocks/server.mjs)
- *   :3101  "unconfigured" — no OpenAI/Resend keys, to verify honest unavailable states
+ *   :3100  "integrated", OpenAI + Resend pointed at the local mock (tests/mocks/server.mjs)
+ *   :3101  "unconfigured", no OpenAI/Resend keys, to verify honest unavailable states
  *
  * Both read real, published content from the configured Sanity dataset.
  */

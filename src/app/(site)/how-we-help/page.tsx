@@ -25,7 +25,7 @@ export default async function HowWeHelpPage() {
     <>
       <PageHero
         eyebrow="How We Help"
-        title="Choose by what you are trying to solve — not by the name of a treatment."
+        title="Start with what you're trying to solve. You don't need to know the treatment name."
         intro="IWC is built around four connected pathways. Each one starts with listening and assessment, and uses only the tools that make sense for you."
       >
         <ButtonLink href="/start-here" variant="primary" arrow track="how-we-help-hero">

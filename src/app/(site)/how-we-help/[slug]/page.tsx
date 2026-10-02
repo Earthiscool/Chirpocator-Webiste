@@ -121,7 +121,7 @@ export default async function PathwayPage({params}: Props) {
         <SectionShell tone="white">
           <div className="mb-12 max-w-2xl">
             <Eyebrow className="mb-4">What we may use</Eyebrow>
-            <h2 className="display-md text-navy-900">Tools shown in context — used only when they fit.</h2>
+            <h2 className="display-md text-navy-900">The tools we may use, and only when they fit.</h2>
           </div>
           <ul className="grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
             {p.tools.map((t, i) => (

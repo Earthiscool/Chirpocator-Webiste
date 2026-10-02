@@ -35,11 +35,11 @@ Final run: **83/83 Playwright tests passed** (desktop + mobile projects).
 | Area | What's missing | Until then |
 |---|---|---|
 | Real OpenAI responses | `OPENAI_API_KEY` | The full request/stream path is tested against a protocol-compatible mock. The site shows an honest "unavailable" state. |
-| Real email delivery | Resend account + verified domain | Tested against a mock of Resend's API. Forms say "not connected yet — please call." |
+| Real email delivery | Resend account + verified domain | Tested against a mock of Resend's API. Forms say "not connected yet, please call." |
 | Production rate limiting | Upstash Redis | Per-instance memory limits (fine locally, weak on serverless) |
 | Instant cache refresh on publish | Sanity webhook to the production URL | Published edits appear within 5 minutes |
 | GA4 events | Measurement ID | Events are wired and log to the console in development |
-| Search Console / Business Profile | Account access | — |
+| Search Console / Business Profile | Account access |, |
 | Core Web Vitals in the field | Real-user data after launch | Static generation, `next/font`, AVIF/WebP images, lazy-loaded assistant, minimal client JS. Measure with PageSpeed/CrUX after launch. |
 
 ## Not done, by design (needs a decision)

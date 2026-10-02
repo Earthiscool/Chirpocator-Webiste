@@ -43,7 +43,7 @@ next-env.d.ts
 # keep the template; every other env file stays local
 !.env.example
 
-# client source documents are confidential — never commit
+# client source documents are confidential, never commit
 *.pdf
 
 # test & review artifacts

@@ -44,7 +44,7 @@ export const schemaTypes = [
   teamPage,
 ]
 
-/** Singleton document types — one fixed document each, id === type name. */
+/** Singleton document types, one fixed document each, id === type name. */
 export const singletonTypes = new Set([
   'siteSettings',
   'navigation',

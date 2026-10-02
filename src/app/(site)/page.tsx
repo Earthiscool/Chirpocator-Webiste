@@ -41,7 +41,7 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* 1 · HERO — recognition + promise + one clear action */}
+      {/* 1 · HERO, recognition + promise + one clear action */}
       <section id="hero" data-track="hero" className="relative overflow-hidden bg-paper">
         <div className="container-site grid items-center gap-12 pb-16 pt-10 md:pt-16 lg:grid-cols-12 lg:gap-10 lg:pb-24 lg:pt-20">
           <div className="lg:col-span-7">
@@ -72,7 +72,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 2 · TRUST STRIP — credibility without a credential wall */}
+      {/* 2 · TRUST STRIP, credibility without a credential wall */}
       {!!home.trustItems?.length && (
         <section aria-label="Why patients trust IWC" className="border-y border-line bg-white">
           <ul className="container-site grid divide-y divide-line md:grid-cols-3 md:divide-x md:divide-y-0">
@@ -86,7 +86,7 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* 3 · RECOGNITION — make the visitor feel seen */}
+      {/* 3 · RECOGNITION, make the visitor feel seen */}
       <SectionShell id="recognition" tone="paper">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -109,7 +109,7 @@ export default async function HomePage() {
         )}
       </SectionShell>
 
-      {/* 4 · REFRAME — the IWC difference */}
+      {/* 4 · REFRAME, the IWC difference */}
       <SectionShell id="difference" tone="navy">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
@@ -137,7 +137,7 @@ export default async function HomePage() {
         </div>
       </SectionShell>
 
-      {/* 5 · PATHWAYS — self-select by goal */}
+      {/* 5 · PATHWAYS, self-select by goal */}
       <SectionShell id="pathways" tone="paper">
         <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeader eyebrow="How we help" title={home.pathwaysHeading} intro={home.pathwaysIntro} />
@@ -148,14 +148,14 @@ export default async function HomePage() {
         {home.pathways && <PathwayCards pathways={home.pathways} />}
       </SectionShell>
 
-      {/* 6 · HOW CARE WORKS — reduce uncertainty */}
+      {/* 6 · HOW CARE WORKS, reduce uncertainty */}
       <SectionShell id="how-it-works" tone="navy">
         <SectionHeader eyebrow="The process" title={home.processHeading} tone="navy" className="mb-14" />
         {home.processSteps && <ProcessTimeline steps={home.processSteps} />}
         {home.processNote && <p className="mt-14 max-w-2xl border-t border-white/15 pt-8 text-navy-100">{home.processNote}</p>}
       </SectionShell>
 
-      {/* 7 · MEET DR. JENN — practitioner connection */}
+      {/* 7 · MEET DR. JENN, practitioner connection */}
       <SectionShell id="dr-jenn" tone="white">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="relative lg:col-span-5">
@@ -165,7 +165,7 @@ export default async function HomePage() {
               aspect={4 / 5}
               sizes="(min-width: 1024px) 38vw, 100vw"
               className="relative rounded-[1.75rem]"
-              slotLabel="Dr. Jenn — portrait"
+              slotLabel="Dr. Jenn, portrait"
             />
           </div>
           <div className="lg:col-span-7">
@@ -191,7 +191,7 @@ export default async function HomePage() {
         </div>
       </SectionShell>
 
-      {/* 8 · PROOF — let others validate (only verified, permitted entries) */}
+      {/* 8 · PROOF, let others validate (only verified, permitted entries) */}
       <SectionShell id="proof" tone="deep">
         <SectionHeader eyebrow="Trust" title={home.proofHeading} className="mb-12" />
         {home.testimonials?.length ? (
@@ -202,7 +202,7 @@ export default async function HomePage() {
         <ItemGrid items={home.proofPoints} columns={3} />
       </SectionShell>
 
-      {/* 9 · SERVICES IN CONTEXT — breadth without a catalog */}
+      {/* 9 · SERVICES IN CONTEXT, breadth without a catalog */}
       <SectionShell id="toolbox" tone="white">
         <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeader eyebrow="Services in context" title={home.toolsHeading} intro={home.toolsIntro} />
@@ -226,7 +226,7 @@ export default async function HomePage() {
         </div>
       </SectionShell>
 
-      {/* 10 · WHAT TO EXPECT — remove booking friction */}
+      {/* 10 · WHAT TO EXPECT, remove booking friction */}
       <SectionShell id="what-to-expect" tone="paper">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
@@ -252,7 +252,7 @@ export default async function HomePage() {
         </div>
       </SectionShell>
 
-      {/* 11 · EDUCATION — show the thinking */}
+      {/* 11 · EDUCATION, show the thinking */}
       {!!articles?.length && (
         <SectionShell id="education" tone="white">
           <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
@@ -265,7 +265,7 @@ export default async function HomePage() {
         </SectionShell>
       )}
 
-      {/* 12 · FINAL CTA — close with confidence */}
+      {/* 12 · FINAL CTA, close with confidence */}
       <CtaBand
         title={home.finalHeading}
         body={home.finalBody}

@@ -1,4 +1,4 @@
-# Integrative Wellbeing & Chiropractic — website
+# Integrative Wellbeing & Chiropractic, website
 
 The rebuilt website for **Integrative Wellbeing & Chiropractic (IWC)**, Dr. Jenn Hartmann's practice in Wayne, PA, built from the *IWC Web Revamp Brand Strategy* and *Rebuild Blueprint*.
 
@@ -63,7 +63,7 @@ src/components/             UI: sections, layout, chat, forms, Start Here select
 src/lib/chat/               Retrieval over published CMS content, safety screen, prompt
 src/lib/forms/              Validation, anti-spam, delivery, server actions
 src/sanity/                 Client, typed GROQ queries, schema types, Presentation map
-src/app/globals.css         Design tokens (colours, type scale) — PROVISIONAL brand values
+src/app/globals.css         Design tokens (colours, type scale), PROVISIONAL brand values
 tests/e2e/                  Playwright specs   ·   tests/mocks/  OpenAI + Resend mock
 docs/                       Approval checklist, implementation status, editor guide, deployment
 ```
@@ -101,7 +101,7 @@ Contact (`/book#contact`), provider referral (`/for-providers#refer`) and newsle
 
 ## SEO and analytics
 
-Per-page titles, descriptions, canonicals and Open Graph come from CMS fields. There's an XML sitemap (published pages only) and robots rules (indexing is blocked everywhere — robots.txt plus an `X-Robots-Tag: noindex` header — until `SITE_INDEXABLE=true` is set at launch; `/studio` and `/api` are never indexed). JSON-LD covers Chiropractor (behind a CMS switch), BreadcrumbList, Article and Person. There's a full **301 redirect map** from every URL in the current Wix sitemap (`next.config.ts`).
+Per-page titles, descriptions, canonicals and Open Graph come from CMS fields. There's an XML sitemap (published pages only) and robots rules (indexing is blocked everywhere, robots.txt plus an `X-Robots-Tag: noindex` header, until `SITE_INDEXABLE=true` is set at launch; `/studio` and `/api` are never indexed). JSON-LD covers Chiropractor (behind a CMS switch), BreadcrumbList, Article and Person. There's a full **301 redirect map** from every URL in the current Wix sitemap (`next.config.ts`).
 
 Analytics events (GA4 via `NEXT_PUBLIC_GA_MEASUREMENT_ID`): `start_here_select`, `start_here_next_step`, `book_click`, `phone_click`, `email_click`, `contact_submit` (form + status), `resource_view`, `resource_next_step`, `chat_open`, `chat_message` (turn number only), `chat_link_click`. **No event includes form or chat content.**
 

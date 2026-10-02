@@ -5,7 +5,7 @@ import {Chat, Phone} from '../icons'
 
 /**
  * Persistent thumb-reach actions on phones (the mobile "Book a Visit" CTA).
- * One loud action (Book) and two quiet ones — never three equals.
+ * One loud action (Book) and two quiet ones, never three equals.
  * The assistant launches from here on mobile so it never covers page controls.
  */
 export function MobileActionBar({phoneE164, bookLabel, assistant}: {phoneE164: string; bookLabel: string; assistant: boolean}) {

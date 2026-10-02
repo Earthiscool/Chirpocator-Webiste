@@ -10,7 +10,7 @@ export default function NotFound() {
       <Header />
       <main id="main" className="container-site section-y">
         <p className="eyebrow text-gold-700">Page not found</p>
-        <h1 className="display-lg mt-4 max-w-2xl text-navy-900">We couldn&apos;t find that page — but we can help you find the right starting point.</h1>
+        <h1 className="display-lg mt-4 max-w-2xl text-navy-900">We couldn&apos;t find that page. We can still help you find the right starting point.</h1>
         <div className="mt-10 flex flex-wrap gap-4">
           <ButtonLink href="/start-here" variant="primary" arrow>
             Start Here

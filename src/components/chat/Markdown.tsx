@@ -4,7 +4,7 @@ import type {ReactNode} from 'react'
 /**
  * Minimal, safe Markdown for assistant replies: paragraphs, bullet lists,
  * **bold** and [links]. Renders React elements only (no HTML injection).
- * Links are restricted to site paths, tel: and mailto: — anything else is
+ * Links are restricted to site paths, tel: and mailto:, anything else is
  * shown as plain text, so the model can never send visitors off-site.
  */
 const SAFE_HREF = /^(\/(?!\/)[\w\-/#?=&%.]*|tel:\+?[\d-]+|mailto:[^\s]+)$/

@@ -10,7 +10,7 @@ test('booking page offers every blueprint entry point with a real action', async
     const card = page.locator(`#${id}`)
     await expect(card).toBeVisible()
     const hrefs = await card.locator('a').evaluateAll((as) => as.map((a) => a.getAttribute('href')!))
-    // Either a configured https booking link, or call/email — never an invented URL.
+    // Either a configured https booking link, or call/email, never an invented URL.
     expect(hrefs.every((h) => /^(https:\/\/|tel:\+1\d{10}$|mailto:)/.test(h))).toBe(true)
   }
 })
@@ -72,7 +72,7 @@ test('provider form sends clinician details only, to the referral inbox', async 
   await page.getByLabel('Your name').fill('Dr. Test Referrer')
   await page.getByLabel('Role / credentials').fill('Orthopedic surgeon')
   await page.getByLabel('Professional email').fill('referrer@example.test')
-  await page.getByLabel('Reason').selectOption('Refer a patient — please call me')
+  await page.getByLabel('Reason').selectOption('Refer a patient (please call me)')
   await page.getByLabel(/I confirm this message contains no patient/).check()
   await page.waitForTimeout(2700)
   await page.getByRole('button', {name: 'Request a call'}).click()

@@ -26,7 +26,7 @@ const legacyRedirects: {source: string; destination: string}[] = [
   {source: '/blog/:slug*', destination: '/resources'},
   {source: '/news', destination: '/resources'},
   {source: '/news/:slug*', destination: '/resources'},
-  // Retired online store ("Dr. Jenn's Favorites") — pending a decision on its replacement.
+  // Retired online store ("Dr. Jenn's Favorites"), pending a decision on its replacement.
   {source: '/category/:slug*', destination: '/how-we-help/functional-health'},
   {source: '/product-page/:slug*', destination: '/how-we-help/functional-health'},
   {source: '/contact', destination: '/book#contact'},
