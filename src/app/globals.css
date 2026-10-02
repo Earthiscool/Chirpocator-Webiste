@@ -7,22 +7,22 @@
  * inserted by brand owner". Navy, teal, gold and sky below were sampled from
  * the logo on the current iwcmainline.com site and adjusted for WCAG AA
  * contrast. Orange is the CTA colour requested in Dr. Jenn's handwritten
- * blueprint notes ("orange for CTA"). Replace these values — and only these —
+ * blueprint notes ("orange for CTA"). Replace these values, and only these,
  * once official brand values are approved. See docs/CLIENT_APPROVAL_CHECKLIST.md.
  */
 @theme {
   --color-navy-950: #071534;
-  --color-navy-900: #0b1f4a; /* IWC Navy (provisional) — authority, calm */
+  --color-navy-900: #0b1f4a; /* IWC Navy (provisional), authority, calm */
   --color-navy-800: #15295a;
   --color-navy-700: #233a70;
   --color-navy-100: #dfe5f0;
 
   --color-teal-700: #2e7068; /* teal for text on light (5.3:1 on paper) */
-  --color-teal-500: #3f948a; /* IWC Teal (provisional) — graphics only */
+  --color-teal-500: #3f948a; /* IWC Teal (provisional), graphics only */
   --color-teal-100: #dcefec;
 
   --color-gold-700: #765524; /* gold for text on light (≥5.7:1 on every light surface) */
-  --color-gold-400: #c9a673; /* IWC Gold (provisional) — hairlines, on-navy accents */
+  --color-gold-400: #c9a673; /* IWC Gold (provisional), hairlines, on-navy accents */
   --color-gold-100: #f3ebdd;
 
   --color-sky-300: #a8d4f8; /* from logo; on-navy accents */

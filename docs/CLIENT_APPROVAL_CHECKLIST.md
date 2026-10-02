@@ -27,7 +27,7 @@ Legend: 🔴 blocks launch · 🟠 should be resolved before launch · 🟢 can 
 | 🟠 | **Practice email** | Bio pages show `info@iwcmain-line.com` (hyphen); the footer shows `info@iwcmainline.com`. | `info@iwcmainline.com`. Confirm. |
 | 🟠 | **Address / NAP** | "123 Bloomingdale Ave, Suite 302, Wayne, PA 19087" appears on every current page but couldn't be independently confirmed online. | Used in the footer, contact page and business structured data. Confirm it matches the Google Business Profile exactly. Structured data can be switched off in **Settings → SEO**. |
 
-## 3. Handwritten edits applied — please confirm
+## 3. Handwritten edits applied, please confirm
 
 These came from Dr. Jenn's annotations in the Build Blueprint and have been implemented:
 
@@ -36,7 +36,7 @@ These came from Dr. Jenn's annotations in the Build Blueprint and have been impl
 - Functional Health opens with "Tired of being tired for no reason?" and includes "I'm told I'm fine. So why do I feel bad?"
 - "Primary Jobs to Be Done" renamed to **"The benefits of choosing IWC"** (About page).
 - For Providers audience adds **concierge physicians** and **agents for professional athletes**.
-- Notes used in copy: "Pain is only part of the story," "Start understanding why — stop chasing," "We treat based on your goals, not our bottom line," "Depth without the disconnect," "Trusted for thoughtful, personalized care," "Ready to understand what your body has been trying to tell you?," "curated / high touch & individualized care."
+- Notes used in copy: "Pain is only part of the story," "Start understanding why, stop chasing," "We treat based on your goals, not our bottom line," "Depth without the disconnect," "Trusted for thoughtful, personalized care," "Ready to understand what your body has been trying to tell you?," "curated / high touch & individualized care."
 - FAQ topics from the handwritten list: new-patient appointment, who do I work with, recurring problems / do I have to come back, gut restoration, how to schedule.
 - **Process steps:** the blueprint has five steps (Listen → Assess → Connect the dots → Build the plan → Measure progress). The handwritten page suggests "Listen/Understand → Assess/Connect → Build a better way" and "Understand / Restore / Build / Thrive." The site uses the blueprint's five steps. **🟠 Choose one.** It's editable in the CMS (Homepage → 6 · How care works).
 - **"Several opportunities to book or call"** (handwritten) vs. blueprint's "one primary CTA per block": reconciled with a persistent header Book button, a persistent mobile Call / Ask / Book bar, and one primary CTA per section.

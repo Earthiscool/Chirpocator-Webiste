@@ -9,7 +9,7 @@ import {Redis} from '@upstash/redis'
  * Rate limiting.
  * - Production: Upstash Redis (shared across all serverless instances).
  *   Set UPSTASH_REDIS_REST_URL + UPSTASH_REDIS_REST_TOKEN (Vercel Marketplace → Upstash).
- * - Fallback: in-memory per instance — fine for local development, weak in
+ * - Fallback: in-memory per instance, fine for local development, weak in
  *   production. A warning is logged once if production runs without Redis.
  */
 type Limiter = {limit: (key: string) => Promise<{success: boolean; reset: number}>}
@@ -28,7 +28,7 @@ function memoryLimiter(max: number, windowMs: number): Limiter {
     async limit(key) {
       if (!warned && process.env.NODE_ENV === 'production') {
         warned = true
-        console.warn('[rate-limit] Upstash Redis not configured — using per-instance memory limits.')
+        console.warn('[rate-limit] Upstash Redis not configured, using per-instance memory limits.')
       }
       const now = Date.now()
       const recent = (hits.get(key) ?? []).filter((t) => now - t < windowMs)

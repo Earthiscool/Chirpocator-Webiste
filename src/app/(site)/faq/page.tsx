@@ -108,7 +108,7 @@ export default async function FaqPageRoute() {
 
       <CtaBand
         title="Still have a question?"
-        body="Call or send a short note — or use the guided Start Here page to find the right first visit."
+        body="Call or send a short note, or use the Start Here page to find the right first visit."
         primary={{label: 'Book a Visit', href: '/book'}}
         secondary={{label: 'Start Here', href: '/start-here'}}
         track="faq-final"

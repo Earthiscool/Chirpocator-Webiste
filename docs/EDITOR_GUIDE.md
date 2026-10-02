@@ -1,4 +1,4 @@
-# Editing the IWC website — a guide for staff
+# Editing the IWC website, a guide for staff
 
 You can change almost everything on the website yourself: words, photos, FAQs, articles, team bios, testimonials, booking links, contact details, and what the website assistant knows. You don't need a developer.
 

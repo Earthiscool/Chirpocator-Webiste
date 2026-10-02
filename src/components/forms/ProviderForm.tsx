@@ -11,7 +11,7 @@ import {AntiSpam, Consent, Field, Radios, Select, SubmitButton, TextArea} from '
 const initial: FormState = {status: 'idle'}
 
 /**
- * Professional contact route. It collects the CLINICIAN's details only —
+ * Professional contact route. It collects the CLINICIAN's details only,
  * never patient information. Patient details are exchanged afterwards through
  * a secure, practice-approved method.
  */

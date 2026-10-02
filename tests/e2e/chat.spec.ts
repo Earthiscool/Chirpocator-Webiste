@@ -33,7 +33,7 @@ test('assistant opens, streams a grounded reply, and links only to site pages', 
   await expect(page.getByRole('button', {name: /Questions\? Ask IWC/})).toBeFocused()
 })
 
-test('server sends the model approved, published content — with privacy settings', async ({request}) => {
+test('server sends the model approved, published content, with privacy settings', async ({request}) => {
   const res = await post(request, {messages: [{role: 'user', content: 'Do you work with golfers and how do I book?'}]})
   expect(res.status()).toBe(200)
   expect(await res.text()).toContain('Pain + Recovery')

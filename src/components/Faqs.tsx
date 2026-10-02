@@ -3,7 +3,7 @@ import type {FaqItem} from '@/sanity/types'
 import {Plus} from './icons'
 import {RichText} from './RichText'
 
-/** Accessible accordion built on native <details> — works without JavaScript. */
+/** Accessible accordion built on native <details>, works without JavaScript. */
 export function FaqList({faqs, tone = 'light'}: {faqs?: FaqItem[] | null; tone?: 'light' | 'navy'}) {
   const list = faqs?.filter(Boolean) ?? []
   if (!list.length) return null

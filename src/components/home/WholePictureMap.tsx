@@ -3,7 +3,7 @@ import {stegaClean} from 'next-sanity'
 /**
  * Signature graphic: the "whole picture".
  * Every factor connects to others (the complexity patients feel), then the
- * web quiets and a few factors light up — "the pieces that matter for you".
+ * web quiets and a few factors light up, "the pieces that matter for you".
  * Pure SVG + CSS animation; static under prefers-reduced-motion.
  */
 const W = 600
@@ -69,7 +69,7 @@ export function WholePictureMap({factors, highlighted}: {factors: string[]; high
           </radialGradient>
         </defs>
 
-        {/* The whole web — draws in, then quiets */}
+        {/* The whole web, draws in, then quiets */}
         <g className="map-dim" aria-hidden>
           {edges.map((e, i) => (
             <line
@@ -107,7 +107,7 @@ export function WholePictureMap({factors, highlighted}: {factors: string[]; high
           })}
         </g>
 
-        {/* The pieces that matter — connect last */}
+        {/* The pieces that matter, connect last */}
         <g aria-hidden>
           {focusEdges.map((e, i) => (
             <line
@@ -149,7 +149,7 @@ export function WholePictureMap({factors, highlighted}: {factors: string[]; high
       <figcaption className="map-glow mt-4 flex items-start gap-3 text-sm leading-snug text-navy-100">
         <span className="mt-1.5 size-2 shrink-0 rounded-full bg-gold-400" aria-hidden />
         <span>
-          <span className="font-semibold text-white">The pieces that matter for you.</span> An example — every plan starts with your
+          <span className="font-semibold text-white">The pieces that matter for you.</span> An example. Every plan starts with your
           story, not a template.
         </span>
       </figcaption>

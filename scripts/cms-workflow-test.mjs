@@ -77,7 +77,7 @@ async function unpublish(id, type) {
 
 /* --------------------------------------------------------------- scenario */
 async function cycle({name, type, original, edit, revise, path, listPath, marker1, marker2, canUnpublish = true, isNew = false}) {
-  console.log(`\n— ${name} —`)
+  console.log(`\n${name},`)
   const id = edit._id
 
   await saveDraft(edit)
@@ -121,7 +121,7 @@ async function cycle({name, type, original, edit, revise, path, listPath, marker
 }
 
 async function main() {
-  // 1) FAQ — update an existing entry.
+  // 1) FAQ, update an existing entry.
   const faq = await client.getDocument('faq-what-to-bring')
   const faqEdit = (q) => ({...strip(faq), question: q})
   await cycle({
@@ -135,7 +135,7 @@ async function main() {
     marker2: 'WORKFLOW-TEST-2',
   })
 
-  // 2) Article — a brand-new entry.
+  // 2) Article, a brand-new entry.
   const art = (title) => ({
     _id: 'article-workflow-test',
     _type: 'article',
@@ -158,14 +158,14 @@ async function main() {
     isNew: true,
   })
 
-  // 3) Team profile — edit an existing provider's headline (referenced by services, so not unpublished).
+  // 3) Team profile, edit an existing provider's headline (referenced by services, so not unpublished).
   const amie = await client.getDocument('provider-amie-hamel')
   await cycle({
     name: 'Team profile',
     type: 'provider',
     original: strip(amie),
-    edit: {...strip(amie), headline: 'PROFILE-MARK-1 — finds where tension is coming from.'},
-    revise: {...strip(amie), headline: 'PROFILE-MARK-2 — finds where tension is coming from.'},
+    edit: {...strip(amie), headline: 'PROFILE-MARK-1, finds where tension is coming from.'},
+    revise: {...strip(amie), headline: 'PROFILE-MARK-2, finds where tension is coming from.'},
     path: '/team/amie-hamel',
     listPath: '/team',
     marker1: 'PROFILE-MARK-1',
@@ -173,7 +173,7 @@ async function main() {
     canUnpublish: false,
   })
 
-  // 4) Homepage section — the recognition closing line.
+  // 4) Homepage section, the recognition closing line.
   const home = await client.getDocument('homePage')
   await cycle({
     name: 'Homepage section',

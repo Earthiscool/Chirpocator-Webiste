@@ -152,7 +152,7 @@ export default async function ArticlePage({params}: Props) {
             </section>
           )}
           <p className="mt-10 max-w-[68ch] border-t border-line pt-6 text-sm text-muted">
-            This article is general education, not medical advice. Your situation may be different — an individual
+            This article is general education, not medical advice. Your situation may be different, and an individual
             evaluation is the right place to make decisions about your care.
           </p>
         </div>

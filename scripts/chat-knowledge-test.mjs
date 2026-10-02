@@ -2,7 +2,7 @@
 /**
  * Verifies the assistant's knowledge layer against the real CMS:
  *  1. a DRAFT FAQ is never sent to the model;
- *  2. once PUBLISHED (+ webhook), it is retrieved automatically — no prompt edits;
+ *  2. once PUBLISHED (+ webhook), it is retrieved automatically, no prompt edits;
  *  3. once removed, it disappears again.
  *
  * Needs the mock API server and a site instance pointed at it:

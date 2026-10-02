@@ -79,7 +79,7 @@ export async function POST(req: Request) {
   const settings = await getPublishedSettings()
   const latest = body.messages[body.messages.length - 1].content
 
-  // 3. Emergency screen — answer directly, never send to the model.
+  // 3. Emergency screen, answer directly, never send to the model.
   if (isEmergency(latest)) {
     log({outcome: 'emergency', ms: Date.now() - started})
     return new Response(emergencyReply(settings.phone), {
@@ -87,7 +87,7 @@ export async function POST(req: Request) {
     })
   }
 
-  // 4. Without an API key, report unavailability honestly — no fake replies.
+  // 4. Without an API key, report unavailability honestly, no fake replies.
   const apiKey = process.env.OPENAI_API_KEY
   if (!apiKey || !assistantConfigured(settings.assistantEnabled !== false)) {
     log({outcome: 'unconfigured', ms: Date.now() - started})
@@ -182,7 +182,7 @@ export async function POST(req: Request) {
       } catch {
         log({outcome: 'stream_error', ms: Date.now() - started})
         controller.enqueue(
-          encoder.encode(`\n\nSorry — the connection dropped. Please try again, or call ${settings.phone}.`),
+          encoder.encode(`\n\nSorry, the connection dropped. Please try again, or call ${settings.phone}.`),
         )
       } finally {
         controller.close()
@@ -202,7 +202,7 @@ export async function POST(req: Request) {
   })
 }
 
-/** Operational logging only — never message content. */
+/** Operational logging only, never message content. */
 function log(fields: Record<string, unknown>) {
   console.info('[chat]', JSON.stringify(fields))
 }

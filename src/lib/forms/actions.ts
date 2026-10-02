@@ -22,7 +22,7 @@ async function guard(form: FormData): Promise<FormState | null> {
   if (String(form.get('website') ?? '').length > 0) return {status: 'success', message: 'Thank you.'}
   if (!hasFormSigningSecret()) return {status: 'error', message: await unavailable()}
   if (!checkFormToken(String(form.get('_t') ?? ''))) {
-    return {status: 'error', message: 'Please wait a moment and submit again — the form may have expired.'}
+    return {status: 'error', message: 'Please wait a moment and submit again. The form may have expired.'}
   }
   const ip = h.get('x-forwarded-for')?.split(',')[0]?.trim() ?? null
   if (!(await verifyTurnstile(String(form.get('cf-turnstile-response') ?? ''), ip))) {
@@ -35,7 +35,7 @@ async function guard(form: FormData): Promise<FormState | null> {
 
 const unavailable = async () => {
   const s = await getSettings()
-  return `Our online form isn't connected yet. Please call ${s.phone} or email ${s.email} — we'd be glad to help.`
+  return `Our online form isn't connected yet. Please call ${s.phone} or email ${s.email}. We'd be glad to help.`
 }
 const failed = async () => {
   const s = await getSettings()
@@ -66,21 +66,21 @@ export async function submitContact(_prev: FormState, form: FormData): Promise<F
     text: [
       `Name: ${d.name}`,
       `Email: ${d.email}`,
-      `Phone: ${d.phone || '—'}`,
+      `Phone: ${d.phone || 'not given'}`,
       `Prefers: ${d.preferred}`,
       `Topic: ${d.topic}`,
       '',
       message.text,
       '',
       message.redacted ? '(Some numbers or dates were removed automatically to protect privacy.)' : '',
-      '— Sent from the website contact form. Do not reply with health information by email.',
+      'Sent from the website contact form. Do not reply with health information by email.',
     ].join('\n'),
   })
   if (!result.ok)
     return {status: 'error', message: result.reason === 'unconfigured' ? await unavailable() : await failed(), values}
   return {
     status: 'success',
-    message: `Thank you, ${d.name.split(' ')[0]}. Your message has been sent — we'll be in touch by ${d.preferred}.`,
+    message: `Thank you, ${d.name.split(' ')[0]}. Your message has been sent, and we'll be in touch by ${d.preferred}.`,
   }
 }
 
@@ -105,13 +105,13 @@ export async function submitProvider(_prev: FormState, form: FormData): Promise<
   const result = await sendEmail({
     to: process.env.PROVIDER_TO_EMAIL || process.env.CONTACT_TO_EMAIL || '',
     replyTo: d.email,
-    subject: `Provider contact: ${d.reason} — ${d.name}`,
+    subject: `Provider contact: ${d.reason}, ${d.name}`,
     text: [
       `Name: ${d.name}`,
       `Role / credentials: ${d.role}`,
-      `Organization: ${d.organization || '—'}`,
+      `Organization: ${d.organization || 'not given'}`,
       `Email: ${d.email}`,
-      `Phone: ${d.phone || '—'}`,
+      `Phone: ${d.phone || 'not given'}`,
       `Prefers: ${d.preferred}`,
       `Reason: ${d.reason}`,
       '',

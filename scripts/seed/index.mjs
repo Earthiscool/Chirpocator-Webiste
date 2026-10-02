@@ -50,7 +50,7 @@ const headshots = {
 async function attachHeadshots(docs) {
   const dir = process.env.SEED_ASSETS_DIR
   if (!dir) {
-    console.log('· SEED_ASSETS_DIR not set — skipping headshot upload')
+    console.log('· SEED_ASSETS_DIR not set, skipping headshot upload')
     return
   }
   for (const doc of docs) {
@@ -62,7 +62,7 @@ async function attachHeadshots(docs) {
       _type: 'accessibleImage',
       asset: {_type: 'reference', _ref: asset._id},
       alt: shot.alt,
-      credit: 'Interim photo from the current iwcmainline.com site — replace after the brand photo shoot.',
+      credit: 'Interim photo from the current iwcmainline.com site, replace after the brand photo shoot.',
     }
     console.log(`· uploaded ${shot.file}`)
   }

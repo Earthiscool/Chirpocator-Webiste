@@ -42,7 +42,7 @@ export default defineConfig({
       resolve,
       previewUrl: {previewMode: {enable: '/api/draft-mode/enable'}},
     }),
-    // GROQ playground — only useful to developers.
+    // GROQ playground, only useful to developers.
     ...(process.env.NODE_ENV === 'development' ? [visionTool({defaultApiVersion: apiVersion})] : []),
   ],
 })

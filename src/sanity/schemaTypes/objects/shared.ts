@@ -2,7 +2,7 @@ import {defineArrayMember, defineField, defineType} from 'sanity'
 
 /**
  * Image with required alt text. Editors must describe the image unless they
- * explicitly mark it decorative — this keeps the site accessible by default.
+ * explicitly mark it decorative, this keeps the site accessible by default.
  */
 export const accessibleImage = defineType({
   name: 'accessibleImage',
@@ -40,7 +40,7 @@ export const accessibleImage = defineType({
   ],
 })
 
-/** A call-to-action link. Pick an internal page OR type a link — not both. */
+/** A call-to-action link. Pick an internal page OR type a link, not both. */
 export const cta = defineType({
   name: 'cta',
   title: 'Button / link',
@@ -210,7 +210,7 @@ export const articleBody = defineType({
   ],
 })
 
-/** A titled item with a short description — used for lists across the site. */
+/** A titled item with a short description, used for lists across the site. */
 export const titledItem = defineType({
   name: 'titledItem',
   title: 'Item',

@@ -11,7 +11,7 @@ import {AntiSpam, Consent, Field, Radios, Select, SubmitButton, TextArea} from '
 
 const initial: FormState = {status: 'idle'}
 
-/** General inquiry form — deliberately NOT a clinical intake form. */
+/** General inquiry form, deliberately NOT a clinical intake form. */
 export function ContactForm({intro}: {intro?: string}) {
   const [state, action] = useActionState(submitContact, initial)
   const statusRef = useRef<HTMLDivElement>(null)
@@ -70,7 +70,7 @@ export function ContactForm({intro}: {intro?: string}) {
         />
       </div>
       <Consent error={e.consent}>
-        I understand this form is for general questions only — not for medical emergencies or personal health information — and I agree to be contacted about my
+        I understand this form is for general questions only, not medical emergencies or personal health information, and I agree to be contacted about my
         inquiry. See our{' '}
         <Link href="/privacy" className="underline underline-offset-2">
           privacy policy
